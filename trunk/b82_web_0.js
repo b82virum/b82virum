@@ -66,6 +66,6 @@ function show_products(json) {
 
 function show_webshop() {
 
-  document.write('<script src="https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEVvZ2xWaE5Zb3VnbUFwRU1hQWN0MHc/1/public/values?alt=json-in-script&callback=show_products" type="text/javascript"></script>');
+  document.write('<script src="https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEVvZ2xWaE5Zb3VnbUFwRU1hQWN0MHc/2/public/values?alt=json-in-script&callback=show_products" type="text/javascript"></script>');
 
 }
