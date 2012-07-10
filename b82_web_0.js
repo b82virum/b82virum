@@ -17,7 +17,7 @@ function show_products(json) {
   var bgn_photo = '<img src="';
   var end_photo = '"/><br>';
 
-  var paypal_id = 'DS7XJFQUG3FFQ';
+  var paypal_id = 'JU24PYRGKMZCW';
 
   var paypal_part1 = '<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_xclick"><input type="hidden" name="business" value="';
   var paypal_part2 = '"><input type="hidden" name="lc" value="DK"><input type="hidden" name="item_name" value="';
