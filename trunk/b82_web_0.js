@@ -1,6 +1,7 @@
 // See README file.
 
 function show_products(json) {
+  document.write('debug4');
 
   var bgn_row = '';
   var end_row = '<br/>';
