@@ -67,15 +67,15 @@ function show_products(json) {
 
 function show_webshop() {
 
-  var script = document.createElement('script');
-  document.write('debug3b');
+//  var script = document.createElement('script');
+  document.write('debug3c');
 
 //  script.setAttribute('src','https://spreadsheets.google.com/feeds/list/0AjVUzy2DQAb0dEgxUjlKdVI5RHNGNVIzZlVDd0pQYnc/1/public/values?alt=json-in-script&callback=show_products');
 //  script.setAttribute('type','text/javascript');
-  script.src='https://spreadsheets.google.com/feeds/list/0AjVUzy2DQAb0dEgxUjlKdVI5RHNGNVIzZlVDd0pQYnc/1/public/values?alt=json-in-script&callback=show_products';
+  document.write('<script src="https://spreadsheets.google.com/feeds/list/0AjVUzy2DQAb0dEgxUjlKdVI5RHNGNVIzZlVDd0pQYnc/1/public/values?alt=json-in-script&callback=show_products" type="text/javascript"></script>');
   
   document.write('debug1');
-  document.body.appendChild(script);
+//  document.body.appendChild(script);
   document.write('debug2');
 
 }
