@@ -2,14 +2,14 @@
 
 function show_products(json) {
 
-  var bgn_row = '';
-  var end_row = '<br/>';
+  var bgn_row = '<tr><td>';
+  var end_row = '</td></tr>';
 
   var bgn_title = '<b>';
   var end_title = '</b><br/>';
 
-  var bgn_price = '<b>Price: ';
-  var end_price = ' DDK.</b><br/>';
+  var bgn_price = '<b>Pris: ';
+  var end_price = ' Kr.</b><br/>';
 
   var bgn_description = '';
   var end_description = '<br>';
