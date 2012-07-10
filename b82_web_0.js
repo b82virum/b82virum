@@ -2,8 +2,8 @@
 
 function show_products(json) {
 
-  var bgn_row = '<tr><td>';
-  var end_row = '</td></tr>';
+  var bgn_row = '<tr><td><br/>';
+  var end_row = '<br/></td></tr>';
 
   var bgn_title = '<b>';
   var end_title = '</b><br/>';
