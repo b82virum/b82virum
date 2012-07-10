@@ -8,7 +8,7 @@ function show_products(json) {
   var bgn_title = '<b>';
   var end_title = '</b><br/>';
 
-  var bgn_price = '<b>Pris: ';
+  var bgn_price = '<b>aPris: ';
   var end_price = ' Kr.</b><br/>';
 
   var bgn_description = '';
