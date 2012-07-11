@@ -51,7 +51,7 @@ function show_products(json) {
                    end_price);
 
     var product = json.feed.entry[i].gsx$title.$t;
-    product = product.replace('æ','ae');
+//    product = product.replace('æ','ae');
     product = product.replace('ø','oe');
     product = product.replace('å','aa');
     product = product.replace('Æ','AE');
