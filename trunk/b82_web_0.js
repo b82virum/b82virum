@@ -50,10 +50,18 @@ function show_products(json) {
                    json.feed.entry[i].gsx$price.$t +
                    end_price);
 
+    var product = json.feed.entry[i].gsx$title.$t;
+    product = product.replace('æ','ae');
+    product = product.replace('ø','oe');
+    product = product.replace('å','aa');
+    product = product.replace('Æ','AE');
+    product = product.replace('Ø','OE');
+    product = product.replace('Å','AA');
+    
     document.write(paypal_part1 +
                    paypal_id +
                    paypal_part2 +
-                   json.feed.entry[i].gsx$title.$t +
+                   product +
                    paypal_part3 +
                    json.feed.entry[i].gsx$price.$t +
                    paypal_part4);
