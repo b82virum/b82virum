@@ -8,7 +8,7 @@ function show_products(json) {
   var bgn_title = '<b>';
   var end_title = '</b><br/>';
 
-  var bgn_price = '<b>Prisx: ';
+  var bgn_price = '<b>Pris: ';
   var end_price = ' Kr.</b><br/>';
 
   var bgn_description = '';
@@ -32,10 +32,15 @@ function show_products(json) {
   var paypal_cart_view_1 ='<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="';
   var paypal_cart_view_2 ='"><input type="hidden" name="display" value="1"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form>';
 
-  var paypal_part1 = paypal_buy_now_1;
-  var paypal_part2 = paypal_buy_now_2;
-  var paypal_part3 = paypal_buy_now_3;
-  var paypal_part4 = paypal_buy_now_4;
+  //var paypal_part1 = paypal_buy_now_1;
+  //var paypal_part2 = paypal_buy_now_2;
+  //var paypal_part3 = paypal_buy_now_3;
+  //var paypal_part4 = paypal_buy_now_4;
+
+  var paypal_part1 = paypal_cart_add_1;
+  var paypal_part2 = paypal_cart_add_2;
+  var paypal_part3 = paypal_cart_add_3;
+  var paypal_part4 = paypal_cart_add_4;
 
   var len = json.feed.entry.length;
 
