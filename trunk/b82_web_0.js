@@ -8,7 +8,7 @@ function show_products(json) {
   var bgn_title = '<b>';
   var end_title = '</b><br/>';
 
-  var bgn_price = '<b>Pris: ';
+  var bgn_price = '<b>Prisx: ';
   var end_price = ' Kr.</b><br/>';
 
   var bgn_description = '';
@@ -23,6 +23,19 @@ function show_products(json) {
   var paypal_part2 = '"><input type="hidden" name="lc" value="DK"><input type="hidden" name="item_name" value="';
   var paypal_part3 = '"><input type="hidden" name="amount" value="';
   var paypal_part4 = '"><input type="hidden" name="currency_code" value="DKK"><input type="hidden" name="button_subtype" value="services"><input type="hidden" name="no_note" value="0"><input type="hidden" name="cn" value="Add special instructions to the seller"><input type="hidden" name="no_shipping" value="2"><input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form>';
+
+  var paypal_cart_add_1 ='<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="';
+  var paypal_cart_add_2 ='"><input type="hidden" name="lc" value="DK"><input type="hidden" name="item_name" value="';
+  var paypal_cart_add_3 ='"><input type="hidden" name="amount" value="';
+  var paypal_cart_add_4 ='"><input type="hidden" name="currency_code" value="DKK"><input type="hidden" name="button_subtype" value="products"><input type="hidden" name="no_note" value="0"><input type="hidden" name="cn" value="Add special instructions to the seller"><input type="hidden" name="no_shipping" value="2"><input type="hidden" name="add" value="1"><input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form>';
+
+  var paypal_cart_view_1 ='<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="';
+  var paypal_cart_view_2 ='"><input type="hidden" name="display" value="1"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form>';
+
+  var paypal_part1 = paypal_buy_now_1;
+  var paypal_part2 = paypal_buy_now_2;
+  var paypal_part3 = paypal_buy_now_3;
+  var paypal_part4 = paypal_buy_now_4;
 
   var len = json.feed.entry.length;
 
