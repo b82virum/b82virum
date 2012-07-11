@@ -2,9 +2,6 @@
 
 function show_products(json) {
 
-  var bgn_row = '<tr><td><br/>';
-  var end_row = '<br/></td></tr>';
-
   var bgn_title = '<b>';
   var end_title = '</b><br/>';
 
@@ -17,12 +14,18 @@ function show_products(json) {
   var bgn_photo = '<img src="';
   var end_photo = '"/><br>';
 
+  var bgn_row = '<tr><td><br/>';
+  var end_row = '<br/></td></tr>';
+
+  var bgn_cart_view = bgn_row;
+  var end_cart_view = end_row;
+
   var paypal_id = 'JU24PYRGKMZCW';
 
-  var paypal_buy_now_1 = '<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_xclick"><input type="hidden" name="business" value="';
-  var paypal_buy_now_2 = '"><input type="hidden" name="lc" value="DK"><input type="hidden" name="item_name" value="';
-  var paypal_buy_now_3 = '"><input type="hidden" name="amount" value="';
-  var paypal_buy_now_4 = '"><input type="hidden" name="currency_code" value="DKK"><input type="hidden" name="button_subtype" value="services"><input type="hidden" name="no_note" value="0"><input type="hidden" name="cn" value="Add special instructions to the seller"><input type="hidden" name="no_shipping" value="2"><input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form>';
+  //var paypal_buy_now_1 = '<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_xclick"><input type="hidden" name="business" value="';
+  //var paypal_buy_now_2 = '"><input type="hidden" name="lc" value="DK"><input type="hidden" name="item_name" value="';
+  //var paypal_buy_now_3 = '"><input type="hidden" name="amount" value="';
+  //var paypal_buy_now_4 = '"><input type="hidden" name="currency_code" value="DKK"><input type="hidden" name="button_subtype" value="services"><input type="hidden" name="no_note" value="0"><input type="hidden" name="cn" value="Add special instructions to the seller"><input type="hidden" name="no_shipping" value="2"><input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form>';
 
   var paypal_cart_add_1 ='<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="';
   var paypal_cart_add_2 ='"><input type="hidden" name="lc" value="DK"><input type="hidden" name="item_name" value="';
@@ -87,6 +90,12 @@ function show_products(json) {
     document.write(end_row);
 
   }
+
+  document.write(bgn_cart_view);
+  document.write(paypal_cart_view_1 +
+                 paypal_id +
+                 paypal_cart_view_2);
+  document.write(end_cart_view);
 
 }   
 
