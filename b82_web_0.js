@@ -33,7 +33,7 @@ function show_products(json) {
   var paypal_cart_add_4 ='"><input type="hidden" name="currency_code" value="DKK"><input type="hidden" name="button_subtype" value="products"><input type="hidden" name="no_note" value="0"><input type="hidden" name="cn" value="Add special instructions to the seller"><input type="hidden" name="no_shipping" value="2"><input type="hidden" name="add" value="1"><input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form>';
 
   var paypal_cart_view_1 ='<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="';
-  var paypal_cart_view_2 ='"><input type="hidden" name="display" value="1"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form><br/><img src="https://www.paypalobjects.com/en_US/i/bnr/horizontal_solution_PP.gif" border="0"/><br/>';
+  var paypal_cart_view_2 ='"><input type="hidden" name="display" value="1"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form><br/><img src="https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif" border="0"/><br/>';
 
   //var paypal_part1 = paypal_buy_now_1;
   //var paypal_part2 = paypal_buy_now_2;
