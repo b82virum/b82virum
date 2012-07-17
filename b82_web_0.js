@@ -107,6 +107,5 @@ function show_webshop() {
 
 function page_start() {
 
-  document.write('hello from page_start()');
 
 }
