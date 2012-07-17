@@ -108,7 +108,6 @@ function show_webshop() {
 function page_start() {
 
   document.write(''
-    + 'hellostyle'
     + '<style type="text/css">'
     + '<!--'
     + '.blogger-post-footer {'
