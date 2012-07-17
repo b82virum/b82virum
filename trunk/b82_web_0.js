@@ -107,8 +107,7 @@ function show_webshop() {
 
 function page_start() {
 
-  document.write('aaab');
-  document.write('ccc'
+  document.write(''
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + 'visibility: hidden;'
@@ -120,6 +119,5 @@ function page_start() {
     + '}'
     + '</style>'
   );
-  document.write('bbb');
 
 }
