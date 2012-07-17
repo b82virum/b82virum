@@ -110,13 +110,11 @@ function page_start() {
   document.write('aaab');
   document.write('ccc'
     + '<style type="text/css">'
-    + '<!--'
     + '.blogger-post-footer {'
     + 'visibility: hidden;'
     + '}'
     + '</style>'
     + '<style type="text/css">'
-    + '<!--'
     + 'li.f2jnag {'
     + ' display:none;'
     + '}'
