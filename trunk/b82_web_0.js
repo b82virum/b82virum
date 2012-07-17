@@ -108,19 +108,19 @@ function show_webshop() {
 function page_start() {
 
   document.write(''
-    + 'hellostyle<style type="text/css">'
+    + 'hellostyle'
+    + '<style type="text/css">'
     + '<!--'
     + '.blogger-post-footer {'
     + 'visibility: hidden;'
     + '}'
-    + '--></style>'
-    + '<!-- Fjern feed2js reklame -->'
+    + '</style>'
     + '<style type="text/css">'
     + '<!--'
     + 'li.f2jnag {'
     + ' display:none;'
     + '}'
-    + '--></style>'
+    + '</style>'
   );
 
 }
