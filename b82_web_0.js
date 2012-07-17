@@ -108,7 +108,7 @@ function show_webshop() {
 function page_start() {
 
   document.write('aaab');
-  document.write(''
+  document.write('ccc'
     + '<style type="text/css">'
     + '<!--'
     + '.blogger-post-footer {'
