@@ -107,6 +107,7 @@ function show_webshop() {
 
 function page_start() {
 
+  document.write('aaab');
   document.write(''
     + '<style type="text/css">'
     + '<!--'
@@ -121,5 +122,6 @@ function page_start() {
     + '}'
     + '</style>'
   );
+  document.write('bbb');
 
 }
