@@ -154,7 +154,7 @@ function page_start() {
     + 'px; margin-left: -'
     + myMargin
     + 'px; z-index: 255;">'
-    + '<img style="border-style: none; background-color: transparent; opacity: 0.1; filter: alpha(opacity=10);" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s'
+    + '<img style="border-style: none; background-color: transparent; opacity: 0.05; filter: alpha(opacity=5);" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s'
     + mySize
     + '/Logo.RedbaseWhitebackTrans.png"/>'
     + '</div>'
