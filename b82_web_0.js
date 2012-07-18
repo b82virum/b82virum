@@ -121,7 +121,7 @@ function page_start() {
   );
 
   document.write(''
-    + '<div style="position: fixed; left: 0px; top: 0px; z-index: 255;">'
+    + '<div style="position: fixed; left: 10px; top: 10px; z-index: 255;">'
     + '<img style="border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s250/Logo.RedbaseWhitebackTrans.png"/>'
     + '</div>'
   );
