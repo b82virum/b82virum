@@ -165,7 +165,8 @@ function page_start() {
 function show_1_random_post_body(json) {
 
 //  var i = Math.floor(Math.random()*json.feed.openSearch$totalResults.$t);
-  var i = Math.random()*1000) % json.feed.openSearch$totalResults.$t;
+  var i = (Math.random()*1000) % json.feed.openSearch$totalResults.$t;
+document.write('i='+i);
 
   document.write(json.feed.entry[i].content.$t);
 
