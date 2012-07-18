@@ -120,6 +120,12 @@ function page_start() {
     + '</style>'
   );
 
+  document.write(''
+    + '<div style="position: fixed; left: 0px; top: 0px;">'
+    + 'x'
+    + '</div>'
+  );
+
 }
 
 function show_1_random_post_body(json) {
