@@ -126,39 +126,39 @@ function page_start() {
     + '</div>'
   );
 
-  var myWidth = 0;
-  var myHeight = 0;
-  if( typeof( window.innerWidth ) == 'number' ) {
-    //Non-IE
-    myWidth = window.innerWidth;
-    myHeight = window.innerHeight;
-  } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
-    //IE 6+ in 'standards compliant mode'
-    myWidth = document.documentElement.clientWidth;
-    myHeight = document.documentElement.clientHeight;
-  } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
-    //IE 4 compatible
-    myWidth = document.body.clientWidth;
-    myHeight = document.body.clientHeight;
-  }
-
-  var mySize = myHeight;
-  if (myWidth < mySize)
-    mySize = myWidth;
-  var mySize = Math.floor(mySize*0.9);
-  var myMargin = Math.floor(mySize / 2);
-
-  document.write(''
-    + '<div style="position: fixed; left: 50%; top: 50%; margin-top: -'
-    + myMargin
-    + 'px; margin-left: -'
-    + myMargin
-    + 'px; z-index: 255;">'
-    + '<img style="border-style: none; background-color: transparent; opacity: 0.05; filter: alpha(opacity=5);" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s'
-    + mySize
-    + '/Logo.RedbaseWhitebackTrans.png"/>'
-    + '</div>'
-  );
+//  var myWidth = 0;
+//  var myHeight = 0;
+//  if( typeof( window.innerWidth ) == 'number' ) {
+//    //Non-IE
+//    myWidth = window.innerWidth;
+//    myHeight = window.innerHeight;
+//  } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+//    //IE 6+ in 'standards compliant mode'
+//    myWidth = document.documentElement.clientWidth;
+//    myHeight = document.documentElement.clientHeight;
+//  } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+//    //IE 4 compatible
+//    myWidth = document.body.clientWidth;
+//    myHeight = document.body.clientHeight;
+//  }
+//
+//  var mySize = myHeight;
+//  if (myWidth < mySize)
+//    mySize = myWidth;
+//  var mySize = Math.floor(mySize*0.9);
+//  var myMargin = Math.floor(mySize / 2);
+//
+//  document.write(''
+//    + '<div style="position: fixed; left: 50%; top: 50%; margin-top: -'
+//    + myMargin
+//    + 'px; margin-left: -'
+//    + myMargin
+//    + 'px; z-index: 255;">'
+//    + '<img style="border-style: none; background-color: transparent; opacity: 0.05; filter: alpha(opacity=5);" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s'
+//    + mySize
+//    + '/Logo.RedbaseWhitebackTrans.png"/>'
+//    + '</div>'
+//  );
 
 }
 
