@@ -185,3 +185,27 @@ function show_1_random_sponsor(label) {
   show_1_random_blog_post_body(label);
 
 }
+
+function show_all_post_body(json) {
+
+  var i = Math.floor((Math.random()*1000)) % json.feed.openSearch$totalResults.$t;
+
+  document.write(''
+    + '<p>'
+    + json.feed.entry[i].content.$t
+    + '</p>'
+  );
+
+}    
+
+function show_all_blog_post_body(label) {
+
+  document.write('<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results=255&callback=show_all_post_body" type="text/javascript"></script>');
+
+}
+
+function show_all_sponsor(label) {
+
+  show_all_blog_post_body(label);
+
+}
