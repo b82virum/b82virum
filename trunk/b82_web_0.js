@@ -174,7 +174,7 @@ function show_1_random_post_body_cb(json) {
   var i = Math.floor((Math.random()*1000)) % json.feed.openSearch$totalResults.$t;
 
   document.write(''
-    + '<p>xxx'
+    + '<p>'
     + json.feed.entry[i].content.$t
     + '</p>'
   );
