@@ -120,9 +120,16 @@ function page_start() {
     + '</style>'
   );
 
+//  // strange .png
+//  document.write(''
+//    + '<div style="position: fixed; left: 50%; margin-left: -480px; top: 0px; z-index: 255;">'
+//    + '<img style="border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s150/Logo.RedbaseWhitebackTrans.png"/>'
+//    + '</div>'
+//  );
+  // .gif
   document.write(''
-                 + '<div style="position: fixed; left: 50%; margin-left: -480px; top: 0px; z-index: 255;">'
-    + '<img style="border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s150/Logo.RedbaseWhitebackTrans.png"/>'
+    + '<div style="position: fixed; left: 50%; margin-left: -480px; top: 0px; z-index: 255;">'
+    + '.gif<img style="border-style: none; background-color: transparent;" border="0" src="https://lh4.googleusercontent.com/-5hPn0z4lDbk/UAhftYWGw2I/AAAAAAAAC5g/iuK42-bN1vw/s0/Logo.RedbaseWhitebackTrans.png"/>'
     + '</div>'
   );
 
