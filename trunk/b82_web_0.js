@@ -209,13 +209,13 @@ function show_post_body(json) {
 
 function show_all_post_body(label) {
 
-  document.write('xxx<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results=255&callback=show_post_body" type="text/javascript"></script>');
+  document.write('<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results=255&callback=show_post_body" type="text/javascript"></script>');
 
 }
 
 function show_all_sponsor(label) {
 
-  show_blog_post_body(label);
+  show_all_post_body(label);
 
 }
 
