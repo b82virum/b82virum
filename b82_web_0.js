@@ -281,3 +281,43 @@ function show_news(label) {
   show_n_post(label,5);
 
 }
+
+function show_team(label,name) {
+
+  document.write(''
+    + '<h1>'
+    + name
+    + '</h1>'
+  );
+
+  show_intro(label+'%20Intro');
+
+  show_1_random_sponsor(label+'%20Sponsor');
+
+  document.write(''
+    + '<h2>'
+    + 'Holdledere'
+    + '</h2>'
+  );
+
+  show_people(label+'%20Holdleder');
+
+  document.write(''
+    + '<h2>'
+    + 'Trænere'
+    + '</h2>'
+  );
+
+  show_people(label+'%20Træner');
+
+  document.write(''
+    + '<h2>'
+    + 'Glimt'
+    + '</h2>'
+  );
+
+  show_news(label+'%20Glimt');
+
+  show_extra(label+'%20Extra');
+
+}
