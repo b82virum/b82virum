@@ -230,3 +230,54 @@ function show_extra(label) {
   show_all_post_body(label);
 
 }
+
+function show_post(json) {
+
+  for (var i=0;i < json.feed.openSearch$totalResults.$t;i++) {
+
+    var link;  
+    for (var j=0; j < json.feed.entry[i].link.length; j++) {
+      if (json.feed.entry[i].link[j].rel == 'alternate') {
+        link = json.feed.entry[i].link[j].href;
+        break;
+      }
+    }
+
+    document.write(''
+      + '<a href="'
+      + link
+      + '">'
+      + '<h3>'
+      + json.feed.entry[i].title.$t
+      + '</h3>'
+      + '</a>'
+      + '<p>'
+      + json.feed.entry[i].content.$t
+      + '</p>'
+    );
+    
+  }
+
+}    
+
+function show_n_post(label,n) {
+
+  document.write(''
+    + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
+    + n
+    + '&callback=show_post" type="text/javascript"></script>'
+  );
+
+}
+
+function show_people(label) {
+
+  show_n_post(label,255);
+
+}
+
+function show_news(label) {
+
+  show_n_post(label,5);
+
+}
