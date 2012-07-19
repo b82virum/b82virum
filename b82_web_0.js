@@ -166,7 +166,11 @@ function show_1_random_post_body(json) {
 
   var i = Math.floor((Math.random()*1000)) % json.feed.openSearch$totalResults.$t;
 
-  document.write(json.feed.entry[i].content.$t);
+  document.write(''
+    + '<p>'
+    + json.feed.entry[i].content.$t
+    + '</p>'
+  );
 
 }    
 
