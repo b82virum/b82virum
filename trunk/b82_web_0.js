@@ -188,13 +188,15 @@ function show_1_random_sponsor(label) {
 
 function show_all_post_body(json) {
 
-  var i = Math.floor((Math.random()*1000)) % json.feed.openSearch$totalResults.$t;
+  for (var i=0;i < json.feed.openSearch$totalResults.$t;i++) {
 
-  document.write(''
-    + '<p>'
-    + json.feed.entry[i].content.$t
-    + '</p>'
-  );
+    document.write(''
+      + '<p>'
+      + json.feed.entry[i].content.$t
+      + '</p>'
+    );
+    
+  }
 
 }    
 
