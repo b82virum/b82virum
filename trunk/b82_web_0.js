@@ -129,7 +129,7 @@ function page_start() {
   // .gif
   document.write(''
     + '<div style="position: fixed; left: 50%; margin-left: -480px; top: 0px; z-index: 255;">'
-    + '.gif<img style="border-style: none; background-color: transparent;" border="0" src="https://lh4.googleusercontent.com/-5hPn0z4lDbk/UAhftYWGw2I/AAAAAAAAC5g/iuK42-bN1vw/s0/Logo.RedbaseWhitebackTrans.png"/>'
+    + '<img style="border-style: none; background-color: transparent;" border="0" src="https://lh4.googleusercontent.com/-5hPn0z4lDbk/UAhftYWGw2I/AAAAAAAAC5g/iuK42-bN1vw/s150/Logo.RedbaseWhitebackTrans.png"/>'
     + '</div>'
   );
 
