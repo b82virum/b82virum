@@ -218,3 +218,15 @@ function show_all_sponsor(label) {
   show_all_blog_post_body(label);
 
 }
+
+function show_team_intro(label) {
+
+  show_all_blog_post_body(label);
+
+}
+
+function show_team_extra(label) {
+
+  show_all_blog_post_body(label);
+
+}
