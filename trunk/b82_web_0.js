@@ -1,7 +1,5 @@
 // See README file.
 
-var show_head = '';
-
 function show_products(json) {
 
   var bgn_title = '<b>';
@@ -172,13 +170,6 @@ function page_start() {
 
 }
 
-function show_header() {
-  if (show_head != '') {
-    document.write(show_head);
-    show_head='';
-  }
-}
-
 function show_1_random_post_body_cb(json) {
 
   var i = Math.floor((Math.random()*1000)) % json.feed.openSearch$totalResults.$t;
@@ -275,6 +266,7 @@ function show_post(json) {
 function show_n_post(label,n) {
 
   document.write(''
+    + 'label='+label
     + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
     + n
     + '&callback=show_post" type="text/javascript"></script>'
@@ -312,7 +304,6 @@ function show_team(label,name) {
     + '</h2>'
   );
 
-  show_head='Holdleder';
   show_people(label+'%20Holdleder');
 
   document.write(''
@@ -321,7 +312,6 @@ function show_team(label,name) {
     + '</h2>'
   );
 
-  show_head='Træner';
   show_people(label+'%20Træner');
 
   document.write(''
@@ -330,7 +320,6 @@ function show_team(label,name) {
     + '</h2>'
   );
 
-  show_head='Glimt';
   show_news(label+'%20Glimt');
 
   show_extra(label+'%20Extra');
