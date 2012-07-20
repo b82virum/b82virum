@@ -283,6 +283,16 @@ function show_news(label) {
 
 }
 
+function docwrit(text) {
+
+  document.write(''
+    + '<script type="text/javascript">'
+    + 'document.write(''' + text + ''');'
+    + '</script>'
+  );
+
+}
+
 function show_team(label,name) {
 
   document.write(''
@@ -309,6 +319,7 @@ function show_team(label,name) {
     + '</h2>'
   );
 
+  docwrit('Træner');
   show_people(label+'%20Træner');
 
   document.write(''
