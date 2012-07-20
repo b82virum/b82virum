@@ -297,7 +297,7 @@ function show_team(label,name) {
 
   document.write(''
     + '<h2>'
-    + 'Holdlederex'
+    + 'Holdledere'
     + '</h2>'
   );
 
