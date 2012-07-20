@@ -118,6 +118,9 @@ function page_start() {
     + 'h1 {'
     + '  text-align: center;'
     + '}'
+    + 'h1 {'
+    + '  color: red;'
+    + '}'
     + '</style>'
   );
 
@@ -128,6 +131,7 @@ function page_start() {
   );
   
 function page_end() {
+  document.write('bye');
 }
   
 
