@@ -289,7 +289,6 @@ function show_news(label) {
 
 var scriptAtest = 0;
 function testA() {scriptAtest++;
-document.write('in testA');
 if (show_done) {
 
 // code dependent on script A goes here
