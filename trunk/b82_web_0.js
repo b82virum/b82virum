@@ -1,5 +1,7 @@
 // See README file.
 
+var show_done = false;
+
 function show_products(json) {
 
   var bgn_title = '<b>';
@@ -180,6 +182,8 @@ function show_1_random_post_body_cb(json) {
     + '</p>'
   );
 
+  show_done = true;
+  
 }    
 
 function show_1_random_post_body(label) {
@@ -283,6 +287,15 @@ function show_news(label) {
 
 }
 
+var scriptAtest = 0;
+function testA() {scriptAtest++;
+if (show_done) {
+
+// code dependent on script A goes here
+
+} else if (scriptAtest < 10) setTimeout(testA,100);
+}
+
 function show_team(label,name) {
 
   document.write(''
@@ -292,10 +305,9 @@ function show_team(label,name) {
   );
 
   show_intro(label+'%20Intro');
-  alert('intro');
 
   show_1_random_sponsor(label+'%20Sponsor');
-  alert('sponsor');
+  testA();
 
   document.write(''
     + '<h2>'
@@ -304,7 +316,6 @@ function show_team(label,name) {
   );
 
   show_people(label+'%20Holdleder');
-  alert('leder');
 
   document.write(''
     + '<h2>'
@@ -313,7 +324,6 @@ function show_team(label,name) {
   );
 
   show_people(label+'%20Træner');
-  alert('træner');
 
   document.write(''
     + '<h2>'
@@ -322,9 +332,7 @@ function show_team(label,name) {
   );
 
   show_news(label+'%20Glimt');
-  alert('news');
 
   show_extra(label+'%20Extra');
-  alert('extra');
 
 }
