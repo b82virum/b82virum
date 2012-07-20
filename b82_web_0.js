@@ -277,7 +277,7 @@ function show_n_post(label,n) {
   document.write(''
     + '<script type="text/javascript">'
     + '  head_text="hello";'
-    + '</script>
+    + '</script>'
     + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
     + n
     + '&callback=show_post" type="text/javascript"></script>'
