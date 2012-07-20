@@ -130,11 +130,6 @@ function page_start() {
     + '</div>'
   );
   
-function mypage_end() {
-  alert('bye');
-  document.write('bye');
-}
-
 //  var myWidth = 0;
 //  var myHeight = 0;
 //  if( typeof( window.innerWidth ) == 'number' ) {
@@ -169,6 +164,10 @@ function mypage_end() {
 //    + '</div>'
 //  );
 
+}
+
+function page_end() {
+  document.write('bye');
 }
 
 function show_1_random_post_body_cb(json) {
