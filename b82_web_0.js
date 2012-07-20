@@ -312,7 +312,7 @@ function show_team(label,name) {
     + '</h2>'
   );
 
-  show_head='Holdleder');
+  show_head='Holdleder';
   show_people(label+'%20Holdleder');
 
   document.write(''
@@ -321,7 +321,7 @@ function show_team(label,name) {
     + '</h2>'
   );
 
-  show_head='Træner');
+  show_head='Træner';
   show_people(label+'%20Træner');
 
   document.write(''
@@ -330,7 +330,7 @@ function show_team(label,name) {
     + '</h2>'
   );
 
-  show_head='Glimt');
+  show_head='Glimt';
   show_news(label+'%20Glimt');
 
   show_extra(label+'%20Extra');
