@@ -266,7 +266,6 @@ function show_post(json) {
 function show_n_post(label,n) {
 
   document.write(''
-    + 'label='+label
     + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
     + n
     + '&callback=show_post" type="text/javascript"></script>'
