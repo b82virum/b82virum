@@ -236,8 +236,6 @@ function show_post(json) {
 
   for (var i=0;i < json.feed.openSearch$totalResults.$t;i++) {
   
-    show_header();
-
     var link;  
     for (var j=0; j < json.feed.entry[i].link.length; j++) {
       if (json.feed.entry[i].link[j].rel == 'alternate') {
