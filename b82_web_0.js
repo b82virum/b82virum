@@ -130,11 +130,10 @@ function page_start() {
     + '</div>'
   );
   
-function page_end() {
+function mypage_end() {
   alert('bye');
   document.write('bye');
 }
-  
 
 //  var myWidth = 0;
 //  var myHeight = 0;
