@@ -261,6 +261,28 @@ function show_post(json) {
 
 }    
 
+function show_hilite_cb(json) {
+
+  document.write(''
+    + '<h2>'
+    + 'Glimt'
+    + '</h2>'
+  );
+
+  show_post(json);
+  
+}
+
+function show_hilite(label) {
+
+  document.write(''
+    + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
+    + 5
+    + '&callback=show_hilite_cb" type="text/javascript"></script>'
+  );
+
+}
+
 function show_n_post(label,n) {
 
   document.write(''
@@ -318,6 +340,7 @@ function show_team(label,name) {
   );
 
   show_news(label+'%20Glimt');
+  show_hilite(label+'%20Glimt');
 
   show_extra(label+'%20Extra');
 
