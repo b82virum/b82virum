@@ -121,6 +121,9 @@ function page_start() {
     + 'h1, h2, a {'
     + '  color: red;'
     + '}'
+    + 'h3, h4, h5, h6 {'
+    + '  color: black;'
+    + '}'
     + '</style>'
   );
 
