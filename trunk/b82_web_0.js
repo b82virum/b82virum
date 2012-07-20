@@ -1,7 +1,5 @@
 // See README file.
 
-var show_done = false;
-
 function show_products(json) {
 
   var bgn_title = '<b>';
@@ -182,8 +180,6 @@ function show_1_random_post_body_cb(json) {
     + '</p>'
   );
 
-  show_done = true;
-  
 }    
 
 function show_1_random_post_body(label) {
@@ -287,16 +283,6 @@ function show_news(label) {
 
 }
 
-var scriptAtest = 0;
-function testA() {scriptAtest++;
-alert('in testa');
-if (show_done) {
-
-// code dependent on script A goes here
-
-} else if (scriptAtest < 10) setTimeout(testA,100);
-}
-
 function show_team(label,name) {
 
   document.write(''
@@ -308,7 +294,6 @@ function show_team(label,name) {
   show_intro(label+'%20Intro');
 
   show_1_random_sponsor(label+'%20Sponsor');
-  testA();
 
   document.write(''
     + '<h2>'
