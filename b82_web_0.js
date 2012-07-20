@@ -167,7 +167,6 @@ function page_start() {
 }
 
 function page_end() {
-  document.write('bye');
 }
 
 function show_1_random_post_body_cb(json) {
