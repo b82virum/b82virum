@@ -283,25 +283,47 @@ function show_hilite(label) {
 
 }
 
-function show_n_post(label,n) {
+function show_leader_cb(json) {
+
+  document.write(''
+    + '<h2>'
+    + 'Holdledere'
+    + '</h2>'
+  );
+
+  show_post(json);
+  
+}
+
+function show_leader(label) {
 
   document.write(''
     + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
-    + n
-    + '&callback=show_post" type="text/javascript"></script>'
+    + 255
+    + '&callback=show_leader_cb" type="text/javascript"></script>'
   );
 
 }
 
-function show_people(label) {
+function show_coach_cb(json) {
 
-  show_n_post(label,255);
+  document.write(''
+    + '<h2>'
+    + 'Trænere'
+    + '</h2>'
+  );
 
+  show_post(json);
+  
 }
 
-function show_news(label) {
+function show_coach(label) {
 
-  show_n_post(label,5);
+  document.write(''
+    + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
+    + 255
+    + '&callback=show_coach_cb" type="text/javascript"></script>'
+  );
 
 }
 
@@ -317,29 +339,10 @@ function show_team(label,name) {
 
   show_1_random_sponsor(label+'%20Sponsor');
 
-  document.write(''
-    + '<h2>'
-    + 'Holdledere'
-    + '</h2>'
-  );
+  show_leader(label+'%20Holdleder');
 
-  show_people(label+'%20Holdleder');
+  show_coach(label+'%20Træner');
 
-  document.write(''
-    + '<h2>'
-    + 'Trænere'
-    + '</h2>'
-  );
-
-  show_people(label+'%20Træner');
-
-  document.write(''
-    + '<h2>'
-    + 'Glimt'
-    + '</h2>'
-  );
-
-  show_news(label+'%20Glimt');
   show_hilite(label+'%20Glimt');
 
   show_extra(label+'%20Extra');
