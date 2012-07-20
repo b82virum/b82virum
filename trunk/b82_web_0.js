@@ -292,8 +292,10 @@ function show_team(label,name) {
   );
 
   show_intro(label+'%20Intro');
+  alert('intro');
 
   show_1_random_sponsor(label+'%20Sponsor');
+  alert('sponsor');
 
   document.write(''
     + '<h2>'
@@ -302,6 +304,7 @@ function show_team(label,name) {
   );
 
   show_people(label+'%20Holdleder');
+  alert('leder');
 
   document.write(''
     + '<h2>'
@@ -310,6 +313,7 @@ function show_team(label,name) {
   );
 
   show_people(label+'%20Træner');
+  alert('træner');
 
   document.write(''
     + '<h2>'
@@ -318,7 +322,9 @@ function show_team(label,name) {
   );
 
   show_news(label+'%20Glimt');
+  alert('news');
 
   show_extra(label+'%20Extra');
+  alert('extra');
 
 }
