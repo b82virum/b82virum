@@ -1,5 +1,7 @@
 // See README file.
 
+var head_text = '';
+
 function show_products(json) {
 
   var bgn_title = '<b>';
@@ -170,6 +172,13 @@ function page_start() {
 
 }
 
+function show_head() {
+  if (head_text != '') {
+    document.write(head_text);
+    head_text='';
+  }
+}
+
 function show_1_random_post_body_cb(json) {
 
   var i = Math.floor((Math.random()*1000)) % json.feed.openSearch$totalResults.$t;
@@ -236,6 +245,8 @@ function show_post(json) {
 
   for (var i=0;i < json.feed.openSearch$totalResults.$t;i++) {
   
+    show_head();
+  
     var link;  
     for (var j=0; j < json.feed.entry[i].link.length; j++) {
       if (json.feed.entry[i].link[j].rel == 'alternate') {
@@ -264,6 +275,9 @@ function show_post(json) {
 function show_n_post(label,n) {
 
   document.write(''
+    + '<script type="text/javascript">'
+    + '  head_text="hello";'
+    + '</script>
     + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
     + n
     + '&callback=show_post" type="text/javascript"></script>'
