@@ -131,6 +131,7 @@ function page_start() {
   );
   
 function page_end() {
+  alert('bye');
   document.write('bye');
 }
   
