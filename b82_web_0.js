@@ -118,7 +118,7 @@ function page_start() {
     + 'h1 {'
     + '  text-align: center;'
     + '}'
-    + 'h1, h2 {'
+    + 'h1, h2, a {'
     + '  color: red;'
     + '}'
     + '</style>'
