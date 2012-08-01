@@ -440,11 +440,12 @@ function show_times(team) {
 }
 
 
-function show_team(label,name) {
+function show_team(label,name,alias) {
 
   document.write(''
     + '<h1>'
-    + name
+    + name + '-' +
+    + alias
     + '</h1>'
   );
 
