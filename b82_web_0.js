@@ -444,7 +444,6 @@ function show_team(label,name,alias) {
 
   document.write(''
     + '<h1>'
-    + name + ' aka '
     + alias
     + '</h1>'
   );
