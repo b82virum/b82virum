@@ -444,7 +444,7 @@ function show_team(label,name,alias) {
 
   document.write(''
     + '<h1>'
-    + name + 'aka'
+    + name + ' aka '
     + alias
     + '</h1>'
   );
@@ -452,6 +452,13 @@ function show_team(label,name,alias) {
   show_intro(label+'%20Intro');
 
   show_1_random_sponsor(label+'%20Sponsor');
+
+  document.write(''
+    + '<h2>'
+    + 'Træningstider'
+    + '</h1>'
+  );
+  show_times(name);
 
   show_leader(label+'%20Holdleder');
 
