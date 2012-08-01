@@ -337,7 +337,7 @@ function show_times_cb(json) {
   var last_season='';
   var last_day='';
 
-  document.write('<table border="1">');
+  document.write('<p><table border="1">');
 
   for (var i=0; i<len; i++) {
 
@@ -427,7 +427,7 @@ function show_times_cb(json) {
 
   }
 
-  document.write('</table>');
+  document.write('</table></p>');
 
 }   
 
