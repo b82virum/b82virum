@@ -329,6 +329,117 @@ function show_coach(label) {
 
 }
 
+var show_times_team='';
+function show_times_cb(json) {
+
+  var len = json.feed.entry.length;
+
+  var last_season='';
+  var last_day='';
+
+  document.write('<table border="1">');
+
+  for (var i=0; i<len; i++) {
+
+    if (show_times_team != '') {
+      if (json.feed.entry[i].gsx$team.$t != show_times_team) {
+        continue;
+      }
+    }
+
+    if (json.feed.entry[i].gsx$season.$t != last_season) {
+
+      if (show_times_team == '') {
+        document.write('<tr><th colspan="4">' +
+                       json.feed.entry[i].gsx$season.$t +
+                       '</th></tr>');
+      }
+      else {
+        document.write('<tr><th colspan="3">' +
+                       json.feed.entry[i].gsx$season.$t +
+                       '</th></tr>');
+      }
+
+      last_season=json.feed.entry[i].gsx$season.$t;
+      last_day='';
+
+      document.write('<tr>');
+
+      document.write('<th>' +
+                     'Dag' +
+                     '</th>');
+
+      document.write('<th>' +
+                     'Tid' +
+                     '</th>');
+
+      document.write('<th>' +
+                     'Sted' +
+                     '</th>');
+
+      if (show_times_team == '') {
+
+        document.write('<th>' +
+                       'Hold' +
+                       '</th>');
+
+      }
+
+      document.write('</tr>');
+
+    }
+
+    document.write('<tr>');
+
+    if (json.feed.entry[i].gsx$day.$t != last_day) {
+
+      document.write('<th>' +
+                     json.feed.entry[i].gsx$day.$t +
+                     '</th>');
+
+      last_day=json.feed.entry[i].gsx$day.$t;
+
+    }
+    else {
+
+      document.write('<td>' +
+                     '</td>');
+
+    }
+
+    document.write('<td>' +
+                   json.feed.entry[i].gsx$time.$t +
+                   '</td>');
+
+    document.write('<td>' +
+                   json.feed.entry[i].gsx$place.$t +
+                   '</td>');
+
+    if (show_times_team == '') {
+
+      document.write('<td>' +
+                     json.feed.entry[i].gsx$team.$t +
+                     '</td>');
+
+    }
+
+    document.write('</tr>');
+
+  }
+
+  document.write('</table>');
+
+}   
+
+function show_times(team) {
+
+  show_times_team=team;
+
+  document.write('<script src="https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dFI4V24tZ19hUWxQQV9rU1hja19JZXc/2/public/values?alt=json-in-script&callback=show_times_cb" type="text/javascript"></script>');
+
+}
+
+
 function show_team(label,name) {
 
   document.write(''
