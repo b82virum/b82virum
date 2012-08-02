@@ -351,12 +351,16 @@ function show_times_cb(json) {
 
       if (show_times_team == '') {
         document.write('<tr><th colspan="4">' +
+                       '<div style="text-align: center; background-color: red;">' +
                        json.feed.entry[i].gsx$season.$t +
+                       '</div>' +
                        '</th></tr>');
       }
       else {
         document.write('<tr><th colspan="3">' +
+                       '<div style="text-align: center; background-color: red;">' +
                        json.feed.entry[i].gsx$season.$t +
+                       '</div>' +
                        '</th></tr>');
       }
 
