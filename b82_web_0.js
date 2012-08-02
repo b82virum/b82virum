@@ -440,7 +440,7 @@ function show_times(team) {
 }
 
 
-function show_team(label,name,alias) {
+function show_team(label,name,alias,spare1,spare2,spare3,spare4) {
 
   document.write(''
     + '<h1>'
