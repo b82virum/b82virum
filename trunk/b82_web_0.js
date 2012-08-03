@@ -105,73 +105,6 @@ function show_webshop() {
 
 }
 
-function page_start() {
-
-  document.write(''
-    + '<style type="text/css">'
-    + '  .blogger-post-footer {'
-    + '  visibility: hidden;'
-    + '}'
-    + 'li.f2jnag {'
-    + '  display: none;'
-    + '}'
-    + 'h1 {'
-    + '  text-align: center;'
-    + '}'
-    + 'h1, h2, a {'
-    + '  color: red;'
-    + '}'
-    + 'h3, h4, h5, h6 {'
-    + '  color: black;'
-    + '}'
-    + '</style>'
-  );
-
-  document.write(''
-    + '<div style="position: fixed; left: 50%; margin-left: -480px; top: 0px; z-index: 255;">'
-    + '<img style="border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s150/Logo.RedbaseWhitebackTrans.png"/>'
-    + '</div>'
-  );
-  
-//  var myWidth = 0;
-//  var myHeight = 0;
-//  if( typeof( window.innerWidth ) == 'number' ) {
-//    //Non-IE
-//    myWidth = window.innerWidth;
-//    myHeight = window.innerHeight;
-//  } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
-//    //IE 6+ in 'standards compliant mode'
-//    myWidth = document.documentElement.clientWidth;
-//    myHeight = document.documentElement.clientHeight;
-//  } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
-//    //IE 4 compatible
-//    myWidth = document.body.clientWidth;
-//    myHeight = document.body.clientHeight;
-//  }
-//
-//  var mySize = myHeight;
-//  if (myWidth < mySize)
-//    mySize = myWidth;
-//  var mySize = Math.floor(mySize*0.9);
-//  var myMargin = Math.floor(mySize / 2);
-//
-//  document.write(''
-//    + '<div style="position: fixed; left: 50%; top: 50%; margin-top: -'
-//    + myMargin
-//    + 'px; margin-left: -'
-//    + myMargin
-//    + 'px; z-index: 255;">'
-//    + '<img style="border-style: none; background-color: transparent; opacity: 0.05; filter: alpha(opacity=5);" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s'
-//    + mySize
-//    + '/Logo.RedbaseWhitebackTrans.png"/>'
-//    + '</div>'
-//  );
-
-}
-
-function page_end() {
-}
-
 function show_1_random_post_body_cb(json) {
 
   var i = Math.floor((Math.random()*1000)) % json.feed.openSearch$totalResults.$t;
@@ -229,6 +162,18 @@ function show_intro(label) {
 }
 
 function show_extra(label) {
+
+  show_all_post_body(label);
+
+}
+
+function show_header(label) {
+
+  show_all_post_body(label);
+
+}
+
+function show_footer(label) {
 
   show_all_post_body(label);
 
@@ -392,6 +337,44 @@ function show_graphic(label) {
     + 255
     + '&callback=show_graphic_cb" type="text/javascript"></script>'
   );
+
+}
+
+function page_start() {
+
+  document.write(''
+    + '<style type="text/css">'
+    + '  .blogger-post-footer {'
+    + '  visibility: hidden;'
+    + '}'
+    + 'li.f2jnag {'
+    + '  display: none;'
+    + '}'
+    + 'h1 {'
+    + '  text-align: center;'
+    + '}'
+    + 'h1, h2, a {'
+    + '  color: red;'
+    + '}'
+    + 'h3, h4, h5, h6 {'
+    + '  color: black;'
+    + '}'
+    + '</style>'
+  );
+
+  document.write(''
+    + '<div style="position: fixed; left: 50%; margin-left: -480px; top: 0px; z-index: 255;">'
+    + '<img style="border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s150/Logo.RedbaseWhitebackTrans.png"/>'
+    + '</div>'
+  );
+  
+  show_header(B82%20Header);
+  
+}
+
+function page_end() {
+
+  show_footer(B82%20Footer);
 
 }
 
