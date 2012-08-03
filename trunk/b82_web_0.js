@@ -329,6 +329,72 @@ function show_coach(label) {
 
 }
 
+function show_board_cb(json) {
+
+  document.write(''
+    + '<h2>'
+    + 'Bestyrelsen'
+    + '</h2>'
+  );
+
+  show_post(json);
+  
+}
+
+function show_board(label) {
+
+  document.write(''
+    + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
+    + 255
+    + '&callback=show_board_cb" type="text/javascript"></script>'
+  );
+
+}
+
+function show_shop_people_cb(json) {
+
+  document.write(''
+    + '<h2>'
+    + 'Shoppen'
+    + '</h2>'
+  );
+
+  show_post(json);
+  
+}
+
+function show_shop_people(label) {
+
+  document.write(''
+    + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
+    + 255
+    + '&callback=show_shop_people_cb" type="text/javascript"></script>'
+  );
+
+}
+
+function show_graphic_cb(json) {
+
+  document.write(''
+    + '<h2>'
+    + 'Grafik'
+    + '</h2>'
+  );
+
+  show_post(json);
+  
+}
+
+function show_graphic(label) {
+
+  document.write(''
+    + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
+    + 255
+    + '&callback=show_graphic_cb" type="text/javascript"></script>'
+  );
+
+}
+
 var show_times_team='';
 function show_times_cb(json) {
 
