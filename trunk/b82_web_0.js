@@ -368,13 +368,13 @@ function page_start() {
     + '</div>'
   );
   
-  show_header(B82%20Header);
+  show_header('B82%20Header');
   
 }
 
 function page_end() {
 
-  show_footer(B82%20Footer);
+  show_footer('B82%20Footer');
 
 }
 
