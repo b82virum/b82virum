@@ -492,6 +492,33 @@ function show_times(team) {
 
 }
 
+function show_team_calendar(label,name,cal1,cal2) {
+
+
+  var labelx = label.replace(/%20/g,'%2520');
+  var namex = name.replace(/ /g,'%20');
+  var cal1x = '';
+  var cal2x = '';
+
+  if (cal1 != '')
+    cal1x='+' + cal1;
+  if (cal2 != '')
+    cal2x='+' + cal2;
+
+//  alert(''
+  document.write(''
+  + '<h2>Kalender</h2><p>'
+  + '<iframe scrolling="no" frameborder="0" src="http://30boxes.com/external/widget?url=http://blog.b82.dk/feeds/posts/default/-/'
+  + labelx
+  + cal1x
+  + cal2x
+  + '+&forceTitle='
+  + namex
+  + '&forceTheme=%2Ftheme%2Fsmall&forceRows=5" width=708 height=590 style="border: none;"></iframe>'
+  + '</p>'
+  );
+
+}
 
 function show_team(label,name,alias,spare1,spare2,spare3,spare4) {
 
