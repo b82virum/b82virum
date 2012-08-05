@@ -520,10 +520,10 @@ function show_team_calendar(label,name,cal1,cal2) {
 
 }
 
-function show_team(label,name,alias,spare1,spare2,spare3,spare4) {
+function show_team(label,name,alias,cal1,cal2,spare3,spare4) {
 
   document.write(''
-    + '<h1>'
+    + '<h1>x1'
     + alias
     + '</h1>'
   );
@@ -538,6 +538,8 @@ function show_team(label,name,alias,spare1,spare2,spare3,spare4) {
     + '</h1>'
   );
   show_times(name);
+  
+  show_team_calendar(label+'%20Glimt',name,cal1,cal2);
 
   show_leader(label+'%20Holdleder');
 
