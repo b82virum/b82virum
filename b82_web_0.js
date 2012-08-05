@@ -514,7 +514,7 @@ function show_team_calendar(label,name,cal1,cal2) {
   + cal2x
   + '+&forceTitle='
   + namex
-  + '&forceTheme=%2Ftheme%2Fsmall&forceRows=5" width=710 height=590 style="border: none;"></iframe>'
+  + '&forceTheme=%2Ftheme%2Fsmall&forceRows=5" width=712 height=590 style="border: none;"></iframe>'
   + '</p>'
   );
 
