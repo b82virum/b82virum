@@ -514,7 +514,7 @@ function show_team_calendar(label,name,cal1,cal2) {
   + cal2x
   + '+&forceTitle='
   + namex
-  + '&forceTheme=%2Ftheme%2Fsmall&forceRows=5" width=712 height=590 style="border: none;"></iframe>'
+  + '&forceTheme=%2Ftheme%2Fsmall&forceRows=5" width=720 height=590 style="border: none;"></iframe>'
   + '</p>'
   );
 
@@ -523,7 +523,7 @@ function show_team_calendar(label,name,cal1,cal2) {
 function show_team(label,name,alias,cal1,cal2,spare3,spare4) {
 
   document.write(''
-    + '<h1>'
+    + '<h1>x'
     + alias
     + '</h1>'
   );
