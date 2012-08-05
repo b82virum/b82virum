@@ -523,7 +523,7 @@ function show_team_calendar(label,name,cal1,cal2) {
 function show_team(label,name,alias,cal1,cal2,spare3,spare4) {
 
   document.write(''
-    + '<h1>x1'
+    + '<h1>'
     + alias
     + '</h1>'
   );
