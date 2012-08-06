@@ -386,7 +386,7 @@ function show_times_cb(json) {
   var last_season='';
   var last_day='';
 
-  document.write('<p><table border="1">');
+  document.write('<p><table border="1" bordercolor="red">');
 
   for (var i=0; i<len; i++) {
 
@@ -400,14 +400,14 @@ function show_times_cb(json) {
 
       if (show_times_team == '') {
         document.write('<tr><th colspan="4">' +
-                       '<div style="text-align: center; background-color: red;">' +
+                       '<div style="text-align: center;">' +
                        json.feed.entry[i].gsx$season.$t +
                        '</div>' +
                        '</th></tr>');
       }
       else {
         document.write('<tr><th colspan="3">' +
-                       '<div style="text-align: center; background-color: red;">' +
+                       '<div style="text-align: center;">' +
                        json.feed.entry[i].gsx$season.$t +
                        '</div>' +
                        '</th></tr>');
@@ -505,7 +505,6 @@ function show_team_calendar(label,name,cal1,cal2) {
   if (cal2 != '')
     cal2x='+' + cal2;
 
-//  alert(''
   document.write(''
   + '<h2>Kalender</h2><p>'
   + '<iframe scrolling="no" frameborder="0" src="http://30boxes.com/external/widget?url=http://blog.b82.dk/feeds/posts/default/-/'
