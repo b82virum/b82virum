@@ -568,9 +568,9 @@ function show_price_cb(json) {
                    json.feed.entry[i].gsx$due.$t +
                    '</td>');
 
-    document.write('<td>' +
+    document.write('<td><div style="text-align: right;">' +
                    json.feed.entry[i].gsx$price.$t +
-                   '</td>');
+                   '</div></td>');
 
     if (show_price_team == '') {
 
