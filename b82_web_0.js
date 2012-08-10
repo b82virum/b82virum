@@ -519,6 +519,85 @@ function show_team_calendar(label,name,cal1,cal2) {
 
 }
 
+var show_price_team='';
+function show_price_cb(json) {
+
+  var len = json.feed.entry.length;
+
+  document.write('<p><table border="1" bordercolor="red">');
+
+  document.write('<tr>');
+
+  document.write('<th>' +
+                 'Sæson' +
+                 '</th>');
+
+  document.write('<th>' +
+                 'Forfald' +
+                 '</th>');
+
+  document.write('<th>' +
+                 'Beløb' +
+                 '</th>');
+
+  if (show_price_team == '') {
+
+    document.write('<th>' +
+                   'Hold' +
+                   '</th>');
+
+  }
+
+  document.write('</tr>');
+
+  for (var i=0; i<len; i++) {
+
+    if (show_price_team != '') {
+      if (json.feed.entry[i].gsx$team.$t != show_price_team) {
+        continue;
+      }
+    }
+
+    document.write('<tr>');
+
+    document.write('<td>' +
+                   json.feed.entry[i].gsx$season.$t +
+                   '</td>');
+
+    document.write('<td>' +
+                   json.feed.entry[i].gsx$due.$t +
+                   '</td>');
+
+    document.write('<td>' +
+                   json.feed.entry[i].gsx$price.$t +
+                   '</td>');
+
+    if (show_price_team == '') {
+
+      document.write('<td>' +
+                     json.feed.entry[i].gsx$team.$t +
+                     '</td>');
+
+    }
+
+    document.write('</tr>');
+
+  }
+
+  document.write('</table></p>');
+
+}   
+
+function show_price(team) {
+
+  show_price_team=team;
+
+  document.write('<h2>Kontingent</h2>'); 
+
+  document.write('<script src="https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/2/public/values?alt=json-in-script&callback=show_price_cb" type="text/javascript"></script>');
+
+}
+
 function show_team(label,name,alias,cal1,cal2,spare3,spare4) {
 
   document.write(''
