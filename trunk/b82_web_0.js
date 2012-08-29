@@ -619,7 +619,7 @@ function show_team(label,name,alias,cal1,cal2,spare3,spare4) {
   
   show_price(name);
   
-  show_team_calendar(label+'%20Glimt',name,cal1,cal2);
+  // show_team_calendar(label+'%20Glimt',name,cal1,cal2);
 
   show_leader(label+'%20Holdleder');
 
