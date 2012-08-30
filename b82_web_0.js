@@ -598,7 +598,7 @@ function show_price(team) {
 
 }
 
-function show_vcard(fn,photo,tel_str,role_str,email_str) {
+function show_vcard(fn,photo,tel_str,role_str,email_str,note) {
 
   var tel=new Array();
   tel=tel_str.split(',');
