@@ -598,6 +598,71 @@ function show_price(team) {
 
 }
 
+function show_vcard(fn,photo,tel_str,role_str,email_str) {
+
+  var tel=new Array();
+  tel=tel_str.split(',');
+
+  var role=new Array();
+  role=role_str.split(',');
+
+  var email=new Array();
+  email=email_str.split(',');
+
+  var i;
+  var s;
+  var qrimg='';
+
+  // document.write('<h3>' + fn + '</h3>');
+
+  document.write('<div style="float: left">'
+               + '<img src="' + photo + '"/>'
+               + '</div>');
+
+  qrimg=qrimg + 'BEGIN:VCARD' + '\n';
+
+  qrimg=qrimg + 'FN:B82 ' + fn + '\n';
+
+  if (tel.length > 0) {
+    qrimg=qrimg + 'TEL:' + tel[0] + '\n';
+  }
+
+  if (email.length > 0) {
+    qrimg=qrimg + 'EMAIL:' + email[0] + '\n';
+  }
+
+  qrimg=qrimg + 'END:VCARD' + '\n';
+
+  qrimg=escape(qrimg);
+
+  qrimg='http://api.qrserver.com/v1/create-qr-code/?data='
+      + qrimg
+      + '&#38;size=200x200';
+
+  document.write('<div style="float: left">'
+               + '<img src="' + qrimg + '"/>'
+               + '</div>');
+
+  document.write('<div style="clear: both"></div>');
+
+  s='';
+  for (i in role) {
+    document.write(s
+                 + role[i]
+                 + ' ('
+                 + '<a href="mailto:' + email[i] + '">' + email[i] + '</a>'
+                 + ').');
+    s='<br/>';
+  }
+  for (i in tel) {
+    document.write(s
+                 + 'tlf <a href="tel:' + tel[i] + '">' + tel[i] + '</a>'
+                 + '.');
+    s='<br/>';
+  }
+
+}
+
 function show_team(label,name,alias,cal1,cal2,spare3,spare4) {
 
   document.write(''
