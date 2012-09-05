@@ -362,9 +362,21 @@ function page_start() {
     + '</style>'
   );
 
+function imgsize600(x)
+{
+x.style.height="600px";
+x.style.width="600px";
+}
+
+function imgsize150(x)
+{
+x.style.height="150px";
+x.style.width="150px";
+}
+
   document.write(''
     + '<div style="position: fixed; left: 50%; margin-left: -480px; top: 0px; z-index: 255;">'
-    + '<img style="border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s150/Logo.RedbaseWhitebackTrans.png"/>'
+    + '<img onmouseover="imgsize600(this)" onmouseout="imgsize150(this)" style="border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s150/Logo.RedbaseWhitebackTrans.png"/>'
     + '</div>'
   );
   
