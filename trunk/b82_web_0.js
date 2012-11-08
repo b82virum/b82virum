@@ -370,7 +370,7 @@ x.style.width="150px";
 
 function page_start() {
 
-  document.write('webmaster tester lige nu, så det kan være intet virker! 00<br/>'
+  document.write('webmaster tester lige nu, så det kan være intet virker! 01<br/>'
     + '<style type="text/css">'
     + '  .blogger-post-footer {'
     + '  visibility: hidden;'
