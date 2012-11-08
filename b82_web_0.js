@@ -11,8 +11,13 @@ function show_products(json) {
   var bgn_description = '';
   var end_description = '<br>';
 
+  var bgn_imgs = '';
   var bgn_photo = '<img src="';
   var end_photo = '"/>';
+  var between_img = ' ';
+  var bgn_qr = '<img src="';
+  var end_qr = '"/>';
+  var end_imgs = '<br/>';
 
   var bgn_row = '<tr><td><br/>';
   var end_row = '<br/></td></tr>';
@@ -67,6 +72,8 @@ function show_products(json) {
                    json.feed.entry[i].gsx$title.$t +
                    end_title);
 
+    document.write(bgn_imgs);
+
     document.write(bgn_photo +
                    json.feed.entry[i].gsx$photo.$t +
                    end_photo);
@@ -81,9 +88,11 @@ function show_products(json) {
         + qrimg
         + '&#38;size=200x200';
 
-    document.write(''
-                 + '<img src="' + qrimg + '"/>'
-                 + '<br/>');
+    document.write(bgn_qr
+                 + qrimg
+                 + end_qr);
+
+    document.write(end_imgs);
 
     document.write(bgn_description +
                    json.feed.entry[i].gsx$description.$t +
@@ -369,7 +378,7 @@ x.style.width="150px";
 
 function page_start() {
 
-  document.write('webmaster tester lige nu, så det kan være intet virker! 02<br/>'
+  document.write('webmaster tester lige nu, så det kan være intet virker! 03<br/>'
     + '<style type="text/css">'
     + '  .blogger-post-footer {'
     + '  visibility: hidden;'
