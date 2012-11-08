@@ -14,7 +14,7 @@ function show_products(json) {
   var bgn_imgs = '';
   var bgn_photo = '<img src="';
   var end_photo = '"/>';
-  var between_img = ' ';
+  var between_img = '&nbsp;';
   var bgn_qr = '<img src="';
   var end_qr = '"/>';
   var end_imgs = '<br/>';
@@ -378,7 +378,7 @@ x.style.width="150px";
 
 function page_start() {
 
-  document.write('webmaster tester lige nu, så det kan være intet virker! 03<br/>'
+  document.write('webmaster tester lige nu, så det kan være intet virker! 04<br/>'
     + '<style type="text/css">'
     + '  .blogger-post-footer {'
     + '  visibility: hidden;'
