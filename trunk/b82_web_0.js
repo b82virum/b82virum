@@ -53,6 +53,14 @@ function show_products(json) {
       continue;
     }
 
+    var product = json.feed.entry[i].gsx$title.$t;
+    product = product.replace('æ','ae');
+    product = product.replace('ø','oe');
+    product = product.replace('å','aa');
+    product = product.replace('Æ','AE');
+    product = product.replace('Ø','OE');
+    product = product.replace('Å','AA');
+
     document.write(bgn_row);
 
     document.write(bgn_title +
@@ -63,6 +71,21 @@ function show_products(json) {
                    json.feed.entry[i].gsx$photo.$t +
                    end_photo);
 
+    var qrimg='';
+
+    qrimg=qrimg + 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=JU24PYRGKMZCW&item_name=Morten%20Test&amount=1%2e00&currency_code=DKK';
+
+    qrimg=escape(qrimg);
+
+    qrimg='http://api.qrserver.com/v1/create-qr-code/?data='
+        + qrimg
+        + '&#38;size=200x200';
+
+    document.write(''
+                 + 'aaaimg src="' + qrimg + '"bbb'
+                 + '<img src="' + qrimg + '"/>'
+                 + '<br/>');
+
     document.write(bgn_description +
                    json.feed.entry[i].gsx$description.$t +
                    end_description);
@@ -71,14 +94,6 @@ function show_products(json) {
                    json.feed.entry[i].gsx$price.$t +
                    end_price);
 
-    var product = json.feed.entry[i].gsx$title.$t;
-    product = product.replace('æ','ae');
-    product = product.replace('ø','oe');
-    product = product.replace('å','aa');
-    product = product.replace('Æ','AE');
-    product = product.replace('Ø','OE');
-    product = product.replace('Å','AA');
-    
     document.write(paypal_part1 +
                    paypal_id +
                    paypal_part2 +
