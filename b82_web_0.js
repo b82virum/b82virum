@@ -40,6 +40,11 @@ function show_products(json) {
   var paypal_cart_view_1 ='<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="';
   var paypal_cart_view_2 ='"><input type="hidden" name="display" value="1"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form><br/><img src="https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif" border="0"/><br/>';
 
+  var paypal_qr_1 ='https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=';
+  var paypal_qr_2 ='&item_name=';
+  var paypal_qr_3 ='&amount=';
+  var paypal_qr_4 ='&currency_code=DKK';
+
   //var paypal_part1 = paypal_buy_now_1;
   //var paypal_part2 = paypal_buy_now_2;
   //var paypal_part3 = paypal_buy_now_3;
@@ -80,9 +85,13 @@ function show_products(json) {
 
     document.write(between_imgs);
 
-    var qrimg='';
-
-    qrimg=qrimg + 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=JU24PYRGKMZCW&item_name=Morten%20Test&amount=1%2e00&currency_code=DKK';
+    var qrimg=paypal_qr_1
+            + paypal_id
+            + paypal_qr_2
+            + escape(product)
+            + paypal_qr_3
+            + escape(json.feed.entry[i].gsx$price.$t)
+            + paypal_qr_4;
 
     qrimg=escape(qrimg);
 
@@ -90,6 +99,9 @@ function show_products(json) {
         + qrimg
         + '&#38;size=200x200';
 
+    document.write('aaa'
+                 + qrimg
+                 + 'bbb');
     document.write(bgn_qr
                  + qrimg
                  + end_qr);
@@ -380,7 +392,7 @@ x.style.width="150px";
 
 function page_start() {
 
-  document.write('webmaster tester lige nu, så det kan være intet virker! 05<br/>'
+  document.write('webmaster tester lige nu, så det kan være intet virker! 06<br/>'
     + '<style type="text/css">'
     + '  .blogger-post-footer {'
     + '  visibility: hidden;'
