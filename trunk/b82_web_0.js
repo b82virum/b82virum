@@ -14,7 +14,7 @@ function show_products(json) {
   var bgn_imgs = '';
   var bgn_photo = '<img src="';
   var end_photo = '"/>';
-  var between_img = '&nbsp;';
+  var between_imgs = ' ';
   var bgn_qr = '<img src="';
   var end_qr = '"/>';
   var end_imgs = '<br/>';
@@ -77,6 +77,8 @@ function show_products(json) {
     document.write(bgn_photo +
                    json.feed.entry[i].gsx$photo.$t +
                    end_photo);
+
+    document.write(between_imgs);
 
     var qrimg='';
 
@@ -378,7 +380,7 @@ x.style.width="150px";
 
 function page_start() {
 
-  document.write('webmaster tester lige nu, så det kan være intet virker! 04<br/>'
+  document.write('webmaster tester lige nu, så det kan være intet virker! 05<br/>'
     + '<style type="text/css">'
     + '  .blogger-post-footer {'
     + '  visibility: hidden;'
