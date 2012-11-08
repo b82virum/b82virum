@@ -99,9 +99,6 @@ function show_products(json) {
         + qrimg
         + '&#38;size=200x200';
 
-    document.write('aaa'
-                 + qrimg
-                 + 'bbb');
     document.write(bgn_qr
                  + qrimg
                  + end_qr);
@@ -392,7 +389,7 @@ x.style.width="150px";
 
 function page_start() {
 
-  document.write('webmaster tester lige nu, så det kan være intet virker! 06<br/>'
+  document.write('webmaster tester lige nu, så det kan være intet virker! 07<br/>'
     + '<style type="text/css">'
     + '  .blogger-post-footer {'
     + '  visibility: hidden;'
