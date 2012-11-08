@@ -64,12 +64,12 @@ function show_products(json) {
     }
 
     var product = json.feed.entry[i].gsx$title.$t;
-    product = product.replace('æ','ae');
-    product = product.replace('ø','oe');
-    product = product.replace('å','aa');
-    product = product.replace('Æ','AE');
-    product = product.replace('Ø','OE');
-    product = product.replace('Å','AA');
+    product = product.replace(/æ/g,'ae');
+    product = product.replace(/ø/g,'oe');
+    product = product.replace(/å/g,'aa');
+    product = product.replace(/Æ/g,'AE');
+    product = product.replace(/Ø/g,'OE');
+    product = product.replace(/Å/g,'AA');
 
     document.write(bgn_row);
 
@@ -389,7 +389,7 @@ x.style.width="150px";
 
 function page_start() {
 
-  document.write('webmaster tester lige nu, så det kan være intet virker! 07<br/>'
+  document.write('webmaster tester lige nu, så det kan være intet virker! 08<br/>'
     + '<style type="text/css">'
     + '  .blogger-post-footer {'
     + '  visibility: hidden;'
