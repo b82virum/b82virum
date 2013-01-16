@@ -374,19 +374,6 @@ function show_graphic(label) {
 
 }
 
-function logobig(x)
-{
-x.style.height="960px";
-x.style.width="960px";
-}
-
-function logonorm(x)
-{
-x.style.height="150px";
-x.style.width="150px";
-}
-
-
 function page_start() {
 
   document.write(''
@@ -409,16 +396,8 @@ function page_start() {
     + '</style>'
   );
 
-  /*
   document.write(''
-    + '<div style="position: fixed; left: 50%; margin-left: -485px; top: 0px; z-index: 255;">'
-    + '<img onmouseover="logobig(this)" onmouseout="logonorm(this)" width="150px" height="150px" style="border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s960/Logo.RedbaseWhitebackTrans.png"/>'
-    + '</div>'
-  );
-  */
-  
-  document.write(''
-    + '<div style="position: fixed; left: 50%; margin-left: -485px; top: 0px; z-index: 255;">'
+    + 'xxx1<div id="b82logo" style="position: fixed; left: 50%; margin-left: -485px; top: 0px; z-index: 255;">'
     + '<img width="150px" height="150px" style="border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s960/Logo.RedbaseWhitebackTrans.png"/>'
     + '</div>'
   );
