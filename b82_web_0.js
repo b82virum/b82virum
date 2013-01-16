@@ -407,7 +407,10 @@ function page_start() {
 }
 
 $(document).ready(function(){
-  $("#b82logo").fadeOut(3000);
+
+  //$("#b82logo").fadeOut(3000);
+  $("#b82logo").slideUp(3000);
+
 });
 
 function page_end() {
