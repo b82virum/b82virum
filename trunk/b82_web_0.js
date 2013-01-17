@@ -396,15 +396,8 @@ function page_start() {
     + '</style>'
   );
 
-/*
   document.write(''
-    + '<div id="b82logo" style="position: fixed; left: 50%; margin-left: -485px; top: 0px; z-index: 255;">'
-    + '<img width="960px" height="960px" style="border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s960/Logo.RedbaseWhitebackTrans.png"/>'
-    + '</div>'
-  );
-*/
-  document.write(''
-    + 'zzz6<img id="b82logo" width="960px" height="960px" style="position: fixed; left: 50%; margin-left: -485px; top: 0px; z-index: 255; border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s960/Logo.RedbaseWhitebackTrans.png"/>'
+    + '<img id="b82logo" width="960px" height="960px" style="position: fixed; left: 50%; margin-left: -485px; top: 0px; z-index: 255; border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s960/Logo.RedbaseWhitebackTrans.png"/>'
   );
   
   show_header('B82%20Header');
@@ -420,7 +413,6 @@ $(document).ready(function(){
     height:'0px',
     width:'0px'
   },3000);
-  //$("#b82logo").hide();
 
 });
 
