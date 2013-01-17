@@ -414,7 +414,7 @@ $(document).ready(function(){
     opacity:'0',
     height:'150px',
     width:'150px'
-  });
+  },3000);
 
 });
 
