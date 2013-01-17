@@ -397,7 +397,7 @@ function page_start() {
   );
 
   document.write(''
-    + 'xxx1<div id="b82logo" style="position: fixed; left: 50%; margin-left: -485px; top: 0px; z-index: 255;">'
+    + 'xxx2<div id="b82logo" style="position: fixed; left: 50%; margin-left: -485px; top: 0px; z-index: 255;">'
     + '<img width="960px" height="960px" style="border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s960/Logo.RedbaseWhitebackTrans.png"/>'
     + '</div>'
   );
@@ -414,7 +414,7 @@ $(document).ready(function(){
     opacity:'0',
     height:'150px',
     width:'150px'
-  },3000);
+  },5000);
 
 });
 
