@@ -416,7 +416,7 @@ $(document).ready(function(){
   //$("#b82logo").fadeOut(3000);
   //$("#b82logo").slideUp(3000);
   $("#b82logo").animate({
-    opacity:'0',
+    opacity:'0.5',
     height:'150px',
     width:'150px'
   },3000);
