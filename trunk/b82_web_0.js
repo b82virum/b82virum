@@ -416,11 +416,11 @@ $(document).ready(function(){
   //$("#b82logo").fadeOut(3000);
   //$("#b82logo").slideUp(3000);
   $("#b82logo").animate({
-    opacity:'0.5',
-    height:'150px',
-    width:'150px'
+    opacity:'0',
+    height:'0px',
+    width:'0px'
   },3000);
-  $("#b82logo").hide();
+  //$("#b82logo").hide();
 
 });
 
