@@ -15,13 +15,13 @@ function feed(label,max) {
 }
 
 function test_feed(label,max,div) {
-  var html = 'helloaaa'+feed(label,max)+'bbb';
 
   $.ajax({
     url: feed(label,max),
     type: 'get',
     dataType: 'jsonp',
     success: function(data) {
+      var html = '';
       var posturl = "";
       html += '<ul>';
       for (var i = 0; i < data.feed.entry.length; i++) {
@@ -42,10 +42,10 @@ function test_feed(label,max,div) {
         html += '<li><div><a href="'+posturl+'" target="_blank">'+posttitle+'</a></div><div>'+postcontent+'</div></li>';
       }
       html += '</ul>';
+      document.getElementById(div).innerHTML = html;
     }
   });
 
-  document.getElementById(div).innerHTML = html;
 }
 
 function test_feed_blog(div) {
