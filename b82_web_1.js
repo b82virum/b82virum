@@ -24,7 +24,7 @@ function test_feed(label,max,div) {
       var html = '';
       
       var posturl = "";
-      html += 'zzz3<ul>';
+      html += 'zzz4<ul>';
       // For each post
       for (var i = 0; i < data.feed.entry.length; i++) {
         
