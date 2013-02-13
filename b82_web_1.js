@@ -16,12 +16,15 @@ function feed(label,max) {
 
 
 
-function test_feed_blog() {
+function test_feed_blog(div) {
+  test_feed('','',div);
 }
-function test_feed_label() {
+function test_feed_label(div) {
+  test_feed('Årgang%202006%20Glimt','3',div);
 }
 
-function test_feed(label,max) {
+function test_feed(label,max,div) {
+  var html = '';
 
   $.ajax({
     url: feed(label,max),
@@ -29,7 +32,7 @@ function test_feed(label,max) {
     dataType: 'jsonp',
     success: function(data) {
       var posturl = "";
-      var htmlcode = '<ul>';
+      html += '<ul>';
       for (var i = 0; i < data.feed.entry.length; i++) {
         for (var j=0; j < data.feed.entry[i].link.length; j++) {
           if (data.feed.entry[i].link[j].rel == "alternate") {
@@ -45,11 +48,11 @@ function test_feed(label,max) {
           var postcontent = "";
         }
         var posttitle = data.feed.entry[i].title.$t;
-        htmlcode += '<li><div><a href="'+posturl+'" target="_blank">'+posttitle+'</a></div><div>'+postcontent+'</div></li>';
+        html += '<li><div><a href="'+posturl+'" target="_blank">'+posttitle+'</a></div><div>'+postcontent+'</div></li>';
       }
-      htmlcode += '</ul>';
-      document.getElementById('result').innerHTML = htmlcode;
+      html += '</ul>';
     }
   });
 
+  document.getElementById(div).innerHTML = html;
 }
