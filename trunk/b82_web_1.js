@@ -12,6 +12,7 @@ function feed(label,max) {
   }
   r = r + '?alt=json-in-script&max-results=' + dmax + '&callback=?';
   return r;
+  // http://blog.b82.dk/feeds/posts/default?alt=json-in-script&max-results=255&callback=x
 }
 
 function test_feed(label,max,div) {
