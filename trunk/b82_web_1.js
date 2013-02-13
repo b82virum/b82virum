@@ -49,9 +49,9 @@ function test_feed(label,max,div) {
 }
 
 function test_feed_blog(div) {
-  test_feed('','',div);
+  test_feed('3','',div);
 }
 function test_feed_label(div) {
-  test_feed('Årgang%202006%20Glimt','3',div);
+  test_feed('Årgang%202006%20Glimt','',div);
 }
 
