@@ -20,14 +20,16 @@ function test_feed(label,max,div) {
     url: feed(label,max),
     type: 'get',
     dataType: 'jsonp',
-    success: function(data) {
+    success: function(data) {+
       var html = '';
+      
       var posturl = "";
       html += '<ul>';
       for (var i = 0; i < data.feed.entry.length; i++) {
         for (var j=0; j < data.feed.entry[i].link.length; j++) {
           if (data.feed.entry[i].link[j].rel == "alternate") {
             posturl = data.feed.entry[i].link[j].href;
+            html += 'data.feed.entry[i].link[j].href' '<hr/>' + data.feed.entry[i].link[j].href + '<hr/>';
             break;
           }
         }
