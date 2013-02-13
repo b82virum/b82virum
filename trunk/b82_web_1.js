@@ -24,7 +24,7 @@ function test_feed(label,max,div) {
       var html = '';
       
       var posturl = "";
-      html += '<ul>zzz';
+      html += 'zzz<ul>';
       for (var i = 0; i < data.feed.entry.length; i++) {
         for (var j=0; j < data.feed.entry[i].link.length; j++) {
           if (data.feed.entry[i].link[j].rel == "alternate") {
