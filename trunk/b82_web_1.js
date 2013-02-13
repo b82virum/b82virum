@@ -4,6 +4,14 @@ var feed_blog = 'http://blog.b82.dk/feeds/posts/default';
 var feed_label = feed_blog + '/-/';
 // ?alt=json-in-script&max-results=255&callback=?
 
+function feed(label,max) {
+  var r = '';
+  r = r + 'http://blog.b82.dk/feeds/posts/default';
+  r = r + '/-/' + label;
+  r = r + '?alt=json-in-script&max-results=' + max + '&callback=?';
+  return r;
+}
+
 function show_1_random_post_body_cb(json) {
 
   var i = Math.floor((Math.random()*1000)) % json.feed.openSearch$totalResults.$t;
