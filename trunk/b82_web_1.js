@@ -24,7 +24,7 @@ function test_feed_label(div) {
 }
 
 function test_feed(label,max,div) {
-  var html = '';
+  var html = 'hello';
 
   $.ajax({
     url: feed(label,max),
