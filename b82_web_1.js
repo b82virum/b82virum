@@ -1,6 +1,8 @@
 // See README file.
 
-var feed_blog = 'http://blog.b82.dk/feeds/posts/default?alt=json-in-script&max-results=9&callback=?';
+var feed_blog = 'http://blog.b82.dk/feeds/posts/default';
+var feed_label = feed_blog + '/-/';
+// ?alt=json-in-script&max-results=255&callback=?
 
 function show_1_random_post_body_cb(json) {
 
