@@ -25,7 +25,10 @@ function test_feed(label,max,div) {
       
       var posturl = "";
       html += 'zzz3<ul>';
+      // For each post
       for (var i = 0; i < data.feed.entry.length; i++) {
+        
+        // link
         for (var j=0; j < data.feed.entry[i].link.length; j++) {
           if (data.feed.entry[i].link[j].rel == "alternate") {
             posturl = data.feed.entry[i].link[j].href;
@@ -33,6 +36,16 @@ function test_feed(label,max,div) {
             break;
           }
         }
+        
+        // title
+        html += 'data.feed.entry[i].title.$t' + '<hr/>' + data.feed.entry[i].title.$t + '<hr/>';
+
+        // summary
+        html += 'data.feed.entry[i].summary.$t' + '<hr/>' + data.feed.entry[i].summary.$t + '<hr/>';
+
+        // content
+        html += 'data.feed.entry[i].content.$t' + '<hr/>' + data.feed.entry[i].content.$t + '<hr/>';
+        
         if ("content" in data.feed.entry[i]) {
           var postcontent = data.feed.entry[i].content.$t;
         } else if ("summary" in data.feed.entry[i]) {
