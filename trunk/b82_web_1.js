@@ -14,8 +14,6 @@ function feed(label,max) {
   return r;
 }
 
-
-
 function test_feed_blog(div) {
   test_feed('','',div);
 }
@@ -24,7 +22,8 @@ function test_feed_label(div) {
 }
 
 function test_feed(label,max,div) {
-  var html = 'hello<'+feed(label,max)+'>';
+  //var html = 'hello<'+feed(label,max)+'>';
+  var html = 'hellox';
 
   $.ajax({
     url: feed(label,max),
