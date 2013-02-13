@@ -29,7 +29,7 @@ function test_feed(label,max,div) {
         for (var j=0; j < data.feed.entry[i].link.length; j++) {
           if (data.feed.entry[i].link[j].rel == "alternate") {
             posturl = data.feed.entry[i].link[j].href;
-            html += 'data.feed.entry[i].link[j].href' '<hr/>' + data.feed.entry[i].link[j].href + '<hr/>';
+            html += 'data.feed.entry[i].link[j].href' + '<hr/>' + data.feed.entry[i].link[j].href + '<hr/>';
             break;
           }
         }
