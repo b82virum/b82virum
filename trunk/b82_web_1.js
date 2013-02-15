@@ -41,9 +41,6 @@ function test_feed(label,max,div) {
         // title
         html += 'data.feed.entry[i].title.$t' + '<hr/>' + data.feed.entry[i].title.$t + '<hr/>';
 
-        // summary
-        html += 'data.feed.entry[i].summary.$t' + '<hr/>' + data.feed.entry[i].summary.$t + '<hr/>';
-
         // content
         html += 'data.feed.entry[i].content.$t' + '<hr/>' + data.feed.entry[i].content.$t + '<hr/>';
         
