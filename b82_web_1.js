@@ -22,6 +22,10 @@ function test_feed(label,max,div) {
     type: 'get',
     dataType: 'jsonp',
     success: function(data) {
+      
+      document.getElementById(div).innerHTML += 'hello1';
+
+      
       var html = '';
       
       var posturl = "";
@@ -55,7 +59,7 @@ function test_feed(label,max,div) {
         html += '<li><div><a href="'+posturl+'" target="_blank">'+posttitle+'</a></div><div>'+postcontent+'</div></li>';
       }
       html += '</ul>';
-      document.getElementById(div).innerHTML = html;
+      document.getElementById(div).innerHTML += html;
     }
   });
 
