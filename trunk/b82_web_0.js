@@ -264,6 +264,22 @@ function show_hilite(label) {
 
 }
 
+function show_club_hilite_cb(json) {
+
+  show_post(json);
+  
+}
+
+function show_club_hilite() {
+
+  document.write(''
+    + '<script src="http://blog.b82.dk/feeds/posts/default' + '?alt=json-in-script&max-results='
+    + 5
+    + '&callback=show_club_hilite_cb" type="text/javascript"></script>'
+  );
+
+}
+
 function show_leader_cb(json) {
 
   document.write(''
