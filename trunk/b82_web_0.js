@@ -436,6 +436,8 @@ $(document).ready(function(){
 
 function page_end() {
 
+  document.write('<div style="text-align: center;">aaa<a href="http://www.sportyfied.com/to/vm59e9" target="_blank"><img alt="Sportyfied" border="0" height="160" src="http://www.sportyfied.com/simg/vm59e9.jpg" style="border-style:none; padding:0;" title="B82 webshop" width="920" /></a>bbb</div>');
+
   show_footer('B82%20Footer');
 
 }
