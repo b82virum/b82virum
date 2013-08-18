@@ -393,7 +393,7 @@ function show_graphic(label) {
 function page_start() {
 
   document.write(''
-    + '<style type="text/css">'
+    + 'aaa<style type="text/css">'
     + '  .blogger-post-footer {'
     + '  visibility: hidden;'
     + '}'
