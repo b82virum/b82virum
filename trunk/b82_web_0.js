@@ -393,8 +393,8 @@ function show_graphic(label) {
 function page_start() {
 
   document.write(''
-    + 'aaa<style type="text/css">'
-    + '  .blogger-post-footer {'
+    + 'bbb<style type="text/css">'
+    + '.blogger-post-footer {'
     + '  visibility: hidden;'
     + '}'
     + 'li.f2jnag {'
@@ -409,7 +409,9 @@ function page_start() {
     + 'h3, h4, h5, h6 {'
     + '  color: black;'
     + '}'
-    + 'mobile-photo {text-align: center;}'
+    + '.mobile-photo {'
+    + '  text-align: center;'
+    + '}'
     + '</style>'
   );
 
