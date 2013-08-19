@@ -215,14 +215,6 @@ function show_footer(label) {
 
 function show_post(json) {
 
-document.write('ccc'
-    + '<style type="text/css">'
-    + '#mobile-photo {'
-    + '  text-align: center;'
-    + '}'
-    + '</style>'
-  );
-  
   for (var i=0;i < json.feed.openSearch$totalResults.$t;i++) {
   
     var link;  
