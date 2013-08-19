@@ -215,6 +215,14 @@ function show_footer(label) {
 
 function show_post(json) {
 
+document.write('aaa'
+    + '<style type="text/css">'
+    + '.mobile-photo {'
+    + '  text-align: center;'
+    + '}'
+    + '</style>'
+  );
+  
   for (var i=0;i < json.feed.openSearch$totalResults.$t;i++) {
   
     var link;  
@@ -392,7 +400,7 @@ function show_graphic(label) {
 
 function page_start() {
 
-  document.write('aaa'
+  document.write(''
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
