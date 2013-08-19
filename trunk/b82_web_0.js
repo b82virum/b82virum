@@ -392,7 +392,7 @@ function show_graphic(label) {
 
 function page_start() {
 
-  document.write(''
+  document.write('aaa'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -409,7 +409,7 @@ function page_start() {
     + 'h3, h4, h5, h6 {'
     + '  color: black;'
     + '}'
-    + 'mobile-photo {'
+    + 'mobile-photo.img {'
     + '  text-align: center;'
     + '}'
     + '</style>'
