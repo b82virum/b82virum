@@ -215,9 +215,9 @@ function show_footer(label) {
 
 function show_post(json) {
 
-document.write('bbb'
+document.write('ccc'
     + '<style type="text/css">'
-    + 'mobile-photo {'
+    + '#mobile-photo {'
     + '  text-align: center;'
     + '}'
     + '</style>'
