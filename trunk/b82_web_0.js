@@ -410,7 +410,7 @@ function page_start() {
     + '  color: black;'
     + '}'
     + 'p.mobile-photo {'
-    + '  text-align: center;'
+    + '  text-align: center; important!'
     + '}'
     + '</style>'
   );
