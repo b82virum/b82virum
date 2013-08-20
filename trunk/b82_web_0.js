@@ -412,7 +412,7 @@ function page_start() {
     + '.mobile-photo {'
     + '  text-align: center;'
     + '}'
-    + 'p.mobile-photo * {'
+    + 'p.mobile-photo > * {'
     + '  text-align: center;'
     + '}'
     + '</style>'
