@@ -16,7 +16,7 @@ function feed(labels,max) {
   // http://blog.b82.dk/feeds/posts/default/-/label1/label2?alt=json-in-script&max-results=255&callback=x
 }
 
-function show_feed(div,label,max) {
+function show_feed(div,label,max,header) {
 
   $.ajax({
     url: feed(label,max),
@@ -24,10 +24,14 @@ function show_feed(div,label,max) {
     dataType: 'jsonp',
     success: function(data) {
       
-      // ... before list
+      // First/last post
+      var fi = 0;
+      var li = data.feed.entry.length;
+      // If random +++
       
-      // For each post
-      for (var i = 0; i < data.feed.entry.length; i++) {
+      // If any, show header +++
+      
+      for (var i = fi; i < li; i++) {
         
         // href
         var href = '';
