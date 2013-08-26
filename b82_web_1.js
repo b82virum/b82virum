@@ -16,7 +16,7 @@ function feed(labels,max) {
   // http://blog.b82.dk/feeds/posts/default/-/label1/label2?alt=json-in-script&max-results=255&callback=x
 }
 
-function show_feed(div,label,max,header) {
+function show_feed(div,label,max,header,footer,show_title,show_link,show_content,link_hl) {
 
   $.ajax({
     url: feed(label,max),
@@ -29,7 +29,10 @@ function show_feed(div,label,max,header) {
       var li = data.feed.entry.length;
       // If random +++
       
-      // If any, show header +++
+      // If any, show header
+      if (fi < li) {
+        document.getElementById(div).innerHTML += header;
+      }
       
       for (var i = fi; i < li; i++) {
         
@@ -53,11 +56,19 @@ function show_feed(div,label,max,header) {
           content = data.feed.entry[i].summary.$t;
         }
         
-        ...
+        // +++title+link
+
+        // content
+        if (show_content == 1) {
+          document.getElementById(div).innerHTML += '<p>' + content + '</p>';
+        }  
         
       }
 
-      // ... before list
+      // If any, show footer
+      if (fi < li) {
+        document.getElementById(div).innerHTML += footer;
+      }
 
     }
 
