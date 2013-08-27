@@ -2,7 +2,7 @@
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'bbb'
+  document.getElementById(div).innerHTML += 'ccc'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -56,6 +56,7 @@ function blog_feed(labels,max) {
 
 function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
 
+  $.ajaxSetup({async:false});
   $.ajax({
     url: blog_feed(labels,max),
     type: 'get',
@@ -116,6 +117,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
     }
 
   });
+  $.ajaxSetup({async:true});
 
 }
 
