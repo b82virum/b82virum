@@ -1,41 +1,6 @@
 // See README file.
 
-function page_start(div) {
-
-  document.getElementById(div).innerHTML += 'ccc'
-    + '<style type="text/css">'
-    + '.blogger-post-footer {'
-    + '  visibility: hidden;'
-    + '}'
-    + 'h1 {'
-    + '  text-align: center;'
-    + '}'
-    + 'h1, h2, a {'
-    + '  color: red;'
-    + '}'
-    + 'h3, h4, h5, h6 {'
-    + '  color: black;'
-    + '}'
-    + '.mobile-photo {'
-    + '  text-align: center;'
-    + '}'
-    + '.mobile-photo * {'
-    + '  text-align: center;'
-    + '}'
-    + '</style>'
-  ;
-  
-  show_body('B82 Header');
-  
-}
-
-function page_end(div) {
-
-  document.getElementById(div).innerHTML += '<p><div style="text-align: center;"><a href="http://www.sportyfied.com/to/vm59e9" target="_blank"><img alt="Sportyfied" border="0" height="160" src="http://www.sportyfied.com/simg/vm59e9.jpg" style="border-style:none; padding:0;" title="B82 webshop" width="920" /></a></div></p>';
-
-  show_body(div,'B82 Footer');
-
-}
+var b82divn = 0;
 
 function blog_feed(labels,max) {
   var dmax = 255;
@@ -54,9 +19,8 @@ function blog_feed(labels,max) {
   // http://blog.b82.dk/feeds/posts/default/-/label1/label2?alt=json-in-script&max-results=255&callback=?
 }
 
-function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
+function show_feed(div,labels,max,random,header,show_title,show_content) {
 
-  $.ajaxSetup({async:false});
   $.ajax({
     url: blog_feed(labels,max),
     type: 'get',
@@ -117,8 +81,14 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
     }
 
   });
-  $.ajaxSetup({async:true});
 
+}
+
+function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
+  b82divn++;
+  alert('<div id="' + div+b82divn + '"></div>');
+  document.getElementById(div).innerHTML += '<div id="' + div+b82divn + '"></div>';
+  show_feed(div+b82divn,labels,max,random,header,show_title,show_content);
 }
 
 function show_post(div,labels,header) {
@@ -171,6 +141,43 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
   show_post(div,label+' Glimt','Glimt');
 
   show_body(div,label+' Extra');
+
+}
+
+function page_start(div) {
+
+  document.getElementById(div).innerHTML += 'ddd'
+    + '<style type="text/css">'
+    + '.blogger-post-footer {'
+    + '  visibility: hidden;'
+    + '}'
+    + 'h1 {'
+    + '  text-align: center;'
+    + '}'
+    + 'h1, h2, a {'
+    + '  color: red;'
+    + '}'
+    + 'h3, h4, h5, h6 {'
+    + '  color: black;'
+    + '}'
+    + '.mobile-photo {'
+    + '  text-align: center;'
+    + '}'
+    + '.mobile-photo * {'
+    + '  text-align: center;'
+    + '}'
+    + '</style>'
+  ;
+  
+  show_body('B82 Header');
+  
+}
+
+function page_end(div) {
+
+  document.getElementById(div).innerHTML += '<p><div style="text-align: center;"><a href="http://www.sportyfied.com/to/vm59e9" target="_blank"><img alt="Sportyfied" border="0" height="160" src="http://www.sportyfied.com/simg/vm59e9.jpg" style="border-style:none; padding:0;" title="B82 webshop" width="920" /></a></div></p>';
+
+  show_body(div,'B82 Footer');
 
 }
 
