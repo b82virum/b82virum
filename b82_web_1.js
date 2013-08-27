@@ -2,6 +2,8 @@
 
 var b82divn = 0;
 
+var uid = (function(){var id=0;return function(){if(arguments[0]===0)id=0;return id++;}})();
+
 function blog_feed(labels,max) {
   var dmax = 255;
   var r = '';
@@ -20,7 +22,7 @@ function blog_feed(labels,max) {
 }
 
 function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
-
+  alert(uid());
   b82divn++;
   document.getElementById(div).innerHTML += '<div id="' + div+b82divn + '"></div>';
   div += b82divn;
@@ -143,7 +145,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'iii'
+  document.getElementById(div).innerHTML += 'jjj'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
