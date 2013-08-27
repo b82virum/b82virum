@@ -146,7 +146,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'ddd'
+  document.getElementById(div).innerHTML += 'eee'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -169,7 +169,7 @@ function page_start(div) {
     + '</style>'
   ;
   
-  show_body('B82 Header');
+  show_body(div,'B82 Header');
   
 }
 
