@@ -2,7 +2,7 @@
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += ''
+  document.getElementById(div).innerHTML += 'aaa'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
