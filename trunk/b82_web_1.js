@@ -21,9 +21,10 @@ function blog_feed(labels,max) {
 }
 
 function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
+alert('b1');
 
   $.ajax({
-    url: feed(labels,max),
+    url: blog_feed(labels,max),
     type: 'get',
     dataType: 'jsonp',
     success: function(data) {
