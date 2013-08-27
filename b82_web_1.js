@@ -87,3 +87,22 @@ function show_post(div,labels,header) {
   show_blog_feed(div,labels,'','',header,1,1);
 
 }
+
+function show_some_post(div,labels,header) {
+  
+  show_blog_feed(div,labels,5,'',header,1,1);
+
+}
+
+function show_body(div,labels) {
+  
+  show_blog_feed(div,labels,'','','',0,1);
+
+}
+
+function show_random(div,labels) {
+  
+  show_blog_feed(div,labels,'',1,'',0,1);
+
+}
+
