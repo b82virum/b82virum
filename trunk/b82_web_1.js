@@ -1,6 +1,6 @@
 // See README file.
 
-function feed(labels,max) {
+function blog_feed(labels,max) {
   var dmax = 255;
   var r = '';
   r = r + 'http://blog.b82.dk/feeds/posts/default';
@@ -16,10 +16,10 @@ function feed(labels,max) {
   // http://blog.b82.dk/feeds/posts/default/-/label1/label2?alt=json-in-script&max-results=255&callback=x
 }
 
-function show_feed(div,label,max,random,header,footer,show_title,show_content,show_link,link_hl) {
+function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
 
   $.ajax({
-    url: feed(label,max),
+    url: feed(labels,max),
     type: 'get',
     dataType: 'jsonp',
     success: function(data) {
@@ -38,7 +38,7 @@ function show_feed(div,label,max,random,header,footer,show_title,show_content,sh
       
       // If any, show header
       if (fi < li) {
-        document.getElementById(div).innerHTML += header;
+        document.getElementById(div).innerHTML += '<h2>' + header + '</h2>';
       }
       
       for (var i = fi; i < li; i++) {
@@ -63,7 +63,10 @@ function show_feed(div,label,max,random,header,footer,show_title,show_content,sh
           content = data.feed.entry[i].summary.$t;
         }
         
-        // +++title+link
+        // title+link
+        if (show_title == 1) {
+          document.getElementById(div).innerHTML += '<a href="' + href + '">' + '<h3>' + title + '</h3>' + '</a>';
+        }
 
         // content
         if (show_content == 1) {
@@ -72,23 +75,14 @@ function show_feed(div,label,max,random,header,footer,show_title,show_content,sh
         
       }
 
-      // If any, show footer
-      if (fi < li) {
-        document.getElementById(div).innerHTML += footer;
-      }
-
     }
 
   });
 
 }
 
-// document.getElementById(div).innerHTML += '</ul>';
+function show_posts(div,labels,header) {
+  
+  show_blog_feed(div,labels,'','',header,1,1);
 
-function test_feed_blog(div) {
-  test_feed('','3',div);
 }
-function test_feed_label(div) {
-  test_feed('Årgang%202006%20Glimt','',div);
-}
-
