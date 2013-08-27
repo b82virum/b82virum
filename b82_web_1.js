@@ -5,6 +5,7 @@ function hello() {
 }
 
 function blog_feed(labels,max) {
+alert('c1');
   var dmax = 255;
   var r = '';
   r = r + 'http://blog.b82.dk/feeds/posts/default';
