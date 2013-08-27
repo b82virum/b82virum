@@ -1,5 +1,42 @@
 // See README file.
 
+function page_start(div) {
+
+  document.getElementById(div).innerHTML += ''
+    + '<style type="text/css">'
+    + '.blogger-post-footer {'
+    + '  visibility: hidden;'
+    + '}'
+    + 'h1 {'
+    + '  text-align: center;'
+    + '}'
+    + 'h1, h2, a {'
+    + '  color: red;'
+    + '}'
+    + 'h3, h4, h5, h6 {'
+    + '  color: black;'
+    + '}'
+    + '.mobile-photo {'
+    + '  text-align: center;'
+    + '}'
+    + '.mobile-photo * {'
+    + '  text-align: center;'
+    + '}'
+    + '</style>'
+  ;
+  
+  show_body('B82 Header');
+  
+}
+
+function page_end(div) {
+
+  document.getElementById(div).innerHTML += '<p><div style="text-align: center;"><a href="http://www.sportyfied.com/to/vm59e9" target="_blank"><img alt="Sportyfied" border="0" height="160" src="http://www.sportyfied.com/simg/vm59e9.jpg" style="border-style:none; padding:0;" title="B82 webshop" width="920" /></a></div></p>';
+
+  show_body(div,'B82 Footer');
+
+}
+
 function blog_feed(labels,max) {
   var dmax = 255;
   var r = '';
@@ -108,6 +145,8 @@ function show_random(div,labels) {
 
 function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
+  page_start(div);
+  
   document.getElementById(div).innerHTML += '<h1>' + alias + '</h1>';
   
   show_body(div,label+' Intro');
@@ -133,42 +172,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
   show_body(div,label+' Extra');
 
-}
-
-function page_start(div) {
-
-  document.getElementById(div).innerHTML += ''
-    + '<style type="text/css">'
-    + '.blogger-post-footer {'
-    + '  visibility: hidden;'
-    + '}'
-    + 'h1 {'
-    + '  text-align: center;'
-    + '}'
-    + 'h1, h2, a {'
-    + '  color: red;'
-    + '}'
-    + 'h3, h4, h5, h6 {'
-    + '  color: black;'
-    + '}'
-    + '.mobile-photo {'
-    + '  text-align: center;'
-    + '}'
-    + '.mobile-photo * {'
-    + '  text-align: center;'
-    + '}'
-    + '</style>'
-  ;
+  page_end(div);
   
-  show_body('B82 Header');
-  
-}
-
-function page_end(div) {
-
-  document.getElementById(div).innerHTML += '<p><div style="text-align: center;"><a href="http://www.sportyfied.com/to/vm59e9" target="_blank"><img alt="Sportyfied" border="0" height="160" src="http://www.sportyfied.com/simg/vm59e9.jpg" style="border-style:none; padding:0;" title="B82 webshop" width="920" /></a></div></p>';
-
-  show_body(div,'B82 Footer');
-
 }
 
