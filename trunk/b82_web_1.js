@@ -21,6 +21,10 @@ function feed(labels,max) {
 
 function show_feed(div,labels,max,random,header,show_title,show_content) {
 
+  b82divn++;
+  document.getElementById(div).innerHTML += '<div id="' + div+b82divn + '"></div>';
+  div += b82divn;
+
   $.ajax({
     url: feed(labels,max),
     type: 'get',
@@ -85,9 +89,11 @@ function show_feed(div,labels,max,random,header,show_title,show_content) {
 }
 
 function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
-  b82divn++;
-  document.getElementById(div).innerHTML += '<div id="' + div+b82divn + '"></div>';
-  show_feed(div+b82divn,labels,max,random,header,show_title,show_content);
+//  b82divn++;
+//  document.getElementById(div).innerHTML += '<div id="' + div+b82divn + '"></div>';
+//  show_feed(div+b82divn,labels,max,random,header,show_title,show_content);
+  show_feed(div,labels,max,random,header,show_title,show_content);
+
 }
 
 function show_post(div,labels,header) {
@@ -145,7 +151,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'ggg'
+  document.getElementById(div).innerHTML += 'hhh'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
