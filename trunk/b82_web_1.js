@@ -83,6 +83,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
 
 function show_posts(div,labels,header) {
   
+  alert('a1');
   show_blog_feed(div,labels,'','',header,1,1);
 
 }
