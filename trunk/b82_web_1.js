@@ -1,11 +1,6 @@
 // See README file.
 
-function hello() {
-  alert('hello');
-}
-
 function blog_feed(labels,max) {
-alert('c1');
   var dmax = 255;
   var r = '';
   r = r + 'http://blog.b82.dk/feeds/posts/default';
@@ -22,7 +17,6 @@ alert('c1');
 }
 
 function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
-alert('b1');
 
   $.ajax({
     url: blog_feed(labels,max),
@@ -89,7 +83,6 @@ alert('b1');
 
 function show_posts(div,labels,header) {
   
-  alert('a1');
   show_blog_feed(div,labels,'','',header,1,1);
 
 }
