@@ -2,7 +2,7 @@
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'aaa'
+  document.getElementById(div).innerHTML += 'bbb'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -145,8 +145,6 @@ function show_random(div,labels) {
 
 function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
-  page_start(div);
-  
   document.getElementById(div).innerHTML += '<h1>' + alias + '</h1>';
   
   show_body(div,label+' Intro');
@@ -172,7 +170,5 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
   show_body(div,label+' Extra');
 
-  page_end(div);
-  
 }
 
