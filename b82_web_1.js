@@ -2,7 +2,7 @@
 
 var b82divn = 0;
 
-function blog_feed(labels,max) {
+function feed(labels,max) {
   var dmax = 255;
   var r = '';
   r = r + 'http://blog.b82.dk/feeds/posts/default';
@@ -22,7 +22,7 @@ function blog_feed(labels,max) {
 function show_feed(div,labels,max,random,header,show_title,show_content) {
 
   $.ajax({
-    url: blog_feed(labels,max),
+    url: feed(labels,max),
     type: 'get',
     dataType: 'jsonp',
     success: function(data) {
@@ -146,7 +146,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'eee'
+  document.getElementById(div).innerHTML += 'fff'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
