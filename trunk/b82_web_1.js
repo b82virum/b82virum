@@ -1,5 +1,9 @@
 // See README file.
 
+function hello() {
+  alert('hello');
+}
+
 function blog_feed(labels,max) {
   var dmax = 255;
   var r = '';
