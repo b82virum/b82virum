@@ -2,7 +2,7 @@
 
 var b82divn = 0;
 
-function feed(labels,max) {
+function blog_feed(labels,max) {
   var dmax = 255;
   var r = '';
   r = r + 'http://blog.b82.dk/feeds/posts/default';
@@ -19,14 +19,14 @@ function feed(labels,max) {
   // http://blog.b82.dk/feeds/posts/default/-/label1/label2?alt=json-in-script&max-results=255&callback=?
 }
 
-function show_feed(div,labels,max,random,header,show_title,show_content) {
+function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
 
   b82divn++;
   document.getElementById(div).innerHTML += '<div id="' + div+b82divn + '"></div>';
   div += b82divn;
 
   $.ajax({
-    url: feed(labels,max),
+    url: blog_feed(labels,max),
     type: 'get',
     dataType: 'jsonp',
     success: function(data) {
@@ -88,14 +88,6 @@ function show_feed(div,labels,max,random,header,show_title,show_content) {
 
 }
 
-function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
-//  b82divn++;
-//  document.getElementById(div).innerHTML += '<div id="' + div+b82divn + '"></div>';
-//  show_feed(div+b82divn,labels,max,random,header,show_title,show_content);
-  show_feed(div,labels,max,random,header,show_title,show_content);
-
-}
-
 function show_post(div,labels,header) {
   
   show_blog_feed(div,labels,'','',header,1,1);
@@ -151,7 +143,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'hhh'
+  document.getElementById(div).innerHTML += 'iii'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
