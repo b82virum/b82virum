@@ -31,7 +31,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
     url: blog_feed(labels,max),
     type: 'get',
     dataType: 'jsonp',
-    done: function(data) {
+    success: function(data) {
       
       // First/last post
       var fi = 0;
@@ -145,7 +145,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'lll'
+  document.getElementById(div).innerHTML += 'mmm'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
