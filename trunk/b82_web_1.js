@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'qqq'
+  document.getElementById(div).innerHTML += 'rrr'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -165,6 +165,136 @@ function page_end(div) {
 
 }
 
+function show_times(div,team) {
+
+  var n = b82uid();
+  document.getElementById(div).innerHTML += '<div id="' + div+n + '"></div>';
+  div += n;
+
+  $.ajax({
+    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dFI4V24tZ19hUWxQQV9rU1hja19JZXc/2/public/values?alt=json-in-script&callback=?',
+    type: 'get',
+    dataType: 'jsonp',
+    success: function(data) {
+      
+      var len = data.feed.entry.length;
+
+      var last_season='';
+      var last_day='';
+
+      document.getElementById(div).innerHTML += '<p><table border="1" bordercolor="red">';
+
+      for (var i=0; i<len; i++) {
+
+        if (team != '') {
+          if (data.feed.entry[i].gsx$team.$t != team) {
+            continue;
+          }
+        }
+
+        if (data.feed.entry[i].gsx$season.$t != last_season) {
+
+          if (team == '') {
+            document.getElementById(div).innerHTML +=
+              '<tr><th colspan="4">' +
+              '<div style="text-align: center;">' +
+              data.feed.entry[i].gsx$season.$t +
+              '</div>' +
+              '</th></tr>';
+          }
+          else {
+            document.getElementById(div).innerHTML +=
+              '<tr><th colspan="3">' +
+              '<div style="text-align: center;">' +
+              data.feed.entry[i].gsx$season.$t +
+              '</div>' +
+              '</th></tr>';
+          }
+
+          last_season=data.feed.entry[i].gsx$season.$t;
+          last_day='';
+
+          document.getElementById(div).innerHTML += '<tr>';
+
+          document.getElementById(div).innerHTML +=
+            '<th>' +
+            'Dag' +
+            '</th>';
+
+          document.getElementById(div).innerHTML +=
+            '<th>' +
+            'Tid' +
+            '</th>';
+
+          document.getElementById(div).innerHTML +=
+            '<th>' +
+            'Sted' +
+            '</th>';
+
+          if (team == '') {
+
+            document.getElementById(div).innerHTML +=
+              '<th>' +
+              'Hold' +
+              '</th>';
+
+          }
+
+          document.getElementById(div).innerHTML += '</tr>';
+
+        }
+
+        document.getElementById(div).innerHTML += '<tr>';
+
+        if (data.feed.entry[i].gsx$day.$t != last_day) {
+
+          document.getElementById(div).innerHTML +=
+            '<th>' +
+            data.feed.entry[i].gsx$day.$t +
+            '</th>';
+
+          last_day=data.feed.entry[i].gsx$day.$t;
+
+        }
+        else {
+
+          document.getElementById(div).innerHTML +=
+            '<td>' +
+            '</td>';
+
+        }
+
+        document.getElementById(div).innerHTML +=
+          '<td>' +
+          data.feed.entry[i].gsx$time.$t +
+          '</td>';
+
+        document.getElementById(div).innerHTML +=
+          '<td>' +
+          data.feed.entry[i].gsx$place.$t +
+          '</td>';
+
+        if (team == '') {
+
+          document.getElementById(div).innerHTML +=
+            '<td>' +
+            data.feed.entry[i].gsx$team.$t +
+            '</td>';
+
+        }
+
+        document.getElementById(div).innerHTML += '</tr>';
+
+      }
+
+      document.getElementById(div).innerHTML += '</table></p>';
+      
+    }
+    
+  });
+
+}
+
 function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
   document.getElementById(div).innerHTML += '<h1>' + alias + '</h1>';
@@ -178,7 +308,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
   //  + 'Træningstider'
   //  + '</h1>'
   //);
-  //show_times(name);
+  show_times(div,'');
   
   //show_price(name);
   
