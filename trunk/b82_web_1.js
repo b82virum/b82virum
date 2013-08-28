@@ -7,6 +7,7 @@ function show_html(div,html) {
 
   var n = b82uid();
   document.getElementById(div).innerHTML += '<div id="' + div+n + '"></div>';
+  $('#'+div).append('<div id="' + div+n + '"></div>');
   div += n;
 
   $.ajax()
@@ -130,7 +131,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'aaa'
+  document.getElementById(div).innerHTML += 'bbb'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
