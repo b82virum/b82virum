@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  $('#'+div).append('aaa'
+  $('#'+div).append('bbb'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -401,7 +401,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
   $('#'+div).append('<h2>Træningstider</h2>');
   show_times(div,label);
   
-  show_payments(div,label);
+  show_payments(div,'');
   
   //show_team_calendar(label+'%20Glimt',name,cal1,cal2);
 
