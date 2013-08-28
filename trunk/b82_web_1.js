@@ -38,7 +38,7 @@ function blog_feed(labels,max) {
 function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
 
   var n = b82uid();
-  document.getElementById(div).innerHTML += '<div id="' + div+n + '"></div>';
+  $('#'+div).append('<div id="' + div+n + '"></div>');
   div += n;
 
   $.ajax({
@@ -61,7 +61,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
       
       // If any, show header
       if (fi < li) {
-        document.getElementById(div).innerHTML += '<h2>' + header + '</h2>';
+        $('#'+div).append('<h2>' + header + '</h2>');
       }
       
       for (var i = fi; i < li; i++) {
@@ -88,12 +88,12 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
         
         // title+link
         if (show_title == 1) {
-          document.getElementById(div).innerHTML += '<a href="' + href + '">' + '<h3>' + title + '</h3>' + '</a>';
+          $('#'+div).append('<a href="' + href + '">' + '<h3>' + title + '</h3>' + '</a>');
         }
 
         // content
         if (show_content == 1) {
-          document.getElementById(div).innerHTML += '<p>' + content + '</p>';
+          $('#'+div).append('<p>' + content + '</p>');
         }  
         
       }
@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'ddd'
+  $('#'+div).append('zzz'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -151,7 +151,7 @@ function page_start(div) {
     + '  text-align: center;'
     + '}'
     + '</style>'
-  ;
+  );
   
   show_body(div,'B82 Header');
   
@@ -159,7 +159,7 @@ function page_start(div) {
 
 function page_end(div) {
 
-  document.getElementById(div).innerHTML += '<p><div style="text-align: center;"><a href="http://www.sportyfied.com/to/vm59e9" target="_blank"><img alt="Sportyfied" border="0" height="160" src="http://www.sportyfied.com/simg/vm59e9.jpg" style="border-style:none; padding:0;" title="B82 webshop" width="920" /></a></div></p>';
+  $('#'+div).append('<p><div style="text-align: center;"><a href="http://www.sportyfied.com/to/vm59e9" target="_blank"><img alt="Sportyfied" border="0" height="160" src="http://www.sportyfied.com/simg/vm59e9.jpg" style="border-style:none; padding:0;" title="B82 webshop" width="920" /></a></div></p>');
 
   show_body(div,'B82 Footer');
 
@@ -168,7 +168,7 @@ function page_end(div) {
 function show_times(div,team) {
 
   var n = b82uid();
-  document.getElementById(div).innerHTML += '<div id="' + div+n + '"></div>';
+  $('#'+div).append('<div id="' + div+n + '"></div>');
   div += n;
 
   $.ajax({
@@ -182,7 +182,7 @@ function show_times(div,team) {
       var last_season='';
       var last_day='';
 
-      document.getElementById(div).innerHTML += '<p><table border="1" bordercolor="red">';
+      $('#'+div).append('<p><table border="1" bordercolor="red">');
 
       for (var i=0; i<len; i++) {
 
@@ -195,99 +195,110 @@ function show_times(div,team) {
         if (data.feed.entry[i].gsx$season.$t != last_season) {
 
           if (team == '') {
-            document.getElementById(div).innerHTML +=
+            $('#'+div).append(
               '<tr><th colspan="4">' +
               '<div style="text-align: center;">' +
               data.feed.entry[i].gsx$season.$t +
               '</div>' +
-              '</th></tr>';
+              '</th></tr>'
+            );
           }
           else {
-            document.getElementById(div).innerHTML +=
+            $('#'+div).append(
               '<tr><th colspan="3">' +
               '<div style="text-align: center;">' +
               data.feed.entry[i].gsx$season.$t +
               '</div>' +
-              '</th></tr>';
+              '</th></tr>'
+            );
           }
 
           last_season=data.feed.entry[i].gsx$season.$t;
           last_day='';
 
-          document.getElementById(div).innerHTML += '<tr>';
+          $('#'+div).append('<tr>');
 
-          document.getElementById(div).innerHTML +=
+          $('#'+div).append(
             '<th>' +
             'Dag' +
-            '</th>';
+            '</th>'
+          );
 
-          document.getElementById(div).innerHTML +=
+          $('#'+div).append(
             '<th>' +
             'Tid' +
-            '</th>';
+            '</th>'
+          );
 
-          document.getElementById(div).innerHTML +=
+          $('#'+div).append(
             '<th>' +
             'Sted' +
-            '</th>';
+            '</th>'
+          );
 
           if (team == '') {
 
-            document.getElementById(div).innerHTML +=
+            $('#'+div).append(
               '<th>' +
               'Hold' +
-              '</th>';
+              '</th>'
+            );
 
           }
 
-          document.getElementById(div).innerHTML += '</tr>';
+          $('#'+div).append('</tr>');
 
         }
 
-        document.getElementById(div).innerHTML += '<tr>';
+        $('#'+div).append('<tr>');
 
         if (data.feed.entry[i].gsx$day.$t != last_day) {
 
-          document.getElementById(div).innerHTML +=
+          $('#'+div).append(
             '<th>' +
             data.feed.entry[i].gsx$day.$t +
-            '</th>';
+            '</th>'
+          );
 
           last_day=data.feed.entry[i].gsx$day.$t;
 
         }
         else {
 
-          document.getElementById(div).innerHTML +=
+          $('#'+div).append(
             '<td>' +
-            '</td>';
+            '</td>'
+          );
 
         }
 
-        document.getElementById(div).innerHTML +=
+        $('#'+div).append(
           '<td>' +
           data.feed.entry[i].gsx$time.$t +
-          '</td>';
+          '</td>'
+        );
 
-        document.getElementById(div).innerHTML +=
+        $('#'+div).append(
           '<td>' +
           data.feed.entry[i].gsx$place.$t +
-          '</td>';
+          '</td>'
+        );
 
         if (team == '') {
 
-          document.getElementById(div).innerHTML +=
+          $('#'+div).append(
             '<td>' +
             data.feed.entry[i].gsx$team.$t +
-            '</td>';
+            '</td>'
+          );
 
         }
 
-        document.getElementById(div).innerHTML += '</tr>';
+        $('#'+div).append('</tr>');
 
       }
 
-      document.getElementById(div).innerHTML += '</table></p>';
+      $('#'+div).append('</table></p>');
       
     }
     
@@ -297,13 +308,13 @@ function show_times(div,team) {
 
 function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
-  document.getElementById(div).innerHTML += '<h1>' + alias + '</h1>';
+  $('#'+div).append('<h1>' + alias + '</h1>');
   
   show_body(div,label+' Intro');
 
   show_random(div,label+' Sponsor');
 
-  document.getElementById(div).innerHTML += '<h2>Træningstider</h2>';
+  $('#'+div).append('<h2>Træningstider</h2>');
   show_times(div,label);
   
   //show_price(name);
