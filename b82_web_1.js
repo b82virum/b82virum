@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  $('#'+div).append('bbb'
+  $('#'+div).append('ccc'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -390,7 +390,7 @@ function show_times(div,team) {
 
 }
 
-function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
+function show_team(div,label,name,alias) {
 
   $('#'+div).append('<h1>' + alias + '</h1>');
   
@@ -401,10 +401,8 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
   $('#'+div).append('<h2>Træningstider</h2>');
   show_times(div,label);
   
-  show_payments(div,'');
+  show_payments(div,label);
   
-  //show_team_calendar(label+'%20Glimt',name,cal1,cal2);
-
   show_post(div,label+' Holdleder','Holdledere');
 
   show_post(div,label+' Træner','Trænere');
