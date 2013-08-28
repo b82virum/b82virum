@@ -308,7 +308,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
   //  + 'Træningstider'
   //  + '</h1>'
   //);
-  show_times(div,'');
+  show_times(div,label);
   
   //show_price(name);
   
