@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  $('#'+div).append('zzz'
+  $('#'+div).append('aaa'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -162,6 +162,90 @@ function page_end(div) {
   $('#'+div).append('<p><div style="text-align: center;"><a href="http://www.sportyfied.com/to/vm59e9" target="_blank"><img alt="Sportyfied" border="0" height="160" src="http://www.sportyfied.com/simg/vm59e9.jpg" style="border-style:none; padding:0;" title="B82 webshop" width="920" /></a></div></p>');
 
   show_body(div,'B82 Footer');
+
+}
+
+function show_payments(div,team) {
+
+  var n = b82uid();
+  $('#'+div).append('<div id="' + div+n + '"></div>');
+  div += n;
+
+  $.ajax({
+    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/2/public/values?alt=json-in-script&callback=?',
+    type: 'get',
+    dataType: 'jsonp',
+    success: function(data) {
+      
+      var len = data.feed.entry.length;
+
+      $('#'+div).append('<h2>Kontingent</h2>');
+
+      $('#'+div).append('<p><table border="1" bordercolor="red">');
+
+      $('#'+div).append('<tr>');
+
+      $('#'+div).append('<th>' +
+                        'Sæson' +
+                        '</th>');
+
+      $('#'+div).append('<th>' +
+                        'Forfald' +
+                        '</th>');
+
+      $('#'+div).append('<th>' +
+                        'Beløb' +
+                        '</th>');
+
+      if (team == '') {
+
+        $('#'+div).append('<th>' +
+                          'Hold' +
+                          '</th>');
+
+      }
+
+      $('#'+div).append('</tr>');
+
+      for (var i=0; i<len; i++) {
+
+        if (team != '') {
+          if (data.feed.entry[i].gsx$team.$t != team) {
+            continue;
+          }
+        }
+
+        $('#'+div).append('<tr>');
+
+        $('#'+div).append('<td>' +
+                          data.feed.entry[i].gsx$season.$t +
+                          '</td>');
+
+        $('#'+div).append('<td>' +
+                          data.feed.entry[i].gsx$due.$t +
+                          '</td>');
+
+        $('#'+div).append('<td><div style="text-align: right;">' +
+                          data.feed.entry[i].gsx$price.$t +
+                          '</div></td>');
+
+        if (team == '') {
+
+          $('#'+div).append('<td>' +
+                            data.feed.entry[i].gsx$team.$t +
+                            '</td>');
+
+        }
+
+        $('#'+div).append('</tr>');
+
+      }
+
+      $('#'+div).append('</table></p>');
+
+    }
+
+  });
 
 }
 
@@ -317,7 +401,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
   $('#'+div).append('<h2>Træningstider</h2>');
   show_times(div,label);
   
-  //show_price(name);
+  show_payments(div,label);
   
   //show_team_calendar(label+'%20Glimt',name,cal1,cal2);
 
