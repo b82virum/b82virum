@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'rrr'
+  document.getElementById(div).innerHTML += 'aaa'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
