@@ -14,7 +14,7 @@ function show_html(div,html) {
     // .done(function()   { alert("success");  })
     // .fail(function()   { alert("error");    })
     // .always(function() { alert("complete"); })
-    .always(function() { document.getElementById(div).innerHTML += html; })
+    .always(function() { $('#'+div).append(html); })
   ;
   
 }
@@ -131,7 +131,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'ccc'
+  document.getElementById(div).innerHTML += 'ddd'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
