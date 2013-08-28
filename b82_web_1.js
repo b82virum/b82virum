@@ -6,8 +6,8 @@ var b82uid = (function(){var id=0;return function(){if(arguments[0]===0)id=0;ret
 function show_html(div,html) {
 
   var n = b82uid();
-  document.getElementById(div).innerHTML += '<div id="' + div+b82uid + '"></div>';
-  div += b82uid;
+  document.getElementById(div).innerHTML += '<div id="' + div+n + '"></div>';
+  div += n;
 
   $.ajax()
     // .done(function()   { alert("success");  })
@@ -38,8 +38,8 @@ function blog_feed(labels,max) {
 function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
 
   var n = b82uid();
-  document.getElementById(div).innerHTML += '<div id="' + div+b82uid + '"></div>';
-  div += b82uid;
+  document.getElementById(div).innerHTML += '<div id="' + div+n + '"></div>';
+  div += n;
 
   $.ajax({
     url: blog_feed(labels,max),
@@ -159,7 +159,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'ppp'
+  document.getElementById(div).innerHTML += 'qqq'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
