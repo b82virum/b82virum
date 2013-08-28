@@ -6,7 +6,7 @@ var b82uid = (function(){var id=0;return function(){if(arguments[0]===0)id=0;ret
 function show_html(div,html) {
 
   var n = b82uid();
-  document.getElementById(div).innerHTML += '<div id="' + div+n + '"></div>';
+  //document.getElementById(div).innerHTML += '<div id="' + div+n + '"></div>';
   $('#'+div).append('<div id="' + div+n + '"></div>');
   div += n;
 
@@ -131,7 +131,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'bbb'
+  document.getElementById(div).innerHTML += 'ccc'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
