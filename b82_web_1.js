@@ -22,7 +22,7 @@ function blog_feed(labels,max) {
 }
 
 function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
-  alert(uid());
+
   b82divn++;
   document.getElementById(div).innerHTML += '<div id="' + div+b82divn + '"></div>';
   div += b82divn;
