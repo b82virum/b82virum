@@ -145,7 +145,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'jjj'
+  document.getElementById(div).innerHTML += 'kkk'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
