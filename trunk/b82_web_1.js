@@ -1,5 +1,6 @@
 // See README file.
 
+// b82uid() will return a uniq id
 var b82uid = (function(){var id=0;return function(){if(arguments[0]===0)id=0;return id++;}})();
 
 function blog_feed(labels,max) {
@@ -143,7 +144,7 @@ function show_team(div,label,name,alias,cal1,cal2,spare3,spare4) {
 
 function page_start(div) {
 
-  document.getElementById(div).innerHTML += 'nnn'
+  document.getElementById(div).innerHTML += 'ooo'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
