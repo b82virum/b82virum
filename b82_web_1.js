@@ -6,7 +6,6 @@ var b82uid = (function(){var id=0;return function(){if(arguments[0]===0)id=0;ret
 function show_html(div,html) {
 
   var n = b82uid();
-  //document.getElementById(div).innerHTML += '<div id="' + div+n + '"></div>';
   $('#'+div).append('<div id="' + div+n + '"></div>');
   div += n;
 
