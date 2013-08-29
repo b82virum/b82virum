@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  $('#'+div).append('kkk'
+  $('#'+div).append('lll'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -170,16 +170,20 @@ function show_payments(div,team) {
   var n = b82uid();
   $('#'+div).append('<div id="' + div+n + '"></div>');
   div += n;
+  
+  var chk = 0;
 
   $.ajax({
     url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/2/public/values?alt=json-in-script&callback=?',
     type: 'get',
     dataType: 'jsonp'})
-    .fail(function() { $('#'+div).append('<p>+++fejl</p>'); })
+    .always(function() { $('#'+div).append('<p>+++chk='+chk+''</p>'); })
     .done(function(data) {
       
       var html = '';
       var len = data.feed.entry.length;
+      
+      chk=len;
 
       html += '<h2>Kontingent</h2>';
 
