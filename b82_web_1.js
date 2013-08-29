@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  $('#'+div).append('ppp'
+  $('#'+div).append('qqq'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -173,10 +173,10 @@ function show_payments(div,team) {
   $('#'+div).append('<div id="' + div+n + '"></div>');
   div += n;
 
-  $('#'+div).html('<p>Kontingent ...</p>');
+  $('#'+div).html('<p>'<p>Hvis du ikke ser kontingent her (men denne tekst), så log ind og/eller ud på <a href="http://www.google.com">google</a>!</p>'</p>');
   
   $.ajax({
-    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/2/public/values?alt=json-in-script&callback=?',
+    url: 'https://xspreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/2/public/values?alt=json-in-script&callback=?',
     type: 'get',
     dataType: 'jsonp'})
     .done(function(data) {
@@ -260,8 +260,10 @@ function show_times(div,team) {
   $('#'+div).append('<div id="' + div+n + '"></div>');
   div += n;
 
+  $('#'+div).html('<p>Hvis du ikke ser træningstider her (men denne tekst), så log ind og/eller ud på <a href="http://www.google.com">google</a>!</p>');
+      
   $.ajax({
-    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dFI4V24tZ19hUWxQQV9rU1hja19JZXc/2/public/values?alt=json-in-script&callback=?',
+    url: 'https://xspreadsheets.google.com/feeds/list/0Akm30OX8lPv2dFI4V24tZ19hUWxQQV9rU1hja19JZXc/2/public/values?alt=json-in-script&callback=?',
     type: 'get',
     dataType: 'jsonp'})
     .done(function(data) {
@@ -390,7 +392,7 @@ function show_times(div,team) {
 
       html += '</tbody></table></p>';
 
-      $('#'+div).append(html);
+      $('#'+div).html(html);
       
     })
     
