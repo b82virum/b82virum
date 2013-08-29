@@ -400,7 +400,7 @@ function show_times(div,label) {
 
 function show_team(div,label,alias) {
   
-  $('#'+div).append('<h1>aaa' + alias + '</h1>');
+  $('#'+div).append('<h1>' + alias + '</h1>');
   
   show_body(div,label+' Intro');
   show_body(div,label+'/Intro');
