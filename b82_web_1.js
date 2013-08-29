@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  $('#'+div).append('mmm'
+  $('#'+div).append('nnn'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -177,7 +177,6 @@ function show_payments(div,team) {
     url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/2/public/values?alt=json-in-script&callback=?',
     type: 'get',
     dataType: 'jsonp'})
-    .always(function() { $('#'+div).append('<p>+++chk='+chk+'+++</p>'); })
     .done(function(data) {
       
       var html = '';
@@ -252,6 +251,8 @@ function show_payments(div,team) {
       $('#'+div).append(html);
 
     })
+
+    .always(function() { $('#'+div).append('<p>+++chk='+chk+'+++</p>'); })
 
   ;
 
