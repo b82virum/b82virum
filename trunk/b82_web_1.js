@@ -44,8 +44,8 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
   $.ajax({
     url: blog_feed(labels,max),
     type: 'get',
-    dataType: 'jsonp',
-    success: function(data) {
+    dataType: 'jsonp'})
+    .done(function(data) {
       
       // First/last post
       var fi = 0;
@@ -98,9 +98,9 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
         
       }
 
-    }
+    })
 
-  });
+  ;
 
 }
 
@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  $('#'+div).append('rrr'
+  $('#'+div).append('sss'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
