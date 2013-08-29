@@ -420,8 +420,8 @@ function show_team(div,label,alias) {
   show_post(div,label+' Træner','Trænere');
   //show_post(div,label+'/Trænere','Trænere');
 
-  show_post(div,label+' Assistent træner','Assistent trænere');
-  //show_post(div,label+'/Assistent trænere','Assistent trænere');
+  show_post(div,label+' Assistenttræner','Assistenttrænere');
+  //show_post(div,label+'/Assistenttrænere','Assistenttrænere');
 
   show_post(div,label+' Glimt','Glimt');
   //show_post(div,label+'/Glimt','Glimt');
