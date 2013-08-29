@@ -403,10 +403,10 @@ function show_team(div,label,alias) {
   $('#'+div).append('<h1>' + alias + '</h1>');
   
   show_body(div,label+' Intro');
-  show_body(div,label+'/Intro');
+  //show_body(div,label+'/Intro');
 
   show_random(div,label+' Sponsor');
-  show_random(div,label+'/Sponsorer');
+  //show_random(div,label+'/Sponsorer');
 
   $('#'+div).append('<h2>Træningstider</h2>');
   show_times(div,label);
@@ -415,17 +415,18 @@ function show_team(div,label,alias) {
   show_payments(div,label);
   
   show_post(div,label+' Holdleder','Holdledere');
-  show_post(div,label+'/Holdledere','Holdledere');
+  //show_post(div,label+'/Holdledere','Holdledere');
 
   show_post(div,label+' Træner','Trænere');
-  show_post(div,label+'/Trænere','Trænere');
+  //show_post(div,label+'/Trænere','Trænere');
 
-  show_post(div,label+'/Assistent trænere','Assistent trænere');
+  show_post(div,label+' Assistent træner','Assistent trænere');
+  //show_post(div,label+'/Assistent trænere','Assistent trænere');
 
   show_post(div,label+' Glimt','Glimt');
-  show_post(div,label+'/Glimt','Glimt');
+  //show_post(div,label+'/Glimt','Glimt');
 
   show_body(div,label+' Extra');
-  show_body(div,label+'/Extra');
+  //show_body(div,label+'/Extra');
 
 }
