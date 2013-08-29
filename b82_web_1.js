@@ -167,12 +167,14 @@ function page_end(div) {
 
 function show_payments(div,team) {
 
+  $('#'+div).append('<h2>Kontingent</h2>');
+
   var n = b82uid();
   $('#'+div).append('<div id="' + div+n + '"></div>');
   div += n;
-  
-  var chk = 0;
 
+  $('#'+div).html('<p>Kontingent ...</p>');
+  
   $.ajax({
     url: 'https://xspreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/2/public/values?alt=json-in-script&callback=?',
     type: 'get',
@@ -181,10 +183,6 @@ function show_payments(div,team) {
       
       var html = '';
       var len = data.feed.entry.length;
-      
-      chk=len;
-
-      html += '<h2>Kontingent</h2>';
 
       html += '<p><table border="1" bordercolor="red"><tbody>';
 
@@ -248,11 +246,9 @@ function show_payments(div,team) {
 
       html += '</tbody></table></p>';
 
-      $('#'+div).append(html);
+      $('#'+div).html(html);
 
     })
-
-    .always(function() { $('#'+div).append('<p>+++chk='+chk+'+++</p>'); })
 
   ;
 
