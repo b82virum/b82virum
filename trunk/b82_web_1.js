@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  $('#'+div).append('uuu'
+  $('#'+div).append(''
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -398,8 +398,7 @@ function show_times(div,label) {
 
 }
 
-function show_team(div,label,name,alias) {
-  //+++name skal væk
+function show_team(div,label,alias) {
   
   $('#'+div).append('<h1>' + alias + '</h1>');
   
