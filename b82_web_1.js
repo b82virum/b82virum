@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  $('#'+div).append('ooo'
+  $('#'+div).append('ppp'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -176,7 +176,7 @@ function show_payments(div,team) {
   $('#'+div).html('<p>Kontingent ...</p>');
   
   $.ajax({
-    url: 'https://xspreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/2/public/values?alt=json-in-script&callback=?',
+    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/2/public/values?alt=json-in-script&callback=?',
     type: 'get',
     dataType: 'jsonp'})
     .done(function(data) {
