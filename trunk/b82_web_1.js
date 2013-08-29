@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  $('#'+div).append('ddd'
+  $('#'+div).append('eee'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -177,35 +177,36 @@ function show_payments(div,team) {
     dataType: 'jsonp',
     success: function(data) {
       
+      var html = '';
       var len = data.feed.entry.length;
 
-      $('#'+div).append('<h2>Kontingent</h2>');
+      html += '<h2>Kontingent</h2>';
 
-      $('#'+div).append('<p><table border="1" bordercolor="red"><tbody>');
+      html += '<p><table border="1" bordercolor="red"><tbody>';
 
-      $('#'+div).append('<tr>');
+      html += '<tr>';
 
-      $('#'+div).append('<th>' +
-                        'Sæson' +
-                        '</th>');
+      html += '<th>' +
+              'Sæson' +
+              '</th>';
 
-      $('#'+div).append('<th>' +
-                        'Forfald' +
-                        '</th>');
+      html += '<th>' +
+              'Forfald' +
+              '</th>';
 
-      $('#'+div).append('<th>' +
-                        'Beløb' +
-                        '</th>');
+      html += '<th>' +
+              'Beløb' +
+              '</th>';
 
       if (team == '') {
 
-        $('#'+div).append('<th>' +
-                          'Hold' +
-                          '</th>');
+        html += '<th>' +
+                'Hold' +
+                '</th>';
 
       }
 
-      $('#'+div).append('</tr>');
+      html += '</tr>';
 
       for (var i=0; i<len; i++) {
 
@@ -215,33 +216,35 @@ function show_payments(div,team) {
           }
         }
 
-        $('#'+div).append('<tr>');
+        html += '<tr>';
 
-        $('#'+div).append('<td>' +
-                          data.feed.entry[i].gsx$season.$t +
-                          '</td>');
+        html += '<td>' +
+                data.feed.entry[i].gsx$season.$t +
+                '</td>';
 
-        $('#'+div).append('<td>' +
-                          data.feed.entry[i].gsx$due.$t +
-                          '</td>');
+        html += '<td>' +
+                data.feed.entry[i].gsx$due.$t +
+                '</td>';
 
-        $('#'+div).append('<td><div style="text-align: right;">' +
-                          data.feed.entry[i].gsx$price.$t +
-                          '</div></td>');
+        html += '<td><div style="text-align: right;">' +
+                data.feed.entry[i].gsx$price.$t +
+                '</div></td>';
 
         if (team == '') {
 
-          $('#'+div).append('<td>' +
-                            data.feed.entry[i].gsx$team.$t +
-                            '</td>');
+          html += '<td>' +
+                  data.feed.entry[i].gsx$team.$t +
+                  '</td>';
 
         }
 
-        $('#'+div).append('</tr>');
+        html += '</tr>';
 
       }
 
-      $('#'+div).append('</tbody></table></p>');
+      html += '</tbody></table></p>';
+
+      $('#'+div).append(html);
 
     }
 
@@ -261,12 +264,13 @@ function show_times(div,team) {
     dataType: 'jsonp',
     success: function(data) {
       
+      var html = '';
       var len = data.feed.entry.length;
 
       var last_season='';
       var last_day='';
 
-      $('#'+div).append('<p><table border="1" bordercolor="red"><tbody>');
+      html += '<p><table border="1" bordercolor="red"><tbody>';
 
       for (var i=0; i<len; i++) {
 
@@ -279,110 +283,112 @@ function show_times(div,team) {
         if (data.feed.entry[i].gsx$season.$t != last_season) {
 
           if (team == '') {
-            $('#'+div).append(
+            html +=
               '<tr><th colspan="4">' +
               '<div style="text-align: center;">' +
               data.feed.entry[i].gsx$season.$t +
               '</div>' +
               '</th></tr>'
-            );
+            ;
           }
           else {
-            $('#'+div).append(
+            html +=
               '<tr><th colspan="3">' +
               '<div style="text-align: center;">' +
               data.feed.entry[i].gsx$season.$t +
               '</div>' +
               '</th></tr>'
-            );
+            ;
           }
 
           last_season=data.feed.entry[i].gsx$season.$t;
           last_day='';
 
-          $('#'+div).append('<tr>');
+          html += '<tr>';
 
-          $('#'+div).append(
+          html +=
             '<th>' +
             'Dag' +
             '</th>'
-          );
+          ;
 
-          $('#'+div).append(
+          html +=
             '<th>' +
             'Tid' +
             '</th>'
-          );
+          ;
 
-          $('#'+div).append(
+          html +=
             '<th>' +
             'Sted' +
             '</th>'
-          );
+          ;
 
           if (team == '') {
 
-            $('#'+div).append(
+            html +=
               '<th>' +
               'Hold' +
               '</th>'
-            );
+            ;
 
           }
 
-          $('#'+div).append('</tr>');
+          html += '</tr>';
 
         }
 
-        $('#'+div).append('<tr>');
+        html += '<tr>';
 
         if (data.feed.entry[i].gsx$day.$t != last_day) {
 
-          $('#'+div).append(
+          html +=
             '<th>' +
             data.feed.entry[i].gsx$day.$t +
             '</th>'
-          );
+          ;
 
           last_day=data.feed.entry[i].gsx$day.$t;
 
         }
         else {
 
-          $('#'+div).append(
+          html +=
             '<td>' +
             '</td>'
-          );
+          ;
 
         }
 
-        $('#'+div).append(
+        html +=
           '<td>' +
           data.feed.entry[i].gsx$time.$t +
           '</td>'
-        );
+        ;
 
-        $('#'+div).append(
+        html +=
           '<td>' +
           data.feed.entry[i].gsx$place.$t +
           '</td>'
-        );
+        ;
 
         if (team == '') {
 
-          $('#'+div).append(
+          html +=
             '<td>' +
             data.feed.entry[i].gsx$team.$t +
             '</td>'
-          );
+          ;
 
         }
 
-        $('#'+div).append('</tr>');
+        html += '</tr>';
 
       }
 
-      $('#'+div).append('</tbody></table></p>');
+      html += '</tbody></table></p>';
+
+      $('#'+div).append(html);
       
     }
     
@@ -412,4 +418,3 @@ function show_team(div,label,name,alias) {
   show_body(div,label+' Extra');
 
 }
-
