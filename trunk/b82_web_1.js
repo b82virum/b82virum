@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  $('#'+div).append('sss'
+  $('#'+div).append('uuu'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -165,9 +165,7 @@ function page_end(div) {
 
 }
 
-function show_payments(div,team) {
-
-  $('#'+div).append('<h2>Kontingent</h2>');
+function show_payments(div,label) {
 
   var n = b82uid();
   $('#'+div).append('<div id="' + div+n + '"></div>');
@@ -200,7 +198,7 @@ function show_payments(div,team) {
               'Beløb' +
               '</th>';
 
-      if (team == '') {
+      if (label == '') {
 
         html += '<th>' +
                 'Hold' +
@@ -212,8 +210,8 @@ function show_payments(div,team) {
 
       for (var i=0; i<len; i++) {
 
-        if (team != '') {
-          if (data.feed.entry[i].gsx$team.$t != team) {
+        if (label != '') {
+          if (data.feed.entry[i].gsx$team.$t != label) {
             continue;
           }
         }
@@ -232,7 +230,7 @@ function show_payments(div,team) {
                 data.feed.entry[i].gsx$price.$t +
                 '</div></td>';
 
-        if (team == '') {
+        if (label == '') {
 
           html += '<td>' +
                   data.feed.entry[i].gsx$team.$t +
@@ -254,7 +252,7 @@ function show_payments(div,team) {
 
 }
 
-function show_times(div,team) {
+function show_times(div,label) {
 
   var n = b82uid();
   $('#'+div).append('<div id="' + div+n + '"></div>');
@@ -278,15 +276,15 @@ function show_times(div,team) {
 
       for (var i=0; i<len; i++) {
 
-        if (team != '') {
-          if (data.feed.entry[i].gsx$team.$t != team) {
+        if (label != '') {
+          if (data.feed.entry[i].gsx$team.$t != label) {
             continue;
           }
         }
 
         if (data.feed.entry[i].gsx$season.$t != last_season) {
 
-          if (team == '') {
+          if (label == '') {
             html +=
               '<tr><th colspan="4">' +
               '<div style="text-align: center;">' +
@@ -328,7 +326,7 @@ function show_times(div,team) {
             '</th>'
           ;
 
-          if (team == '') {
+          if (label == '') {
 
             html +=
               '<th>' +
@@ -376,7 +374,7 @@ function show_times(div,team) {
           '</td>'
         ;
 
-        if (team == '') {
+        if (label == '') {
 
           html +=
             '<td>' +
@@ -401,7 +399,8 @@ function show_times(div,team) {
 }
 
 function show_team(div,label,name,alias) {
-
+  //+++name skal væk
+  
   $('#'+div).append('<h1>' + alias + '</h1>');
   
   show_body(div,label+' Intro');
@@ -411,6 +410,7 @@ function show_team(div,label,name,alias) {
   $('#'+div).append('<h2>Træningstider</h2>');
   show_times(div,label);
   
+  $('#'+div).append('<h2>Kontingent</h2>');
   show_payments(div,label);
   
   show_post(div,label+' Holdleder','Holdledere');
