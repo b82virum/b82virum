@@ -130,7 +130,7 @@ function show_random(div,labels) {
 
 function page_start(div) {
 
-  $('#'+div).append('ccc'
+  $('#'+div).append('ddd'
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
@@ -181,7 +181,7 @@ function show_payments(div,team) {
 
       $('#'+div).append('<h2>Kontingent</h2>');
 
-      $('#'+div).append('<p><table border="1" bordercolor="red">');
+      $('#'+div).append('<p><table border="1" bordercolor="red"><tbody>');
 
       $('#'+div).append('<tr>');
 
@@ -241,7 +241,7 @@ function show_payments(div,team) {
 
       }
 
-      $('#'+div).append('</table></p>');
+      $('#'+div).append('</tbody></table></p>');
 
     }
 
@@ -266,7 +266,7 @@ function show_times(div,team) {
       var last_season='';
       var last_day='';
 
-      $('#'+div).append('<p><table border="1" bordercolor="red">');
+      $('#'+div).append('<p><table border="1" bordercolor="red"><tbody>');
 
       for (var i=0; i<len; i++) {
 
@@ -382,7 +382,7 @@ function show_times(div,team) {
 
       }
 
-      $('#'+div).append('</table></p>');
+      $('#'+div).append('</tbody></table></p>');
       
     }
     
