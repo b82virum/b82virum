@@ -173,7 +173,7 @@ function show_payments(div,team) {
   $('#'+div).append('<div id="' + div+n + '"></div>');
   div += n;
 
-  $('#'+div).html('<p>'<p>Hvis du ikke ser kontingent her (men denne tekst), så log ind og/eller ud på <a href="http://www.google.com">google</a>!</p>'</p>');
+  $('#'+div).html('<p>Hvis du ikke ser kontingent her (men denne tekst), så log ind og/eller ud på <a href="http://www.google.com">google</a>!</p>');
   
   $.ajax({
     url: 'https://xspreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/2/public/values?alt=json-in-script&callback=?',
