@@ -59,9 +59,11 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
         }
       }
       
-      // If any, show header
+      // If any, show header, if any
       if (fi < li) {
-        $('#'+div).append('<h2>' + header + '</h2>');
+        if (header != '') {
+          $('#'+div).append('<h2>' + header + '</h2>');
+        }  
       }
       
       for (var i = fi; i < li; i++) {
