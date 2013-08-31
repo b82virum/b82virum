@@ -112,6 +112,12 @@ function show_post(div,labels,header) {
 
 }
 
+function show_latest_post(div,labels,header) {
+  
+  show_blog_feed(div,labels,1,'',header,1,1);
+
+}
+
 function show_some_post(div,labels,header) {
   
   show_blog_feed(div,labels,5,'',header,1,1);
