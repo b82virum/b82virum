@@ -406,7 +406,37 @@ function show_times(div,label) {
 
 }
 
-function show_team(div,label,alias) {
+function show_join(div,join) {
+
+  if (join == '') {
+    return;
+  }
+  
+  var html = '';
+  
+  html += 'aaa';
+  html += 'bbb';
+  
+  $('#'+div).html(html);
+  
+}
+
+function join_click(join) {
+  $('#joinmsg').html('');
+  var captcha1 = Math.floor((Math.random()*1000)) % 10;
+  var captcha2 = Math.floor((Math.random()*1000)) % 10;
+  var answer = prompt('Hvad er ' + captcha1 + ' plus ' + captcha2 + ' ?','');
+  if (answer == captcha1 + captcha2) {
+    window.location.assign('http://www.holdsport.dk/' + join);
+    return true;
+  }
+  if (answer != null) {
+    $('#joinmsg').html('<mark>Forkert!</mark>');    
+  }
+  return false;
+}
+
+function show_team_1(div,label,alias,join) {
   
   $('#'+div).append('<h1>' + alias + '</h1>');
   
@@ -436,5 +466,11 @@ function show_team(div,label,alias) {
 
   show_body(div,label+' Extra');
   //show_body(div,label+'/Extra');
+
+}
+
+function show_team(div,label,alias) {
+  
+  show_team_1(div,label,alias,'');
 
 }
