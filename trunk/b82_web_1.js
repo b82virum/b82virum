@@ -406,24 +406,24 @@ function show_times(div,label) {
 
 }
 
-function show_join(div,join) {
+function show_join(div,join1,join2) {
 
-  if (join == '') {
+  if (join1 == '') {
     return;
   }
   
   var html = '';
   
-  html += 'ccc';
+  html += 'ddd';
 
   html += '<h2>Indmeld</h2>';
-  html += '<p>';
+  html += '<div id="joinmsg"></div><p>';
   html += 'I B82 bruger vi <a href="http://www.holdsport.dk">holdsport.dk</a> til medlemsregistrering og kontingentopkrævning. ';
   html += 'Se <a href="http://www.b82.dk/?id=259&c=Indmeld">Indmeld siden</a> for hjælp og vejledning.';
   html += '</p>';
   html += '<p>';
-  html += '<button onclick="join_click(' + "'" + join + "'" + ')">Klik her for at tilmelde dig til holdet</button>';
-  html += '<div id="joinmsg"></div>';
+  html += '<h3>Er du ny på holdsport.dk?</h3><button onclick="join_click(' + "'" + join1 + "'" + ')">Klik her for at oprette dig på holdsport.dk og tilmelde dig til holdet</button>';
+  html += '<h3>Har du en profil på holdsport.dk?</h3><button onclick="join_click(' + "'" + join2 + "'" + ')">Klik her for at knytte din profil til holdet</button>';
   html += '</p>';
 
   $('#'+div).append(html);
@@ -436,7 +436,7 @@ function join_click(join) {
   var captcha2 = Math.floor((Math.random()*1000)) % 10;
   var answer = prompt('Hvad er ' + captcha1 + ' plus ' + captcha2 + ' ?','');
   if (answer == captcha1 + captcha2) {
-    window.location.assign('http://www.holdsport.dk/' + join);
+    window.location.assign('http://holdsport.dk/' + join);
     return true;
   }
   if (answer != null) {
@@ -445,7 +445,7 @@ function join_click(join) {
   return false;
 }
 
-function show_team_1(div,label,alias,join) {
+function show_team_1(div,label,alias,join1,join2) {
   
   $('#'+div).append('<h1>' + alias + '</h1>');
   
@@ -461,7 +461,7 @@ function show_team_1(div,label,alias,join) {
   $('#'+div).append('<h2>Kontingent</h2>');
   show_payments(div,label);
 
-  show_join(div,join);
+  show_join(div,join1,join2);
 
   show_post(div,label+' Holdleder','Holdledere');
   //show_post(div,label+'/Holdledere','Holdledere');
@@ -482,6 +482,6 @@ function show_team_1(div,label,alias,join) {
 
 function show_team(div,label,alias) {
   
-  show_team_1(div,label,alias,'');
+  show_team_1(div,label,alias,'','');
 
 }
