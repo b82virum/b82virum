@@ -415,9 +415,10 @@ function show_join(div,join) {
   var html = '';
   
   html += 'aaa';
+  html += '<h2>Indmeld</h2>';
   html += 'bbb';
   
-  $('#'+div).html(html);
+  $('#'+div).append(html);
   
 }
 
@@ -451,7 +452,9 @@ function show_team_1(div,label,alias,join) {
   
   $('#'+div).append('<h2>Kontingent</h2>');
   show_payments(div,label);
-  
+
+  show_join(div,join);
+
   show_post(div,label+' Holdleder','Holdledere');
   //show_post(div,label+'/Holdledere','Holdledere');
 
