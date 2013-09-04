@@ -414,12 +414,12 @@ function show_join(div,join) {
   
   var html = '';
   
-  html += 'bbb';
+  html += 'ccc';
 
   html += '<h2>Indmeld</h2>';
   html += '<p>';
-  html += 'I B82 bruger vi <a href="http://holdsport.dk">holdsport.dk</a> til medlemsregistrering og kontingentopkrævning.';
-  html += 'Se <a href="http://b82.dk/?id=259&c=Indmeld">Indmeld siden</a> for hjælp og vejledning.';
+  html += 'I B82 bruger vi <a href="http://www.holdsport.dk">holdsport.dk</a> til medlemsregistrering og kontingentopkrævning. ';
+  html += 'Se <a href="http://www.b82.dk/?id=259&c=Indmeld">Indmeld siden</a> for hjælp og vejledning.';
   html += '</p>';
   html += '<p>';
   html += '<button onclick="join_click(' + "'" + join + "'" + ')">Klik her for at tilmelde dig til holdet</button>';
