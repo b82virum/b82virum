@@ -414,8 +414,6 @@ function show_join(div,join1,join2) {
   
   var html = '';
   
-  html += 'ddd';
-
   html += '<h2>Indmeld</h2>';
   html += '<div id="joinmsg"></div><p>';
   html += 'I B82 bruger vi <a href="http://www.holdsport.dk">holdsport.dk</a> til medlemsregistrering og kontingentopkrævning. ';
