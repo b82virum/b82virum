@@ -160,7 +160,7 @@ function page_start(div) {
     + '}'
     + '@media print'
     + '{'
-    + '.noprint * {display:none !important;}'
+    + '.noprint {display:none !important;}'
     + '}'
     + '</style>'
   );
