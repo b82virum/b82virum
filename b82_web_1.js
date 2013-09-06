@@ -450,17 +450,15 @@ function join_click(join) {
 function show_team_1(div,label,alias,join1,join2) {
   
   $('#'+div).append('<h1>' + alias + '</h1>');
+
+  $('#'+div).append('ccc<div id="nptest" class="noprint"></div>');
   
-  $('#'+div).append('bbb<div class="noprint">');
-  
-  show_body(div,label+' Intro');
+  show_body('nptest',label+' Intro');
   //show_body(div,label+'/Intro');
 
   show_random(div,label+' Sponsor');
   //show_random(div,label+'/Sponsorer');
 
-  $('#'+div).append('</div">');
-  
   $('#'+div).append('<h2>Træningstider</h2>');
   show_times(div,label);
   
