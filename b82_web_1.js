@@ -451,7 +451,7 @@ function show_team_1(div,label,alias,join1,join2) {
   
   $('#'+div).append('<h1>' + alias + '</h1>');
   
-  $('#'+div).append('aaa<div class="noprint">');
+  $('#'+div).append('bbb<div class="noprint">');
   
   show_body(div,label+' Intro');
   //show_body(div,label+'/Intro');
