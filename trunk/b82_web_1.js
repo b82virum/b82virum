@@ -158,9 +158,13 @@ function page_start(div) {
     + '.mobile-photo * {'
     + '  text-align: center;'
     + '}'
+    + '@media print'
+    + '{'
+    + '.noprint {display:none !important;}'
+    + '}'
     + '</style>'
   );
-  
+
   show_body(div,'B82 Header');
   
 }
@@ -447,12 +451,16 @@ function show_team_1(div,label,alias,join1,join2) {
   
   $('#'+div).append('<h1>' + alias + '</h1>');
   
+  $('#'+div).append('aaa<div class="noprint">');
+  
   show_body(div,label+' Intro');
   //show_body(div,label+'/Intro');
 
   show_random(div,label+' Sponsor');
   //show_random(div,label+'/Sponsorer');
 
+  $('#'+div).append('</div">');
+  
   $('#'+div).append('<h2>Træningstider</h2>');
   show_times(div,label);
   
