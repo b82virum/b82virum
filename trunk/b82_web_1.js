@@ -137,6 +137,7 @@ function show_random(div,labels) {
 }
 
 function page_start(div) {
+  var ndiv;
 
   $('#'+div).append(''
     + '<style type="text/css">'
@@ -159,6 +160,7 @@ function page_start(div) {
     + '  text-align: center;'
     + '}'
     + '.header {display:none !important;}'
+    + '.copyright {display:none !important;}'
     + '@media print'
     + '{'
     + '.noprint, .slideshow-wrapper, .menu-wrapper, .copyright {display:none !important;}'
@@ -166,15 +168,20 @@ function page_start(div) {
     + '</style>'
   );
 
-  show_body(div,'B82 Header');
+  ndiv=div+'header';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  show_body(ndiv,'B82 Header');
   
 }
 
 function page_end(div) {
+  var ndiv;
 
-  $('#'+div).append('<p><div style="text-align: center;"><a href="http://www.sportyfied.com/to/vm59e9" target="_blank"><img alt="Sportyfied" border="0" height="160" src="http://www.sportyfied.com/simg/vm59e9.jpg" style="border-style:none; padding:0;" title="B82 webshop" width="920" /></a></div></p>');
+  $('#'+div).append('<div class="noprint"><p><div style="text-align: center;"><a href="http://www.sportyfied.com/to/vm59e9" target="_blank"><img alt="Sportyfied" border="0" height="160" src="http://www.sportyfied.com/simg/vm59e9.jpg" style="border-style:none; padding:0;" title="B82 webshop" width="920" /></a></div></p></div>');
 
-  show_body(div,'B82 Footer');
+  ndiv=div+'footer';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  show_body(ndiv,'B82 Footer');
 
 }
 
@@ -451,7 +458,7 @@ function join_click(join) {
 function show_team_1(div,label,alias,join1,join2) {
   var ndiv;
   
-  $('#'+div).append('bbb<h1>' + alias + '</h1>');
+  $('#'+div).append('ccc<h1>' + alias + '</h1>');
 
   show_body(div,label+' Intro');
 
