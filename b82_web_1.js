@@ -108,7 +108,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             fn = title;
             tel = '0';
             email = 'b82@b82.dk';
-            vcard = 'ggg' + fn + tel + email;
+            vcard = 'hhh' + fn + tel + email;
             vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
             vcard += 'FN%3A' + fn + ' (B82)%0A';
             vcard += 'TEL%3A' + tel + '%0A';
