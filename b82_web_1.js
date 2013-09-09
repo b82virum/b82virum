@@ -113,7 +113,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             //else {
             //  //
             //}
-            vcard = 'eee tel=' + tel;
+            vcard = 'fff tel=' + tel;
             content = vcard + content;
           }
           html += '<p>' + content + '</p>';
