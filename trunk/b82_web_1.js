@@ -101,9 +101,8 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
         if (show_content == 1) {
           if (show_vcard == 1) {
             var vcard;
-            vcard = 'aaa';
+            vcard = 'bbb';
             content = vcard + content;
-            content = build_vcard();
           }
           html += '<p>' + content + '</p>';
         }  
