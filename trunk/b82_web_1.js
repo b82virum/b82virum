@@ -161,7 +161,7 @@ function page_start(div) {
     + '.header {display:none !important;}'
     + '@media print'
     + '{'
-    + '.noprint, .menu-wrapper, .copyright {display:none !important;}'
+    + '.noprint, .slideshow-wrapper, .menu-wrapper, .copyright {display:none !important;}'
     + '}'
     + '</style>'
   );
@@ -451,7 +451,7 @@ function join_click(join) {
 function show_team_1(div,label,alias,join1,join2) {
   var ndiv;
   
-  $('#'+div).append('aaa<h1>' + alias + '</h1>');
+  $('#'+div).append('bbb<h1>' + alias + '</h1>');
 
   show_body(div,label+' Intro');
 
