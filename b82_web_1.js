@@ -68,6 +68,8 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
       
       for (var i = fi; i < li; i++) {
         
+        var html;
+        
         // href
         var href = '';
         for (var j=0; j < data.feed.entry[i].link.length; j++) {
@@ -88,15 +90,21 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
           content = data.feed.entry[i].summary.$t;
         }
         
+        html = '<div style="page-break-inside:avoid;">';
+        
         // title+link
         if (show_title == 1) {
-          $('#'+div).append('<a href="' + href + '">' + '<h3>' + title + '</h3>' + '</a>');
+          html += '<a href="' + href + '">' + '<h3>' + title + '</h3>' + '</a>';
         }
 
         // content
         if (show_content == 1) {
-          $('#'+div).append('<p>' + content + '</p>');
+          html += '<p>' + content + '</p>';
         }  
+
+        html += '</div>';
+
+        $('#'+div).append(html);
         
       }
 
