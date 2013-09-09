@@ -101,7 +101,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
         if (show_content == 1) {
           if (show_vcard == 1) {
             var vcard;
-            vcard = 'bbb';
+            vcard = 'ccc';
             content = vcard + content;
           }
           html += '<p>' + content + '</p>';
@@ -121,7 +121,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
 
 function show_contact(div,labels,header) {
   
-  show_blog_feed(div,labels,'','',header,1,1,'',1);
+  show_blog_feed(div,labels,'','',header,1,1,1);
 
 }
 
