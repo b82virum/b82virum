@@ -137,13 +137,13 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             
             vcard += 'END%3AVCARD%0A&size=200x200"/>';
             
-            n = content.indexOf('<img:',0);
+            n = content.indexOf('<img ',0);
             if (n != -1) {
               content = content.slice(0,n) + vcard + content.slice(n);
             }
             
           }
-          html += '<p>aaa' + content + '</p>';
+          html += '<p>bbb' + content + '</p>';
         }  
 
         html += '</div>';
