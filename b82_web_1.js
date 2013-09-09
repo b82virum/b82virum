@@ -109,6 +109,11 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             tel = '0';
             email = 'b82@b82.dk';
             vcard = 'ggg' + fn + tel + email;
+            vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
+            vcard += 'FN%3A' + fn + ' (B82)%0A';
+            vcard += 'TEL%3A' + tel + '%0A';
+            vcard += 'EMAIL%3A' + email + '%0A';
+            vcard += 'END%3AVCARD%0A&size=200x200"/>';
             content = vcard + content;
           }
           html += '<p>' + content + '</p>';
