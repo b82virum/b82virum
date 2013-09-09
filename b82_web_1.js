@@ -114,13 +114,13 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
               e = content.indexOf('"',s);
             }
             email = '';
-            vcard = 'iii' + fn + tel + email + 's=' + s + 'e=' + e;
+            vcard = 'jjj' + fn + tel + email + 's=' + s + 'e=' + e;
             vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
             vcard += 'FN%3A' + fn + ' (B82)%0A';
             if (tel != '') {
               vcard += 'TEL%3A' + tel + '%0A';
             }
-            if (email != '' }
+            if (email != '' {
               vcard += 'EMAIL%3A' + email + '%0A';
             }
             vcard += 'END%3AVCARD%0A&size=200x200"/>';
