@@ -117,7 +117,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             email = '';
             n = content.indexOf('mailto:',0);
             if (n != -1) {
-              email = content.slice(n+6,content.indexOf('"',n));
+              email = content.slice(n+7,content.indexOf('"',n));
             }
             
             vcard = 'nnn' + fn + tel + email + 'n=' + n;
