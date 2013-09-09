@@ -458,7 +458,7 @@ function join_click(join) {
 function show_team_1(div,label,alias,join1,join2) {
   var ndiv;
   
-  $('#'+div).append('eee<h1>' + alias + '</h1>');
+  $('#'+div).append('<h1>' + alias + '</h1>');
 
   show_body(div,label+' Intro');
 
