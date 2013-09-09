@@ -143,7 +143,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             }
             
           }
-          html += '<p>bbb' + content + '</p>';
+          html += '<p>' + content + '</p>';
         }  
 
         html += '</div>';
