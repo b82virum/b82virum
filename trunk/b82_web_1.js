@@ -106,14 +106,9 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             var tel;
             var email;
             fn = title;
-            tel = content,replace(/.*tel:/i,'');
-            //if (tel == content) {
-            //  tel = '';
-            //}
-            //else {
-            //  //
-            //}
-            vcard = 'fff tel=' + tel;
+            tel = '0';
+            email = 'b82@b82.dk';
+            vcard = 'ggg' + fn + tel + email;
             content = vcard + content;
           }
           html += '<p>' + content + '</p>';
