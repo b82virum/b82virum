@@ -114,6 +114,12 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
 
 }
 
+function show_contact(div,labels,header) {
+  
+  show_blog_feed(div,labels,'','',header,1,1,'',1);
+
+}
+
 function show_post(div,labels,header) {
   
   show_blog_feed(div,labels,'','',header,1,1,'');
@@ -486,11 +492,11 @@ function show_team_1(div,label,alias,join1,join2) {
   $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
   show_join(ndiv,join1,join2);
 
-  show_post(div,label+' Holdleder','Holdledere');
+  show_contact(div,label+' Holdleder','Holdledere');
 
-  show_post(div,label+' Træner','Trænere');
+  show_contact(div,label+' Træner','Trænere');
 
-  show_post(div,label+' Assistenttræner','Assistenttrænere');
+  show_contact(div,label+' Assistenttræner','Assistenttrænere');
 
   ndiv=div+'hilite';
   $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
