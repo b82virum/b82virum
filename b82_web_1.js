@@ -159,11 +159,10 @@ function page_start(div) {
     + '.mobile-photo * {'
     + '  text-align: center;'
     + '}'
-    + '.header {display:none !important;}'
-    + '.copyright {display:none !important;}'
+    + '#header {display:none !important;}'
     + '@media print'
     + '{'
-    + '.noprint, .slideshow-wrapper, .menu-wrapper, .copyright {display:none !important;}'
+    + '.noprint, #slideshow-wrapper, #menu-wrapper, #copyright {display:none !important;}'
     + '}'
     + '</style>'
   );
@@ -458,7 +457,7 @@ function join_click(join) {
 function show_team_1(div,label,alias,join1,join2) {
   var ndiv;
   
-  $('#'+div).append('ccc<h1>' + alias + '</h1>');
+  $('#'+div).append('ddd<h1>' + alias + '</h1>');
 
   show_body(div,label+' Intro');
 
