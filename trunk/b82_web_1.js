@@ -110,10 +110,10 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             tel = '';
             n = content.indexOf('tel:',0);
             if (n != -1) {
-              tel = content.slice(n+4,content.indexOf('"',s));
+              tel = content.slice(n+4,content.indexOf('"',n));
             }
             email = '';
-            vcard = 'lll' + fn + tel + email + 'n=' + n;
+            vcard = 'mmm' + fn + tel + email + 'n=' + n;
             vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
             vcard += 'FN%3A' + fn + ' (B82)%0A';
             if (tel != '') {
