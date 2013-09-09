@@ -105,14 +105,24 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             var fn;
             var tel;
             var email;
+            var s;
+            var e;
             fn = title;
-            tel = '0';
-            email = 'b82@b82.dk';
-            vcard = 'hhh' + fn + tel + email;
+            tel = '';
+            s = content.indexOf('tel:',0);
+            if (s != -1) {
+              e = content.indexOf('"',s);
+            }
+            email = '';
+            vcard = 'iii' + fn + tel + email + 's=' + s + 'e=' + e;
             vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
             vcard += 'FN%3A' + fn + ' (B82)%0A';
-            vcard += 'TEL%3A' + tel + '%0A';
-            vcard += 'EMAIL%3A' + email + '%0A';
+            if (tel != '') {
+              vcard += 'TEL%3A' + tel + '%0A';
+            }
+            if (email != '' }
+              vcard += 'EMAIL%3A' + email + '%0A';
+            }
             vcard += 'END%3AVCARD%0A&size=200x200"/>';
             content = vcard + content;
           }
