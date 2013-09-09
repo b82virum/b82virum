@@ -158,9 +158,10 @@ function page_start(div) {
     + '.mobile-photo * {'
     + '  text-align: center;'
     + '}'
+    + '.header {display:none !important;}'
     + '@media print'
     + '{'
-    + '.noprint {display:none !important;}'
+    + '.noprint, .menu-wrapper, .copyright {display:none !important;}'
     + '}'
     + '</style>'
   );
@@ -448,39 +449,41 @@ function join_click(join) {
 }
 
 function show_team_1(div,label,alias,join1,join2) {
+  var ndiv;
   
-  $('#'+div).append('<h1>' + alias + '</h1>');
+  $('#'+div).append('aaa<h1>' + alias + '</h1>');
 
-  $('#'+div).append('<div id="nptest" class="noprint"></div>');
-  
-  show_body('nptest',label+' Intro');
-  //show_body(div,label+'/Intro');
+  show_body(div,label+' Intro');
 
-  show_random(div,label+' Sponsor');
-  //show_random(div,label+'/Sponsorer');
+  ndiv=div+'sponsor';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  show_random(ndiv + 'sponsor',label+' Sponsor');
 
   $('#'+div).append('<h2>Træningstider</h2>');
   show_times(div,label);
   
-  $('#'+div).append('<h2>Kontingent</h2>');
-  show_payments(div,label);
+  ndiv=div+'payment';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  $('#'+ndiv).append('<h2>Kontingent</h2>');
+  show_payments(ndiv,label);
 
-  show_join(div,join1,join2);
+  ndiv=div+'join';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  show_join(ndiv,join1,join2);
 
   show_post(div,label+' Holdleder','Holdledere');
-  //show_post(div,label+'/Holdledere','Holdledere');
 
   show_post(div,label+' Træner','Trænere');
-  //show_post(div,label+'/Trænere','Trænere');
 
   show_post(div,label+' Assistenttræner','Assistenttrænere');
-  //show_post(div,label+'/Assistenttrænere','Assistenttrænere');
 
-  show_post(div,label+' Glimt','Glimt');
-  //show_post(div,label+'/Glimt','Glimt');
+  ndiv=div+'hilite';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  show_post(ndiv,label+' Glimt','Glimt');
 
-  show_body(div,label+' Extra');
-  //show_body(div,label+'/Extra');
+  ndiv=div+'extra';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  show_body(ndiv,label+' Extra');
 
 }
 
