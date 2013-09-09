@@ -100,8 +100,20 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
         // content
         if (show_content == 1) {
           if (show_vcard == 1) {
+            // <img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0AFN%3AMorten Kjærulff (B82)%0ATEL%3A20948441%0AEMAIL%3Awebmaster@b82.dk%0AEND%3AVCARD%0A&size=200x200"/>
             var vcard;
-            vcard = 'ccc';
+            var fn;
+            var tel;
+            var email;
+            fn = title;
+            tel = content,replace(/.*tel:/i,'');
+            if (tel == content) {
+              tel = '';
+            }
+            else {
+              //
+            }
+            vcard = 'ddd tel=' + tel;
             content = vcard + content;
           }
           html += '<p>' + content + '</p>';
