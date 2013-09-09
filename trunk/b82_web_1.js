@@ -163,6 +163,7 @@ function page_start(div) {
     + '@media print'
     + '{'
     + '.noprint, #slideshow-wrapper, #menu-wrapper, #copyright {display:none !important;}'
+    + '#main {border-style:none !important;}'
     + '}'
     + '</style>'
   );
@@ -457,7 +458,7 @@ function join_click(join) {
 function show_team_1(div,label,alias,join1,join2) {
   var ndiv;
   
-  $('#'+div).append('ddd<h1>' + alias + '</h1>');
+  $('#'+div).append('eee<h1>' + alias + '</h1>');
 
   show_body(div,label+' Intro');
 
