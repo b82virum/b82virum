@@ -139,7 +139,11 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             
             n = content.indexOf('<img ',0);
             if (n != -1) {
-              content = content.slice(0,n) + vcard + content.slice(n);
+              n = content.indexOf('>',0);
+              if (n != -1) {
+                n++;
+                content = content.slice(0,n) + vcard + content.slice(n);
+              }
             }
             
           }
