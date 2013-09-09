@@ -120,7 +120,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
               email = content.slice(n+7,content.indexOf('"',n));
             }
             
-            vcard = 'nnn' + fn + tel + email + 'n=' + n;
+            vcard = 'ooo' + fn + tel + email + 'n=' + n;
             vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
             vcard += 'FN%3A' + fn + ' (B82)%0A';
             if (tel != '') {
