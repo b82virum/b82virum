@@ -35,7 +35,7 @@ function blog_feed(labels,max) {
   // http://blog.b82.dk/feeds/posts/default/-/label1/label2?alt=json-in-script&max-results=255&callback=?
 }
 
-function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
+function show_blog_feed(div,labels,max,random,header,show_title,show_content,show_vcard) {
 
   var n = b82uid();
   $('#'+div).append('<div id="' + div+n + '"></div>');
@@ -116,31 +116,31 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content) {
 
 function show_post(div,labels,header) {
   
-  show_blog_feed(div,labels,'','',header,1,1);
+  show_blog_feed(div,labels,'','',header,1,1,'');
 
 }
 
 function show_latest_post(div,labels,header) {
   
-  show_blog_feed(div,labels,1,'',header,1,1);
+  show_blog_feed(div,labels,1,'',header,1,1,'');
 
 }
 
 function show_some_post(div,labels,header) {
   
-  show_blog_feed(div,labels,5,'',header,1,1);
+  show_blog_feed(div,labels,5,'',header,1,1,'');
 
 }
 
 function show_body(div,labels) {
   
-  show_blog_feed(div,labels,'','','',0,1);
+  show_blog_feed(div,labels,'','','',0,1,'');
 
 }
 
 function show_random(div,labels) {
   
-  show_blog_feed(div,labels,'',1,'',0,1);
+  show_blog_feed(div,labels,'',1,'',0,1,'');
 
 }
 
