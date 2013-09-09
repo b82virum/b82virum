@@ -107,8 +107,8 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             var email;
             var n;
             fn = title;
-            tel = '';
             
+            tel = '';
             n = content.indexOf('tel:',0);
             if (n != -1) {
               tel = content.slice(n+4,content.indexOf('"',n));
@@ -120,7 +120,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
               email = content.slice(n+7,content.indexOf('"',n));
             }
             
-            vcard = 'ppp';
+            vcard = '';
             vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
             vcard += 'FN%3A' + fn + ' (B82)%0A';
             if (tel != '') {
@@ -129,10 +129,21 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             if (email != '') {
               vcard += 'EMAIL%3A' + email + '%0A';
             }
+            
+            n = content.indexOf('mailto:',0);
+            if (n != -1) {
+              email = content.slice(n+7,content.indexOf('"',n));
+            }
+            
             vcard += 'END%3AVCARD%0A&size=200x200"/>';
-            content = vcard + content;
+            
+            n = content.indexOf('<img:',0);
+            if (n != -1) {
+              content = content.slice(0,n) + vcard + content.slice(n);
+            }
+            
           }
-          html += '<p>' + content + '</p>';
+          html += '<p>aaa' + content + '</p>';
         }  
 
         html += '</div>';
