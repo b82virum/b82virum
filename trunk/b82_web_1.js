@@ -99,55 +99,64 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
 
         // content
         if (show_content == 1) {
+        
+          // vcard
           if (show_vcard == 1) {
-            // <img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0AFN%3AMorten Kjærulff (B82)%0ATEL%3A20948441%0AEMAIL%3Awebmaster@b82.dk%0AEND%3AVCARD%0A&size=200x200"/>
+          
             var vcard;
-            var fn;
+            var name;
             var tel;
             var email;
             var n;
-            fn = title;
+            
+            name = title;
+            n = name.indexOf(' ');
+            if (n != -1) {
+              name = name.slice(n+1) + ';' + name.slice(0,n);
+            }
             
             tel = '';
-            n = content.indexOf('tel:',0);
+            n = content.indexOf('tel:');
             if (n != -1) {
               tel = content.slice(n+4,content.indexOf('"',n));
             }
             
             email = '';
-            n = content.indexOf('mailto:',0);
+            n = content.indexOf('mailto:');
             if (n != -1) {
               email = content.slice(n+7,content.indexOf('"',n));
             }
             
             vcard = '';
+            
             vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
-            vcard += 'FN%3A' + fn + ' (B82)%0A';
+            
+            vcard += 'N%3A' + name + '%0A';
+            
+            vcard += 'ORG%3AB82%0A';
+            
             if (tel != '') {
               vcard += 'TEL%3A' + tel + '%0A';
             }
+            
             if (email != '') {
               vcard += 'EMAIL%3A' + email + '%0A';
             }
             
-            n = content.indexOf('mailto:',0);
-            if (n != -1) {
-              email = content.slice(n+7,content.indexOf('"',n));
-            }
-            
             vcard += 'END%3AVCARD%0A&size=200x200"/>';
             
-            n = content.indexOf('<img ',0);
+            n = content.indexOf('<img ');
             if (n != -1) {
               n = content.indexOf('>',n);
               if (n != -1) {
                 n++;
-                // content = content.slice(0,n) + vcard + content.slice(n);
+                content = content.slice(0,n) + vcard + content.slice(n);
               }
             }
             
           }
-          html += '<p>' + content + '</p>';
+          
+          html += '<p>{' + name + '}' + content + '</p>';
         }  
 
         html += '</div>';
