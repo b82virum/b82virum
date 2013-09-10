@@ -110,7 +110,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             var n;
             
             name = title;
-            n = name.lastindexOf(' ');
+            n = name.lastIndexOf(' ');
             if (n != -1) {
               name = name.slice(n+1) + ';' + name.slice(0,n);
             }
@@ -156,7 +156,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
             
           }
           
-          html += '<p>aaa{' + name + '}' + content + '</p>';
+          html += '<p>bbb{' + name + '}' + content + '</p>';
         }  
 
         html += '</div>';
