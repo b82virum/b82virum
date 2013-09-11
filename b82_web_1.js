@@ -215,7 +215,7 @@ function page_start(div) {
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
     + '}'
-    + 'h1 {'
+    + 'h1, h2, h3 {'
     + '  text-align: center;'
     + '}'
     + 'h1, h2, a {'
@@ -273,7 +273,7 @@ function show_payments(div,label) {
       var html = '';
       var len = data.feed.entry.length;
 
-      html += '<p><table border="1" bordercolor="red"><tbody>';
+      html += '<div style="text-align:center;"><p><table border="1" bordercolor="red"><tbody>';
 
       html += '<tr>';
 
@@ -333,7 +333,7 @@ function show_payments(div,label) {
 
       }
 
-      html += '</tbody></table></p>';
+      html += '</tbody></table></p></div>';
 
       $('#'+div).html(html);
 
@@ -363,7 +363,7 @@ function show_times(div,label) {
       var last_season='';
       var last_day='';
 
-      html += '<p><table border="1" bordercolor="red"><tbody>';
+      html += '<div style="text-align:center;"><p><table border="1" bordercolor="red"><tbody>';
 
       for (var i=0; i<len; i++) {
 
@@ -479,7 +479,7 @@ function show_times(div,label) {
 
       }
 
-      html += '</tbody></table></p>';
+      html += '</tbody></table></p></div>';
 
       $('#'+div).html(html);
       
