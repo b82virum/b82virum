@@ -273,7 +273,7 @@ function show_payments(div,label) {
       var html = '';
       var len = data.feed.entry.length;
 
-      html += '<div style="text-align:center;"><p><table border="1" bordercolor="red"><tbody>';
+      html += '<p><div style="text-align:center;"><table border="1" bordercolor="red"><tbody>';
 
       html += '<tr>';
 
@@ -333,7 +333,7 @@ function show_payments(div,label) {
 
       }
 
-      html += '</tbody></table></p></div>';
+      html += '</tbody></table></div></p>';
 
       $('#'+div).html(html);
 
@@ -363,7 +363,7 @@ function show_times(div,label) {
       var last_season='';
       var last_day='';
 
-      html += '<div style="text-align:center;"><p><table border="1" bordercolor="red"><tbody>';
+      html += '<p><div style="text-align:center;"><table border="1" bordercolor="red"><tbody>';
 
       for (var i=0; i<len; i++) {
 
@@ -479,7 +479,7 @@ function show_times(div,label) {
 
       }
 
-      html += '</tbody></table></p></div>';
+      html += '</tbody></table></div></p>';
 
       $('#'+div).html(html);
       
