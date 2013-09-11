@@ -211,7 +211,7 @@ function page_start(div) {
   var ndiv;
 
   $('#'+div).append(''
-    + 'aaa<style type="text/css">'
+    + 'bbb<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
     + '}'
@@ -273,7 +273,7 @@ function show_payments(div,label) {
       var html = '';
       var len = data.feed.entry.length;
 
-      html += '<p><div style="text-align:center;"><table border="1" bordercolor="red"><tbody>';
+      html += '<p><table align="center" border="0"><tbody><tr><td><table border="1" bordercolor="red"><tbody>';
 
       html += '<tr>';
 
@@ -333,7 +333,7 @@ function show_payments(div,label) {
 
       }
 
-      html += '</tbody></table></div></p>';
+      html += '</tbody></table></td></tr></tbody></table></p>';
 
       $('#'+div).html(html);
 
@@ -363,7 +363,7 @@ function show_times(div,label) {
       var last_season='';
       var last_day='';
 
-      html += '<p><div style="text-align:center;"><table border="1" bordercolor="red"><tbody>';
+      html += '<p><table align="center" border="0"><tbody><tr><td><table border="1" bordercolor="red"><tbody>';
 
       for (var i=0; i<len; i++) {
 
@@ -479,7 +479,7 @@ function show_times(div,label) {
 
       }
 
-      html += '</tbody></table></div></p>';
+      html += '</tbody></table></td></tr></tbody></table></p>';
 
       $('#'+div).html(html);
       
