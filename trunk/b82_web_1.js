@@ -211,7 +211,7 @@ function page_start(div) {
   var ndiv;
 
   $('#'+div).append(''
-    + 'ccc<style type="text/css">'
+    + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
     + '}'
@@ -500,10 +500,10 @@ function show_join(div,join1,join2) {
   html += '<h2>Indmeld</h2>';
   html += '<div id="joinmsg"></div>';
   html += '<p><div style="text-align:center;"><b>Aftal med din træner/holdleder hvornår du skal melde dig ind.</b></div></p>';
-  html += '<p>';
+  html += '<p><div style="text-align:center;">';
   html += 'I B82 bruger vi <a href="http://www.holdsport.dk">holdsport.dk</a> til medlemsregistrering og kontingentopkrævning. ';
   html += 'Se <a href="http://www.b82.dk/?id=259&c=Indmeld">Indmeld siden</a> for hjælp og vejledning.';
-  html += '</p>';
+  html += '</div></p>';
   html += '<h3>Er du ny på holdsport.dk?</h3><p><div style="text-align:center;"><button onclick="join_click(' + "'" + join1 + "'" + ')">Klik her for at oprette dig på holdsport.dk og tilmelde dig til holdet</button></div></p>';
   html += '<h3>Har du en allerede profil på holdsport.dk?</h3><p><div style="text-align:center;"><button onclick="join_click(' + "'" + join2 + "'" + ')">Klik her for at knytte din profil til holdet</button></div></p>';
 
