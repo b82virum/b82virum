@@ -211,7 +211,7 @@ function page_start(div) {
   var ndiv;
 
   $('#'+div).append(''
-    + 'bbb<style type="text/css">'
+    + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
     + '}'
@@ -224,7 +224,7 @@ function page_start(div) {
     + 'h3, h4, h5, h6 {'
     + '  color: black;'
     + '}'
-    + '.mobile-photo a {'
+    + '.mobile-photo {'
     + '  text-align: center;'
     + '}'
     + '#header {display:none !important;}'
