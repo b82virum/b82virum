@@ -166,7 +166,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
         // Change <p class="mobile-photo" with <div class="mobile-photo"
         // This is to center mobile photos (the style seems not to work with <p
         $('p.mobile-photo').replaceWith(function() {
-          return '<div class="mobile-photo">mp1' + $(this).html() + 'mp2</div>';
+          return '<div class="mobile-photo">' + $(this).html() + '</div>';
         });
         
       }
@@ -217,7 +217,7 @@ function page_start(div) {
   var ndiv;
 
   $('#'+div).append(''
-    + 'aaa<style type="text/css">'
+    + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
     + '}'
