@@ -3,6 +3,67 @@
 // b82uid() will return a uniq id
 var b82uid = (function(){var id=0;return function(){if(arguments[0]===0)id=0;return id++;}})();
 
+$(document).ready(function () {
+
+$('.picasafeed').replaceWith(function() {
+  var args = $(this).html().split(' ');
+  var feed = args[0];
+  var html = '';
+  var id = 'slideshow' + b82uid();
+  
+  html += '<div class="slideshow" id="' + id + '">Slideshow loading ...</div>';
+  html += '<div class="picasafetch">' + id + ' ' + feed + '</div>';
+
+  return html;
+
+});
+
+$('.picasafetch').replaceWith(function() {
+  var args = $(this).html().split(' ');
+  var id = args[0];
+  var feed = args[1].split('?')[0];
+  
+  $.ajax({
+    url: feed + '?kind=photo&&alt=json-in-script&&callback=?',
+    type: 'get',
+    dataType: 'jsonp'})
+    .done(function(data) {
+      
+      var showid = id+b82uid();
+
+      var showbgn = '<div id="' + showid + '" class="fotorama" data-width="100%" data-ratio="4/3" data-allowfullscreen="native" data-transition="crossfade" data-loop="true" data-autoplay="3000" data-arrows="true" data-click="true" data-swipe="true" data-nav="thumbs">';
+      var showend = '</div>';
+      var photobgn = '<a href="';
+      var photoend = '"></a>';
+
+      var html = '';
+      var i;
+
+      html += showbgn;
+
+      for (var i = 0; i < data.feed.entry.length; i++) {
+
+        html += photobgn;
+        html += data.feed.entry[i].media$group.media$content[0].url;
+        html += photoend;
+
+      }
+
+      html += showend;
+
+      $('#'+id).html(html);
+
+      $('#'+showid).fotorama();
+
+    })
+  ;
+
+  return '';
+
+});
+
+});
+
 function show_html(div,html) {
 
   var n = b82uid();
