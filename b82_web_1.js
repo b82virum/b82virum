@@ -278,7 +278,7 @@ function page_start(div) {
   var ndiv;
 
   $('#'+div).append(''
-    + '<style type="text/css">'
+    + 'aaa<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
     + '}'
