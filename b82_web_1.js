@@ -234,6 +234,8 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
           return '<div class="mobile-photo">' + $(this).html() + '</div>';
         });
         
+        check_slideshow();
+        
       }
 
     })
@@ -282,7 +284,7 @@ function page_start(div) {
   var ndiv;
 
   $('#'+div).append(''
-    + 'bbb<style type="text/css">'
+    + 'ccc<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
     + '}'
