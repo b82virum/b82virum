@@ -3,7 +3,7 @@
 // b82uid() will return a uniq id
 var b82uid = (function(){var id=0;return function(){if(arguments[0]===0)id=0;return id++;}})();
 
-$(document).ready(function () {
+function check_slideshow() {
 
 $('.picasafeed').replaceWith(function() {
   var args = $(this).html().split(' ');
@@ -62,6 +62,10 @@ $('.picasafetch').replaceWith(function() {
 
 });
 
+}
+
+$(document).ready(function () {
+  check_slideshow();
 });
 
 function show_html(div,html) {
