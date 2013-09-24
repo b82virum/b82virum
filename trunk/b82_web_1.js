@@ -569,6 +569,9 @@ function show_join(div,join1,join2) {
   
   html += '<h2>Indmeld</h2>';
   html += '<div id="joinmsg"></div>';
+  html += '<p><div style="text-align:center;"><mark>BRUG IKKE KNAPPERNE, DE ER MIDLERTIDIG UDE AF DRIFT</mark></div></p>';
+  html += '<p><div style="text-align:center;"><mark>BRUG IKKE KNAPPERNE, DE ER MIDLERTIDIG UDE AF DRIFT</mark></div></p>';
+  html += '<p><div style="text-align:center;"><mark>BRUG IKKE KNAPPERNE, DE ER MIDLERTIDIG UDE AF DRIFT</mark></div></p>';
   html += '<p><div style="text-align:center;"><b>Aftal med din træner/holdleder hvornår du skal melde dig ind.</b></div></p>';
   html += '<p><div style="text-align:center;">';
   html += 'I B82 bruger vi <a href="http://www.holdsport.dk">holdsport.dk</a> til medlemsregistrering og kontingentopkrævning. ';
