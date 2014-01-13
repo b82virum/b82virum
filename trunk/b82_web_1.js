@@ -284,7 +284,7 @@ function page_start(div) {
   var ndiv;
 
   $('#'+div).append(''
-    + 'aaa<style type="text/css">'
+    + 'bbb<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
     + '}'
@@ -306,7 +306,7 @@ function page_start(div) {
     + '.noprint, #slideshow-wrapper, #menu-wrapper, #copyright {display:none !important;}'
     + '#main {border-style:none !important;}'
     + '}'
-    + 'img {height: auto; max-height: auto; width: auto; max-width: 50%;}'
+    + 'img {height: auto; max-height: auto; width: auto; max-width: 100%;}'
     + '</style>'
   );
 
