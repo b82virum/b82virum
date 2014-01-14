@@ -572,7 +572,7 @@ function show_join(div,join1,join2) {
   html += '<div id="joinmsg"></div>';
   html += '<p><div style="text-align:center;"><b>Aftal med din træner/holdleder hvornår du skal melde dig ind.</b></div></p>';
   html += '<p><div style="text-align:center;">';
-  html += 'I B82 bruger vi <a href="http://www.holdsport.dk">holdsport.dk</a> til medlemsregistrering og kontingentopkrævning. ';
+  html += 'I B82 bruger vi holdsport.dk til medlemsregistrering og kontingentopkrævning. ';
   html += 'Se <a href="http://www.b82.dk/?id=259&c=Indmeld">Indmeld siden</a> for hjælp og vejledning.';
   html += '</div></p>';
   html += '<h3>Er du ny på holdsport.dk?</h3><p><div style="text-align:center;"><button onclick="join_click(' + "'" + join1 + "'" + ')">Klik her for at oprette dig på holdsport.dk og tilmelde dig til holdet</button></div></p>';
