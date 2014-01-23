@@ -341,19 +341,18 @@ function show_contacts(div,team,header) {
           continue;
         }
 
-        html = '<div style="page-break-inside:avoid;">';
+        html = '<div style="page-break-inside:avoid;"><p>';
 
-        html += '<p>team=' +
-                data.feed.entry[i].gsx$team.$t +
-                '</p>';
-
-        html += '<p>title=' +
-                data.feed.entry[i].gsx$title.$t +
-                '</p>';
-
-        html += '<p>name=' +
+        html += '<h3>' +
                 data.feed.entry[i].gsx$name.$t +
-                '</p>';
+                '<br/>' +
+                data.feed.entry[i].gsx$title.$t +
+                '</h3>';
+
+        imgdiv = div + 'img' + i;
+        html += '<div id="' + imgdiv + '">' +
+                '<img style="width: 200px; height:200;" src="http://3.bp.blogspot.com/-BItomNMsn_g/TtahSG92wDI/AAAAAAAABt4/-V578wQl1UM/s200/Hoved03.jpg"/>' +
+                '</div>';
 
         html += '<p>mails=' +
                 data.feed.entry[i].gsx$mails.$t +
@@ -363,16 +362,13 @@ function show_contacts(div,team,header) {
                 data.feed.entry[i].gsx$phones.$t +
                 '</p>';
 
-        html += '<p>note=' +
+        if () {
+        html += '' +
                 data.feed.entry[i].gsx$note.$t +
-                '</p>';
+                '';
+        }        
 
-        imgdiv = div + 'img' + i;
-        html += '<div id="' + imgdiv + '">' +
-                '<img style="width: 200px; height:200;" src="http://3.bp.blogspot.com/-BItomNMsn_g/TtahSG92wDI/AAAAAAAABt4/-V578wQl1UM/s200/Hoved03.jpg"/>' +
-                '</div>';
-
-        html += '</div>';
+        html += '</p></div>';
 
         $('#'+div).append(html);
 
