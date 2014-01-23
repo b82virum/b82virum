@@ -305,7 +305,9 @@ function replace_photo(div,name) {
 
       }
 
-      $('#'+div).append('imgbgnccc<img style="width: 200px; height:200;" src="' + img + '"/>');
+      if (img != '') {
+        $('#'+div).html('imgbgnccc<img style="width: 200px; height:200;" src="' + img + '"/>');
+      }
 
     })
 
