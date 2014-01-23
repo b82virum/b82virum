@@ -359,12 +359,12 @@ function show_contacts(div,team,header) {
           html += 'mail: ';
           sep = '';
           a=data.feed.entry[i].gsx$mails.$t.split(',');
-          for (var j=0;j<a.length;j++) {
-            html += sep +
-                    a[j] +
-                    '';
-            sep = ',';
-          }
+//          for (var j=0;j<a.length;j++) {
+//            html += sep +
+//                    a[j] +
+//                    '';
+//            sep = ',';
+//          }
           html += '. ';
         }        
 
