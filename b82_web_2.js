@@ -317,7 +317,7 @@ function replace_photo(div,name) {
 
       }
 
-      $('#'+div).append('imgbgn<img src="' + img + '" width="200" height="200"/>');
+      $('#'+div).append('imgbgnaaa<img width="200" height="200" src="' + img + '"/>');
 
       $('#'+div).append('replace_phone end2');
 
