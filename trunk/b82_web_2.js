@@ -382,9 +382,9 @@ function show_contacts(div,team,header) {
         }        
 
         if (data.feed.entry[i].gsx$note.$t != '') {
-          html += '' +
+          html += '<p>' +
                   data.feed.entry[i].gsx$note.$t +
-                  '';
+                  '</p>';
         }        
 
         html += '</p></div>';
