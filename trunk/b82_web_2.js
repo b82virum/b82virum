@@ -283,33 +283,21 @@ function show_random(div,labels) {
 //+++
 function replace_photo(div,name) {
 
-  $('#'+div).append('replace_phone bgn');
-
   $.ajax({
     url: 'https://picasaweb.google.com/data/feed/base/user/104497715686917875924/albumid/5653376970059904769?authkey=Gv1sRgCP_qyoSUmMvIbQ&kind=photo&alt=json-in-script&callback=?',
     type: 'get',
     dataType: 'jsonp'})
     .done(function(data) {
 
-      $('#'+div).append('replace_phone bgn2');
-
       var html;
       var len = data.feed.entry.length;
-      var img = 'default img';
+      var img = '';
 
       for (var i=0; i<len; i++) {
 
         if (data.feed.entry[i].media$group.media$description.$t == name) {
 
-          html = '';
-
-          html += 'i=' + i;
-
           img = data.feed.entry[i].media$group.media$content[0].url;
-          html += 'url=' + data.feed.entry[i].media$group.media$content[0].url;
-          html += 'description=' + data.feed.entry[i].media$group.media$description.$t;
-
-          $('#'+div).append(html);
 
           break;
 
@@ -317,15 +305,11 @@ function replace_photo(div,name) {
 
       }
 
-      $('#'+div).append('imgbgnbbb<img style="width: 200px; height:200;" src="' + img + '"/>');
-
-      $('#'+div).append('replace_phone end2');
+      $('#'+div).append('imgbgnccc<img style="width: 200px; height:200;" src="' + img + '"/>');
 
     })
 
   ;
-
-    $('#'+div).append('replace_phone end');
 
 }
 
