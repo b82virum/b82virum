@@ -382,9 +382,12 @@ function show_contacts(div,team,header) {
         }        
 
         if (data.feed.entry[i].gsx$note.$t != '') {
-          html += '<p>' +
+          if (data.feed.entry[i].gsx$mails.$t + data.feed.entry[i].gsx$phones.$t != '') {
+            html += '. ';
+          }
+          html += '' +
                   data.feed.entry[i].gsx$note.$t +
-                  '</p>';
+                  '';
         }        
 
         html += '</p></div>';
