@@ -368,14 +368,23 @@ function show_contacts(div,team,header) {
           html += '. ';
         }        
 
-        html += '<p>phones=' +
-                data.feed.entry[i].gsx$phones.$t +
-                '</p>';
+        if (data.feed.entry[i].gsx$phones.$t != '') {
+          html += 'tlf: ';
+          sep = '';
+          a=data.feed.entry[i].gsx$phones.$t.split(',');
+          for (var j=0;j<a.length;j++) {
+            html += sep +
+                    a[j] +
+                    '';
+            sep = ',';
+          }
+          html += '. ';
+        }        
 
         if (data.feed.entry[i].gsx$note.$t != '') {
-        html += '' +
-                data.feed.entry[i].gsx$note.$t +
-                '';
+          html += '' +
+                  data.feed.entry[i].gsx$note.$t +
+                  '';
         }        
 
         html += '</p></div>';
@@ -397,7 +406,7 @@ function page_start(div) {
   var ndiv;
 
   $('#'+div).append(''
-    + 'bbb<style type="text/css">'
+    + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
     + '}'
