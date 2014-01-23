@@ -280,6 +280,123 @@ function show_random(div,labels) {
 
 }
 
+//+++
+function replace_photo(div,name) {
+
+  $('#'+div).append('replace_phone bgn');
+
+  $.ajax({
+    url: 'https://picasaweb.google.com/data/feed/base/user/104497715686917875924/albumid/5653376970059904769?authkey=Gv1sRgCP_qyoSUmMvIbQ&kind=photo&alt=json-in-script&callback=?',
+    type: 'get',
+    dataType: 'jsonp'})
+    .done(function(data) {
+
+      $('#'+div).append('replace_phone bgn2');
+
+      var html;
+      var len = data.feed.entry.length;
+      var img = 'default img';
+
+      for (var i=0; i<len; i++) {
+
+        if (data.feed.entry[i].media$group.media$description.$t == name) {
+
+          html = '';
+
+          html += 'i=' + i;
+
+          img = data.feed.entry[i].media$group.media$content[0].url;
+          html += 'url=' + data.feed.entry[i].media$group.media$content[0].url;
+          html += 'description=' + data.feed.entry[i].media$group.media$description.$t;
+
+          $('#'+div).append(html);
+
+          break;
+
+        }
+
+      }
+
+      $('#'+div).append('imgbgn<img src="' + img + '" width="200" height="200"/>');
+
+      $('#'+div).append('replace_phone end2');
+
+    })
+
+  ;
+
+    $('#'+div).append('replace_phone end');
+
+}
+
+function show_contacts(div,team,header) {
+
+  var n = b82uid();
+  $('#'+div).append('<div id="' + div+n + '"></div>');
+  div += n;
+
+  $('#'+div).html('<p><mark>Hvis du ser denne tekst, så log ind og/eller ud på <a href="http://www.google.com">Google</a>! (fejl hos Google)</mark></p>');
+
+  $.ajax({
+    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/4/public/values?alt=json-in-script&callback=?',
+    type: 'get',
+    dataType: 'jsonp'})
+    .done(function(data) {
+
+      $('#'+div).html('<h2>' + header + '</h2>');
+
+      var html;
+      var len = data.feed.entry.length;
+      var imgdiv;
+
+      for (var i=0; i<len; i++) {
+
+        html = '<div style="page-break-inside:avoid;">';
+
+        html += '<p>team=' +
+                data.feed.entry[i].gsx$team.$t +
+                '</p>';
+
+        html += '<p>title=' +
+                data.feed.entry[i].gsx$title.$t +
+                '</p>';
+
+        html += '<p>name=' +
+                data.feed.entry[i].gsx$name.$t +
+                '</p>';
+
+        html += '<p>mails=' +
+                data.feed.entry[i].gsx$mails.$t +
+                '</p>';
+
+        html += '<p>phones=' +
+                data.feed.entry[i].gsx$phones.$t +
+                '</p>';
+
+        html += '<p>note=' +
+                data.feed.entry[i].gsx$note.$t +
+                '</p>';
+
+        imgdiv = div + 'img' + i;
+        html += '<div id="' + imgdiv + '">' +
+                '<img width="200" height="200" src="http://3.bp.blogspot.com/-BItomNMsn_g/TtahSG92wDI/AAAAAAAABt4/-V578wQl1UM/s200/Hoved03.jpg"/>' +
+                '</div>';
+
+        html += '</div>';
+
+        $('#'+div).append(html);
+
+        replace_photo(imgdiv,data.feed.entry[i].gsx$name.$t);
+
+      }
+
+    })
+
+  ;
+
+}
+//+++
+
 function page_start(div) {
   var ndiv;
 
