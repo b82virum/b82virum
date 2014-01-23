@@ -336,6 +336,10 @@ function show_contacts(div,team,header) {
       var imgdiv;
 
       for (var i=0; i<len; i++) {
+      
+        if (data.feed.entry[i].gsx$team.$t != team) {
+          continue;
+        }
 
         html = '<div style="page-break-inside:avoid;">';
 
