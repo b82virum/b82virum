@@ -334,6 +334,7 @@ function show_contacts(div,team,header) {
       var html;
       var len = data.feed.entry.length;
       var imgdiv;
+      var a;
 
       for (var i=0; i<len; i++) {
       
@@ -353,10 +354,25 @@ function show_contacts(div,team,header) {
         html += '<div id="' + imgdiv + '">' +
                 '<img style="width: 200px; height:200;" src="http://3.bp.blogspot.com/-BItomNMsn_g/TtahSG92wDI/AAAAAAAABt4/-V578wQl1UM/s200/Hoved03.jpg"/>' +
                 '</div>';
-
+                
+        if (data.feed.entry[i].gsx$mails.$t != '') {
+          html += 'mail: ';
+          sep = '';
+          a=data.feed.entry[i].gsx$mails.$t.split(',');
+          while (a != '') {
+            html += sep +
+                    a +
+                    '';
+            sep = ',';
+            a=data.feed.entry[i].gsx$mails.$t.split(',');
+          }
+          html += '. ';
+        }
+        
         html += '<p>mails=' +
                 data.feed.entry[i].gsx$mails.$t +
                 '</p>';
+        }        
 
         html += '<p>phones=' +
                 data.feed.entry[i].gsx$phones.$t +
