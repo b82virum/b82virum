@@ -383,7 +383,7 @@ function show_contacts(div,team,header) {
 
         if (data.feed.entry[i].gsx$note.$t != '') {
           if (data.feed.entry[i].gsx$mails.$t + data.feed.entry[i].gsx$phones.$t != '') {
-            html += '. ';
+            html += '<br/>';
           }
           html += '' +
                   data.feed.entry[i].gsx$note.$t +
