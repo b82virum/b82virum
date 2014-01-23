@@ -362,7 +362,7 @@ function show_contacts(div,team,header) {
                 data.feed.entry[i].gsx$phones.$t +
                 '</p>';
 
-        if () {
+        if (data.feed.entry[i].gsx$note.$t != '') {
         html += '' +
                 data.feed.entry[i].gsx$note.$t +
                 '';
