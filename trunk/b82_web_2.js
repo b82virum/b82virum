@@ -367,11 +367,6 @@ function show_contacts(div,team,header) {
             a=data.feed.entry[i].gsx$mails.$t.split(',');
           }
           html += '. ';
-        }
-        
-        html += '<p>mails=' +
-                data.feed.entry[i].gsx$mails.$t +
-                '</p>';
         }        
 
         html += '<p>phones=' +
