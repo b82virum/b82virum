@@ -306,7 +306,7 @@ function replace_photo(div,name) {
       }
 
       if (img != '') {
-        $('#'+div).html('imgbgnccc<img style="width: 200px; height:200;" src="' + img + '"/>');
+        $('#'+div).html('<img style="width: 200px; height:200;" src="' + img + '"/>');
       }
 
     })
@@ -365,7 +365,7 @@ function show_contacts(div,team,header) {
 
         imgdiv = div + 'img' + i;
         html += '<div id="' + imgdiv + '">' +
-                '<img width="200" height="200" src="http://3.bp.blogspot.com/-BItomNMsn_g/TtahSG92wDI/AAAAAAAABt4/-V578wQl1UM/s200/Hoved03.jpg"/>' +
+                '<img style="width: 200px; height:200;" src="http://3.bp.blogspot.com/-BItomNMsn_g/TtahSG92wDI/AAAAAAAABt4/-V578wQl1UM/s200/Hoved03.jpg"/>' +
                 '</div>';
 
         html += '</div>';
