@@ -1,406 +1,294 @@
 // See README file.
 
-function show_products(json) {
-
-  var bgn_title = '<b>';
-  var end_title = '</b><br/>';
-
-  var bgn_price = '<b>Pris: ';
-  var end_price = ' Kr.</b><br/>';
-
-  var bgn_description = '';
-  var end_description = '<br>';
-
-  var bgn_imgs = '';
-  var bgn_photo = '<img src="';
-  var end_photo = '"/>';
-  var between_imgs = ' ';
-  var bgn_qr = '<img src="';
-  var end_qr = '"/>';
-  var end_imgs = '<br/>';
-
-  var bgn_row = '<tr><td><br/>';
-  var end_row = '<br/></td></tr>';
-
-  var bgn_cart_view = bgn_row;
-  var end_cart_view = end_row;
-
-  var paypal_id = 'JU24PYRGKMZCW';
-
-  //var paypal_buy_now_1 = '<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_xclick"><input type="hidden" name="business" value="';
-  //var paypal_buy_now_2 = '"><input type="hidden" name="lc" value="DK"><input type="hidden" name="item_name" value="';
-  //var paypal_buy_now_3 = '"><input type="hidden" name="amount" value="';
-  //var paypal_buy_now_4 = '"><input type="hidden" name="currency_code" value="DKK"><input type="hidden" name="button_subtype" value="services"><input type="hidden" name="no_note" value="0"><input type="hidden" name="cn" value="Add special instructions to the seller"><input type="hidden" name="no_shipping" value="2"><input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form>';
-
-  var paypal_cart_add_1 ='<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="';
-  var paypal_cart_add_2 ='"><input type="hidden" name="lc" value="DK"><input type="hidden" name="item_name" value="';
-  var paypal_cart_add_3 ='"><input type="hidden" name="amount" value="';
-  var paypal_cart_add_4 ='"><input type="hidden" name="currency_code" value="DKK"><input type="hidden" name="button_subtype" value="products"><input type="hidden" name="no_note" value="0"><input type="hidden" name="cn" value="Add special instructions to the seller"><input type="hidden" name="no_shipping" value="2"><input type="hidden" name="add" value="1"><input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHosted"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form>';
-
-  var paypal_cart_view_1 ='<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="business" value="';
-  var paypal_cart_view_2 ='"><input type="hidden" name="display" value="1"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></form><br/><img src="https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif" border="0"/><br/>';
-
-  var paypal_qr_1 ='https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=';
-  var paypal_qr_2 ='&item_name=';
-  var paypal_qr_3 ='&amount=';
-  var paypal_qr_4 ='&currency_code=DKK';
-
-  //var paypal_part1 = paypal_buy_now_1;
-  //var paypal_part2 = paypal_buy_now_2;
-  //var paypal_part3 = paypal_buy_now_3;
-  //var paypal_part4 = paypal_buy_now_4;
-
-  var paypal_part1 = paypal_cart_add_1;
-  var paypal_part2 = paypal_cart_add_2;
-  var paypal_part3 = paypal_cart_add_3;
-  var paypal_part4 = paypal_cart_add_4;
-
-  var len = json.feed.entry.length;
-
-  for (var i=0; i<len; i++) {
-
-    if (json.feed.entry[i].gsx$available.$t != 'Y') {
-      continue;
-    }
-
-    var product = json.feed.entry[i].gsx$title.$t;
-    product = product.replace(/æ/g,'ae');
-    product = product.replace(/ø/g,'oe');
-    product = product.replace(/å/g,'aa');
-    product = product.replace(/Æ/g,'AE');
-    product = product.replace(/Ø/g,'OE');
-    product = product.replace(/Å/g,'AA');
-
-    document.write(bgn_row);
-
-    document.write(bgn_title +
-                   json.feed.entry[i].gsx$title.$t +
-                   end_title);
-
-    document.write(bgn_imgs);
-
-    document.write(bgn_photo +
-                   json.feed.entry[i].gsx$photo.$t +
-                   end_photo);
-
-    document.write(between_imgs);
-
-    var qrimg=paypal_qr_1
-            + paypal_id
-            + paypal_qr_2
-            + escape(product)
-            + paypal_qr_3
-            + escape(json.feed.entry[i].gsx$price.$t)
-            + paypal_qr_4;
-
-    qrimg=escape(qrimg);
-
-    qrimg='http://api.qrserver.com/v1/create-qr-code/?data='
-        + qrimg
-        + '&#38;size=200x200';
-
-    document.write(bgn_qr
-                 + qrimg
-                 + end_qr);
-
-    document.write(end_imgs);
-
-    document.write(bgn_description +
-                   json.feed.entry[i].gsx$description.$t +
-                   end_description);
-
-    document.write(bgn_price +
-                   json.feed.entry[i].gsx$price.$t +
-                   end_price);
-
-    document.write(paypal_part1 +
-                   paypal_id +
-                   paypal_part2 +
-                   product +
-                   paypal_part3 +
-                   json.feed.entry[i].gsx$price.$t +
-                   paypal_part4);
-
-    document.write(end_row);
-
-  }
-
-  document.write(bgn_cart_view);
-  document.write(paypal_cart_view_1 +
-                 paypal_id +
-                 paypal_cart_view_2);
-  document.write(end_cart_view);
-
-}   
-
-function show_webshop() {
-
-  document.write('<script src="https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEVvZ2xWaE5Zb3VnbUFwRU1hQWN0MHc/2/public/values?alt=json-in-script&callback=show_products" type="text/javascript"></script>');
-
-}
-
-function show_1_random_post_body_cb(json) {
-
-  var i = Math.floor((Math.random()*1000)) % json.feed.openSearch$totalResults.$t;
-
-  document.write(''
-    + '<p>'
-    + json.feed.entry[i].content.$t
-    + '</p>'
-  );
-
-}    
-
-function show_1_random_post_body(label) {
-
-  document.write('<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results=255&callback=show_1_random_post_body_cb" type="text/javascript"></script>');
-
-}
-
-function show_1_random_sponsor(label) {
-
-  show_1_random_post_body(label);
-
-}
-
-function show_post_body(json) {
-
-  for (var i=0;i < json.feed.openSearch$totalResults.$t;i++) {
-
-    document.write(''
-      + '<p>'
-      + json.feed.entry[i].content.$t
-      + '</p>'
-    );
-    
-  }
-
-}    
-
-function show_all_post_body(label) {
-
-  document.write('<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results=255&callback=show_post_body" type="text/javascript"></script>');
-
-}
-
-function show_all_sponsor(label) {
-
-  show_all_post_body(label);
-
-}
-
-function show_intro(label) {
-
-  show_all_post_body(label);
-
-}
-
-function show_extra(label) {
-
-  show_all_post_body(label);
-
-}
-
-function show_header(label) {
-
-  show_all_post_body(label);
-
-}
-
-function show_footer(label) {
-
-  show_all_post_body(label);
-
-}
-
-function show_post(json) {
-
-  for (var i=0;i < json.feed.openSearch$totalResults.$t;i++) {
+// b82uid() will return a uniq id
+var b82uid = (function(){var id=0;return function(){if(arguments[0]===0)id=0;return id++;}})();
+
+function check_slideshow() {
+
+$('.picasafeed').replaceWith(function() {
+  var args = $(this).html().split(' ');
+  var feed = args[0];
+  var html = '';
+  var id = 'slideshow' + b82uid();
   
-    var link;  
-    for (var j=0; j < json.feed.entry[i].link.length; j++) {
-      if (json.feed.entry[i].link[j].rel == 'alternate') {
-        link = json.feed.entry[i].link[j].href;
-        break;
+  html += '<div class="slideshow" id="' + id + '">Slideshow loading ...</div>';
+  html += '<div class="picasafetch">' + id + ' ' + feed + '</div>';
+
+  return html;
+
+});
+
+$('.picasafetch').replaceWith(function() {
+  var args = $(this).html().split(' ');
+  var id = args[0];
+  var feed = args[1].split('?')[0];
+  
+  $.ajax({
+    url: feed + '?kind=photo&&alt=json-in-script&&callback=?',
+    type: 'get',
+    dataType: 'jsonp'})
+    .done(function(data) {
+      
+      var showid = id+b82uid();
+
+      var showbgn = '<div id="' + showid + '" class="fotorama" data-width="100%" data-ratio="4/3" data-allowfullscreen="native" data-transition="crossfade" data-loop="true" data-autoplay="3000" data-arrows="true" data-click="true" data-swipe="true" data-nav="thumbs">';
+      var showend = '</div>';
+      var photobgn = '<a href="';
+      var photoend = '"></a>';
+
+      var html = '';
+      var i;
+
+      html += showbgn;
+
+      for (var i = 0; i < data.feed.entry.length; i++) {
+
+        html += photobgn;
+        html += data.feed.entry[i].media$group.media$content[0].url;
+        html += photoend;
+
       }
-    }
 
-    document.write(''
-      + '<a href="'
-      + link
-      + '">'
-      + '<h3>'
-      + json.feed.entry[i].title.$t
-      + '</h3>'
-      + '</a>'
-      + '<p>'
-      + json.feed.entry[i].content.$t
-      + '</p>'
-    );
-    
+      html += showend;
+
+      $('#'+id).html(html);
+
+      $('#'+showid).fotorama();
+
+    })
+  ;
+
+  return '';
+
+});
+
+}
+
+$(document).ready(function () {
+  check_slideshow();
+});
+
+function show_html(div,html) {
+
+  var n = b82uid();
+  $('#'+div).append('<div id="' + div+n + '"></div>');
+  div += n;
+
+  $.ajax()
+    // .done(function()   { alert("success");  })
+    // .fail(function()   { alert("error");    })
+    // .always(function() { alert("complete"); })
+    .always(function() { $('#'+div).append(html); })
+  ;
+  
+}
+
+function blog_feed(labels,max) {
+  var dmax = 255;
+  var r = '';
+  r = r + 'http://blog.b82.dk/feeds/posts/default';
+  if (labels != '') {
+    r = r + '/-/' + labels;
   }
+  if (max != '') {
+    dmax = max;
+  }
+  r = r + '?alt=json-in-script&max-results=' + dmax + '&callback=?';
+  return r;
+  // http://blog.b82.dk/feeds/posts/default?alt=json-in-script&max-results=255&callback=?
+  // http://blog.b82.dk/feeds/posts/default/-/label1?alt=json-in-script&max-results=255&callback=?
+  // http://blog.b82.dk/feeds/posts/default/-/label1/label2?alt=json-in-script&max-results=255&callback=?
+}
 
-}    
+function show_blog_feed(div,labels,max,random,header,show_title,show_content,show_vcard) {
 
-function show_hilite_cb(json) {
+  var n = b82uid();
+  $('#'+div).append('<div id="' + div+n + '"></div>');
+  div += n;
 
-  document.write(''
-    + '<h2>'
-    + 'Glimt'
-    + '</h2>'
-  );
+  $.ajax({
+    url: blog_feed(labels,max),
+    type: 'get',
+    dataType: 'jsonp'})
+    .done(function(data) {
+      
+      // First/last post
+      var fi = 0;
+      var li = data.feed.entry.length;
+      
+      // If random
+      if (random) {
+        if (fi < li) {
+          fi = Math.floor((Math.random()*1000)) % li;
+          li = fi+1;
+        }
+      }
+      
+      // If any, show header, if any
+      if (fi < li) {
+        if (header != '') {
+          $('#'+div).append('<h2>' + header + '</h2>');
+        }  
+      }
+      
+      for (var i = fi; i < li; i++) {
+        
+        var html;
+        
+        // href
+        var href = '';
+        for (var j=0; j < data.feed.entry[i].link.length; j++) {
+          if (data.feed.entry[i].link[j].rel == 'alternate') {
+            href = data.feed.entry[i].link[j].href;
+            break;
+          }
+        }
+        
+        // title
+        var title = data.feed.entry[i].title.$t;
 
-  show_post(json);
+        // content
+        var content = '';
+        if ('content' in data.feed.entry[i]) {
+          content = data.feed.entry[i].content.$t;
+        } else if ('summary' in data.feed.entry[i]) {
+          content = data.feed.entry[i].summary.$t;
+        }
+        
+        html = '<div style="page-break-inside:avoid;">';
+        
+        // title+link
+        if (show_title == 1) {
+          html += '<a href="' + href + '">' + '<h3>' + title + '</h3>' + '</a>';
+        }
+
+        // content
+        if (show_content == 1) {
+        
+          // vcard
+          if (show_vcard == 1) {
+          
+            var vcard;
+            var name;
+            var tel;
+            var email;
+            var n;
+            
+            name = title;
+            n = name.lastIndexOf(' ');
+            if (n != -1) {
+              name = name.slice(n+1) + ';' + name.slice(0,n);
+            }
+            
+            tel = '';
+            n = content.indexOf('tel:');
+            if (n != -1) {
+              tel = content.slice(n+4,content.indexOf('"',n));
+            }
+            
+            email = '';
+            n = content.indexOf('mailto:');
+            if (n != -1) {
+              email = content.slice(n+7,content.indexOf('"',n));
+            }
+            
+            vcard = '';
+            
+            vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
+            
+            vcard += 'N%3A' + name + '%0A';
+            
+            vcard += 'ORG%3AB82%0A';
+            
+            if (tel != '') {
+              vcard += 'TEL%3A' + tel + '%0A';
+            }
+            
+            if (email != '') {
+              vcard += 'EMAIL%3A' + email + '%0A';
+            }
+            
+            vcard += 'END%3AVCARD%0A&size=200x200"/>';
+            
+            n = content.indexOf('<img ');
+            if (n != -1) {
+              n = content.indexOf('>',n);
+              if (n != -1) {
+                n++;
+                content = content.slice(0,n) + vcard + content.slice(n);
+              }
+            }
+            
+          }
+          
+          html += '<p>' + content + '</p>';
+        }  
+
+        html += '</div>';
+
+        $('#'+div).append(html);
+
+        // Change <p class="mobile-photo" with <div class="mobile-photo"
+        // This is to center mobile photos (the style seems not to work with <p
+        $('p.mobile-photo').replaceWith(function() {
+          return '<div class="mobile-photo">' + $(this).html() + '</div>';
+        });
+        
+        check_slideshow();
+        
+      }
+
+    })
+
+  ;
+
+}
+
+function show_contact(div,labels,header) {
   
-}
-
-function show_hilite(label) {
-
-  document.write(''
-    + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
-    + 5
-    + '&callback=show_hilite_cb" type="text/javascript"></script>'
-  );
+  show_blog_feed(div,labels,'','',header,1,1,1);
 
 }
 
-function show_club_hilite_cb(json) {
-
-  show_post(json);
+function show_post(div,labels,header) {
   
-}
-
-function show_club_hilite() {
-
-  document.write(''
-    + '<script src="http://blog.b82.dk/feeds/posts/default' + '?alt=json-in-script&max-results='
-    + 5
-    + '&callback=show_club_hilite_cb" type="text/javascript"></script>'
-  );
+  show_blog_feed(div,labels,'','',header,1,1,'');
 
 }
 
-function show_leader_cb(json) {
-
-  document.write(''
-    + '<h2>'
-    + 'Holdledere'
-    + '</h2>'
-  );
-
-  show_post(json);
+function show_latest_post(div,labels,header) {
   
-}
-
-function show_leader(label) {
-
-  document.write(''
-    + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
-    + 255
-    + '&callback=show_leader_cb" type="text/javascript"></script>'
-  );
+  show_blog_feed(div,labels,1,'',header,1,1,'');
 
 }
 
-function show_coach_cb(json) {
-
-  document.write(''
-    + '<h2>'
-    + 'Trænere'
-    + '</h2>'
-  );
-
-  show_post(json);
+function show_some_post(div,labels,header) {
   
-}
-
-function show_coach(label) {
-
-  document.write(''
-    + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
-    + 255
-    + '&callback=show_coach_cb" type="text/javascript"></script>'
-  );
+  show_blog_feed(div,labels,5,'',header,1,1,'');
 
 }
 
-function show_board_cb(json) {
-
-  document.write(''
-    + '<h2>'
-    + 'Bestyrelsen'
-    + '</h2>'
-  );
-
-  show_post(json);
+function show_body(div,labels) {
   
-}
-
-function show_board(label) {
-
-  document.write(''
-    + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
-    + 255
-    + '&callback=show_board_cb" type="text/javascript"></script>'
-  );
+  show_blog_feed(div,labels,'','','',0,1,'');
 
 }
 
-function show_shop_people_cb(json) {
-
-  document.write(''
-    + '<h2>'
-    + 'Shoppen'
-    + '</h2>'
-  );
-
-  show_post(json);
+function show_random(div,labels) {
   
-}
-
-function show_shop_people(label) {
-
-  document.write(''
-    + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
-    + 255
-    + '&callback=show_shop_people_cb" type="text/javascript"></script>'
-  );
+  show_blog_feed(div,labels,'',1,'',0,1,'');
 
 }
 
-function show_graphic_cb(json) {
+function page_start(div) {
+  var ndiv;
 
-  document.write(''
-    + '<h2>'
-    + 'Grafik'
-    + '</h2>'
-  );
-
-  show_post(json);
-  
-}
-
-function show_graphic(label) {
-
-  document.write(''
-    + '<script src="http://blog.b82.dk/feeds/posts/default/-/' + label + '?alt=json-in-script&max-results='
-    + 255
-    + '&callback=show_graphic_cb" type="text/javascript"></script>'
-  );
-
-}
-
-function page_start() {
-
-  document.write(''
+  $('#'+div).append(''
     + '<style type="text/css">'
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
     + '}'
-    + 'li.f2jnag {'
-    + '  display: none;'
-    + '}'
-    + 'h1 {'
+    + 'h1, h2, h3 {'
     + '  text-align: center;'
     + '}'
     + 'h1, h2, a {'
@@ -412,356 +300,344 @@ function page_start() {
     + '.mobile-photo {'
     + '  text-align: center;'
     + '}'
-    + '.mobile-photo * {'
-    + '  text-align: center;'
+    + '#header {display:none !important;}'
+    + '@media print'
+    + '{'
+    + '.noprint, #slideshow-wrapper, #menu-wrapper, #copyright {display:none !important;}'
+    + '#main {border-style:none !important;}'
     + '}'
+    + 'img {height: auto; max-height: auto; width: auto; max-width: 100%; padding: 0 !important; border-style: none !important;}'
     + '</style>'
   );
-  /* mobile-photo virker ikke hvis p class="mobile-photo" */
-  /*
-  document.write(''
-    + '<img id="b82logo" width="960px" height="960px" style="position: fixed; left: 50%; margin-left: -485px; top: 0px; z-index: 255; border-style: none; background-color: transparent;" border="0" src="https://lh6.googleusercontent.com/-viTn7BuAhK8/T_C5WooraDI/AAAAAAAAC3M/QhybnVT1HBM/s960/Logo.RedbaseWhitebackTrans.png"/>'
-  );
-  */
-  
-  show_header('B82%20Header');
+
+  ndiv=div+'header';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  show_body(ndiv,'B82 Header');
   
 }
 
-/*
-$(document).ready(function(){
+function page_end(div) {
+  var ndiv;
 
-  $("#b82logo").animate({
-    opacity:'0',
-    height:'0px',
-    width:'0px'
-  },3000);
+  $('#'+div).append('<div class="noprint"><p><div style="text-align: center;"><a href="http://www.sportyfied.com/to/vm59e9" target="_blank"><img alt="Sportyfied" border="0" height="160" src="http://www.sportyfied.com/simg/vm59e9.jpg" style="border-style:none; padding:0;" title="B82 webshop" width="920" /></a></div></p></div>');
 
-});
-*/
-
-function page_end() {
-
-  document.write('<p><div style="text-align: center;"><a href="http://www.sportyfied.com/to/vm59e9" target="_blank"><img alt="Sportyfied" border="0" height="160" src="http://www.sportyfied.com/simg/vm59e9.jpg" style="border-style:none; padding:0;" title="B82 webshop" width="920" /></a></div></p>');
-
-  show_footer('B82%20Footer');
+  ndiv=div+'footer';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  show_body(ndiv,'B82 Footer');
 
 }
 
-var show_times_team='';
-function show_times_cb(json) {
+function show_payments(div,label) {
 
-  var len = json.feed.entry.length;
+  var n = b82uid();
+  $('#'+div).append('<div id="' + div+n + '"></div>');
+  div += n;
 
-  var last_season='';
-  var last_day='';
-
-  document.write('<p><table border="1" bordercolor="red">');
-
-  for (var i=0; i<len; i++) {
-
-    if (show_times_team != '') {
-      if (json.feed.entry[i].gsx$team.$t != show_times_team) {
-        continue;
-      }
-    }
-
-    if (json.feed.entry[i].gsx$season.$t != last_season) {
-
-      if (show_times_team == '') {
-        document.write('<tr><th colspan="4">' +
-                       '<div style="text-align: center;">' +
-                       json.feed.entry[i].gsx$season.$t +
-                       '</div>' +
-                       '</th></tr>');
-      }
-      else {
-        document.write('<tr><th colspan="3">' +
-                       '<div style="text-align: center;">' +
-                       json.feed.entry[i].gsx$season.$t +
-                       '</div>' +
-                       '</th></tr>');
-      }
-
-      last_season=json.feed.entry[i].gsx$season.$t;
-      last_day='';
-
-      document.write('<tr>');
-
-      document.write('<th>' +
-                     'Dag' +
-                     '</th>');
-
-      document.write('<th>' +
-                     'Tid' +
-                     '</th>');
-
-      document.write('<th>' +
-                     'Sted' +
-                     '</th>');
-
-      if (show_times_team == '') {
-
-        document.write('<th>' +
-                       'Hold' +
-                       '</th>');
-
-      }
-
-      document.write('</tr>');
-
-    }
-
-    document.write('<tr>');
-
-    if (json.feed.entry[i].gsx$day.$t != last_day) {
-
-      document.write('<th>' +
-                     json.feed.entry[i].gsx$day.$t +
-                     '</th>');
-
-      last_day=json.feed.entry[i].gsx$day.$t;
-
-    }
-    else {
-
-      document.write('<td>' +
-                     '</td>');
-
-    }
-
-    document.write('<td>' +
-                   json.feed.entry[i].gsx$time.$t +
-                   '</td>');
-
-    document.write('<td>' +
-                   json.feed.entry[i].gsx$place.$t +
-                   '</td>');
-
-    if (show_times_team == '') {
-
-      document.write('<td>' +
-                     json.feed.entry[i].gsx$team.$t +
-                     '</td>');
-
-    }
-
-    document.write('</tr>');
-
-  }
-
-  document.write('</table></p>');
-
-}   
-
-function show_times(team) {
-
-  show_times_team=team;
-
-  document.write('<script src="https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dFI4V24tZ19hUWxQQV9rU1hja19JZXc/2/public/values?alt=json-in-script&callback=show_times_cb" type="text/javascript"></script>');
-
-}
-
-function show_team_calendar(label,name,cal1,cal2) {
-
-
-  var labelx = label.replace(/%20/g,'%2520');
-  var namex = name.replace(/ /g,'%20');
-  var cal1x = '';
-  var cal2x = '';
-
-  if (cal1 != '')
-    cal1x='+' + cal1;
-  if (cal2 != '')
-    cal2x='+' + cal2;
-
-  document.write(''
-  + '<h2>Kalender</h2><p>'
-  + '<iframe scrolling="no" frameborder="0" src="http://30boxes.com/external/widget?url=http://blog.b82.dk/feeds/posts/default/-/'
-  + labelx
-  + cal1x
-  + cal2x
-  + '+&forceTitle='
-  + namex
-  + '&forceTheme=%2Ftheme%2Fsmall&forceRows=5" width=712 height=590 style="border: none;"></iframe>'
-  + '</p>'
-  );
-
-}
-
-var show_price_team='';
-function show_price_cb(json) {
-
-  var len = json.feed.entry.length;
-
-  document.write('<p><table border="1" bordercolor="red">');
-
-  document.write('<tr>');
-
-  document.write('<th>' +
-                 'Sæson' +
-                 '</th>');
-
-  document.write('<th>' +
-                 'Forfald' +
-                 '</th>');
-
-  document.write('<th>' +
-                 'Beløb' +
-                 '</th>');
-
-  if (show_price_team == '') {
-
-    document.write('<th>' +
-                   'Hold' +
-                   '</th>');
-
-  }
-
-  document.write('</tr>');
-
-  for (var i=0; i<len; i++) {
-
-    if (show_price_team != '') {
-      if (json.feed.entry[i].gsx$team.$t != show_price_team) {
-        continue;
-      }
-    }
-
-    document.write('<tr>');
-
-    document.write('<td>' +
-                   json.feed.entry[i].gsx$season.$t +
-                   '</td>');
-
-    document.write('<td>' +
-                   json.feed.entry[i].gsx$due.$t +
-                   '</td>');
-
-    document.write('<td><div style="text-align: right;">' +
-                   json.feed.entry[i].gsx$price.$t +
-                   '</div></td>');
-
-    if (show_price_team == '') {
-
-      document.write('<td>' +
-                     json.feed.entry[i].gsx$team.$t +
-                     '</td>');
-
-    }
-
-    document.write('</tr>');
-
-  }
-
-  document.write('</table></p>');
-
-}   
-
-function show_price(team) {
-
-  show_price_team=team;
-
-  document.write('<h2>Kontingent</h2>'); 
-
-  document.write('<script src="https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/2/public/values?alt=json-in-script&callback=show_price_cb" type="text/javascript"></script>');
-
-}
-
-function show_vcard(fn,photo,tel_str,role_str,email_str,note) {
-
-  var tel=new Array();
-  tel=tel_str.split(',');
-
-  var role=new Array();
-  role=role_str.split(',');
-
-  var email=new Array();
-  email=email_str.split(',');
-
-  var i;
-  var s;
-  var qrimg='';
-
-  // document.write('<h3>' + fn + '</h3>');
-
-  document.write('<div style="float: left">'
-               + '<img src="' + photo + '"/>'
-               + '</div>');
-
-  qrimg=qrimg + 'BEGIN:VCARD' + '\n';
-
-  qrimg=qrimg + 'FN:B82 ' + fn + '\n';
-
-  if (tel.length > 0) {
-    qrimg=qrimg + 'TEL:' + tel[0] + '\n';
-  }
-
-  if (email.length > 0) {
-    qrimg=qrimg + 'EMAIL:' + email[0] + '\n';
-  }
-
-  qrimg=qrimg + 'END:VCARD' + '\n';
-
-  qrimg=escape(qrimg);
-
-  qrimg='http://api.qrserver.com/v1/create-qr-code/?data='
-      + qrimg
-      + '&#38;size=200x200';
-
-  document.write('<div style="float: left">'
-               + '<img src="' + qrimg + '"/>'
-               + '</div>');
-
-  document.write('<div style="clear: both"></div>');
-
-  s='';
-  for (i in role) {
-    document.write(s
-                 + role[i]
-                 + ' ('
-                 + '<a href="mailto:' + email[i] + '">' + email[i] + '</a>'
-                 + ').');
-    s='<br/>';
-  }
-  for (i in tel) {
-    document.write(s
-                 + 'tlf <a href="tel:' + tel[i] + '">' + tel[i] + '</a>'
-                 + '.');
-    s='<br/>';
-  }
-
-}
-
-function show_team(label,name,alias,cal1,cal2,spare3,spare4) {
-
-  document.write(''
-    + '<h1>'
-    + alias
-    + '</h1>'
-  );
-
-  show_intro(label+'%20Intro');
-
-  show_1_random_sponsor(label+'%20Sponsor');
-
-  document.write(''
-    + '<h2>'
-    + 'Træningstider'
-    + '</h1>'
-  );
-  show_times(name);
+  $('#'+div).html('<p><mark>Hvis du ser denne tekst, så log ind og/eller ud på <a href="http://www.google.com">Google</a>! (fejl hos Google)</mark></p>');
   
-  show_price(name);
+  $.ajax({
+    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/2/public/values?alt=json-in-script&callback=?',
+    type: 'get',
+    dataType: 'jsonp'})
+    .done(function(data) {
+      
+      var html = '';
+      var len = data.feed.entry.length;
+
+      html += '<p><table align="center" border="0"><tbody><tr><td><table border="1" bordercolor="red"><tbody>';
+
+      html += '<tr>';
+
+      html += '<th>' +
+              'Sæson' +
+              '</th>';
+
+      html += '<th>' +
+              'Forfald' +
+              '</th>';
+
+      html += '<th>' +
+              'Beløb' +
+              '</th>';
+
+      if (label == '') {
+
+        html += '<th>' +
+                'Hold' +
+                '</th>';
+
+      }
+
+      html += '</tr>';
+
+      for (var i=0; i<len; i++) {
+
+        if (label != '') {
+          if (data.feed.entry[i].gsx$team.$t != label) {
+            continue;
+          }
+        }
+
+        html += '<tr>';
+
+        html += '<td>' +
+                data.feed.entry[i].gsx$season.$t +
+                '</td>';
+
+        html += '<td>' +
+                data.feed.entry[i].gsx$due.$t +
+                '</td>';
+
+        html += '<td><div style="text-align: right;">' +
+                data.feed.entry[i].gsx$price.$t +
+                '</div></td>';
+
+        if (label == '') {
+
+          html += '<td>' +
+                  data.feed.entry[i].gsx$team.$t +
+                  '</td>';
+
+        }
+
+        html += '</tr>';
+
+      }
+
+      html += '</tbody></table></td></tr></tbody></table></p>';
+
+      $('#'+div).html(html);
+
+    })
+
+  ;
+
+}
+
+function show_times(div,label) {
+
+  var n = b82uid();
+  $('#'+div).append('<div id="' + div+n + '"></div>');
+  div += n;
+
+  $('#'+div).html('<p><mark>Hvis du ser denne tekst, så log ind og/eller ud på <a href="http://www.google.com">Google</a>! (fejl hos Google)</mark></p>');
+      
+  $.ajax({
+    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/3/public/values?alt=json-in-script&callback=?',
+    type: 'get',
+    dataType: 'jsonp'})
+    .done(function(data) {
+      
+      var html = '';
+      var len = data.feed.entry.length;
+
+      var last_season='';
+      var last_day='';
+
+      html += '<p><table align="center" border="0"><tbody><tr><td><table border="1" bordercolor="red"><tbody>';
+
+      for (var i=0; i<len; i++) {
+
+        if (label != '') {
+          if (data.feed.entry[i].gsx$team.$t != label) {
+            continue;
+          }
+        }
+
+        if (data.feed.entry[i].gsx$season.$t != last_season) {
+
+          if (label == '') {
+            html +=
+              '<tr><th colspan="4">' +
+              '<div style="text-align: center;">' +
+              data.feed.entry[i].gsx$season.$t +
+              '</div>' +
+              '</th></tr>'
+            ;
+          }
+          else {
+            html +=
+              '<tr><th colspan="3">' +
+              '<div style="text-align: center;">' +
+              data.feed.entry[i].gsx$season.$t +
+              '</div>' +
+              '</th></tr>'
+            ;
+          }
+
+          last_season=data.feed.entry[i].gsx$season.$t;
+          last_day='';
+
+          html += '<tr>';
+
+          html +=
+            '<th>' +
+            'Dag' +
+            '</th>'
+          ;
+
+          html +=
+            '<th>' +
+            'Tid' +
+            '</th>'
+          ;
+
+          html +=
+            '<th>' +
+            'Sted' +
+            '</th>'
+          ;
+
+          if (label == '') {
+
+            html +=
+              '<th>' +
+              'Hold' +
+              '</th>'
+            ;
+
+          }
+
+          html += '</tr>';
+
+        }
+
+        html += '<tr>';
+
+        if (data.feed.entry[i].gsx$day.$t != last_day) {
+
+          html +=
+            '<th>' +
+            data.feed.entry[i].gsx$day.$t +
+            '</th>'
+          ;
+
+          last_day=data.feed.entry[i].gsx$day.$t;
+
+        }
+        else {
+
+          html +=
+            '<td>' +
+            '</td>'
+          ;
+
+        }
+
+        html +=
+          '<td>' +
+          data.feed.entry[i].gsx$time.$t +
+          '</td>'
+        ;
+
+        html +=
+          '<td>' +
+          data.feed.entry[i].gsx$place.$t +
+          '</td>'
+        ;
+
+        if (label == '') {
+
+          html +=
+            '<td>' +
+            data.feed.entry[i].gsx$team.$t +
+            '</td>'
+          ;
+
+        }
+
+        html += '</tr>';
+
+      }
+
+      html += '</tbody></table></td></tr></tbody></table></p>';
+
+      $('#'+div).html(html);
+      
+    })
+    
+  ;
+
+}
+
+function show_join(div,join1,join2) {
+
+  if (join1 == '') {
+    return;
+  }
   
-  // show_team_calendar(label+'%20Glimt',name,cal1,cal2);
+  var html = '';
+  
+  html += '<h2>Indmeld</h2>';
+  html += '<div id="joinmsg"></div>';
+  html += '<p><div style="text-align:center;"><b>Aftal med din træner/holdleder hvornår du skal melde dig ind.</b></div></p>';
+  html += '<p><div style="text-align:center;">';
+  html += 'I B82 bruger vi holdsport.dk til medlemsregistrering og kontingentopkrævning. ';
+  html += 'Se <a href="http://www.b82.dk/?id=259&c=Indmeld">Indmeld siden</a> for hjælp og vejledning.';
+  html += '</div></p>';
+  html += '<h3>Er du ny på holdsport.dk?</h3><p><div style="text-align:center;"><button onclick="join_click(' + "'" + join1 + "'" + ')">Klik her for at oprette dig på holdsport.dk og tilmelde dig til holdet</button></div></p>';
+  html += '<h3>Har du en allerede profil på holdsport.dk?</h3><p><div style="text-align:center;"><button onclick="join_click(' + "'" + join2 + "'" + ')">Klik her for at knytte din profil til holdet</button></div></p>';
 
-  show_leader(label+'%20Holdleder');
+  $('#'+div).append(html);
+  
+}
 
-  show_coach(label+'%20Træner');
+function join_click(join) {
+  $('#joinmsg').html('');
+  var captcha1 = Math.floor((Math.random()*1000)) % 10;
+  var captcha2 = Math.floor((Math.random()*1000)) % 10;
+  var answer = prompt('Hvad er ' + captcha1 + ' plus ' + captcha2 + ' ?','');
+  if (answer == captcha1 + captcha2) {
+    window.location.assign('http://holdsport.dk/' + join);
+    return true;
+  }
+  if (answer != null) {
+    $('#joinmsg').html('<mark>Forkert!</mark>');    
+  }
+  return false;
+}
 
-  show_hilite(label+'%20Glimt');
+function show_team_1(div,label,alias,join1,join2) {
+  var ndiv;
+  
+  $('#'+div).append('<h1>' + alias + '</h1>');
 
-  show_extra(label+'%20Extra');
+  show_body(div,label+' Intro');
+
+  ndiv=div+'sponsor';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  show_random(ndiv + 'sponsor',label+' Sponsor');
+
+  $('#'+div).append('<h2>Træningstider</h2>');
+  show_times(div,label);
+  
+  ndiv=div+'payment';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  $('#'+ndiv).append('<h2>Kontingent</h2>');
+  show_payments(ndiv,label);
+
+  ndiv=div+'join';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  show_join(ndiv,join1,join2);
+
+  show_contact(div,label+' Holdleder','Holdledere');
+
+  show_contact(div,label+' Træner','Trænere');
+
+  show_contact(div,label+' Assistenttræner','Assistenttrænere');
+
+  ndiv=div+'hilite';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  show_post(ndiv,label+' Glimt','Glimt');
+
+  ndiv=div+'extra';
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
+  show_body(ndiv,label+' Extra');
+
+}
+
+function show_team(div,label,alias) {
+  
+  show_team_1(div,label,alias,'','');
 
 }
