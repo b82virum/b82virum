@@ -395,9 +395,9 @@ function show_contacts(div,team,header) {
             html += sep +
                     '<a href="tel:' + a[j] + '">' + a[j] + '</a>' +
                     '';
-            sep = ', ';
+            sep = ' / ';
           }
-          html += ' / ';
+          html += '. ';
         }        
 
         if (data.feed.entry[i].gsx$note.$t != '') {
