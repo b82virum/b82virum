@@ -348,7 +348,7 @@ function show_contacts(div,team,header) {
                 data.feed.entry[i].gsx$name.$t +
                 '<br/>' +
                 data.feed.entry[i].gsx$title.$t +
-                '</h3><p>';
+          '</h3><p style="text-align: center;">';
 
         imgdiv = div + 'img' + i;
         html += '<div id="' + imgdiv + '">' +
@@ -361,7 +361,7 @@ function show_contacts(div,team,header) {
           a=data.feed.entry[i].gsx$mails.$t.split(',');
           for (var j=0;j<a.length;j++) {
             html += sep +
-              '<a href="tel:' + a[j] + '">' + a[j] + '</a>' +
+              '<a href="mailto:' + a[j] + '">' + a[j] + '</a>' +
                     '';
             sep = ',';
           }
@@ -374,7 +374,7 @@ function show_contacts(div,team,header) {
           a=data.feed.entry[i].gsx$phones.$t.split(',');
           for (var j=0;j<a.length;j++) {
             html += sep +
-                    '<a href="mailto:' + a[j] + '">' + a[j] + '</a>' +
+                    '<a href="tel:' + a[j] + '">' + a[j] + '</a>' +
                     '';
             sep = ',';
           }
