@@ -368,7 +368,7 @@ function show_contacts(div,team,header) {
 
         html += '<h3>' +
                 data.feed.entry[i].gsx$name.$t +
-                '<br/>' +
+                ' - ' +
                 data.feed.entry[i].gsx$title.$t +
           '</h3><p><div style="text-align: center;">';
 
