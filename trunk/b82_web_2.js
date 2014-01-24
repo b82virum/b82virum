@@ -348,7 +348,7 @@ function show_contacts(div,team,header) {
                 data.feed.entry[i].gsx$name.$t +
                 '<br/>' +
                 data.feed.entry[i].gsx$title.$t +
-          '</h3><p style="text-align: center;">';
+          '</h3><p><div style="text-align: center;">';
 
         imgdiv = div + 'img' + i;
         html += '<div id="' + imgdiv + '">' +
@@ -390,7 +390,7 @@ function show_contacts(div,team,header) {
                   '';
         }        
 
-        html += '</p></div>';
+        html += '</div></p></div>';
 
         $('#'+div).append(html);
 
