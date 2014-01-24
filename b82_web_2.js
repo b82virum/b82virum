@@ -281,7 +281,7 @@ function show_random(div,labels) {
 }
 
 //+++
-function replace_photo(div,name) {
+function replace_photo(div,name,mail,tel) {
 
   $.ajax({
     url: 'https://picasaweb.google.com/data/feed/base/user/104497715686917875924/albumid/5653376970059904769?authkey=Gv1sRgCP_qyoSUmMvIbQ&kind=photo&alt=json-in-script&callback=?',
@@ -308,6 +308,26 @@ function replace_photo(div,name) {
       if (img != '') {
         $('#'+div).html('<img style="width: 200px; height:200;" src="' + img + '"/>');
       }
+
+      var vcard = '';
+            
+      vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
+            
+      vcard += 'N%3A' + name + '%0A';
+            
+      vcard += 'ORG%3AB82%0A';
+            
+      if (tel != '') {
+        vcard += 'TEL%3A' + tel + '%0A';
+      }
+            
+      if (mail != '') {
+        vcard += 'EMAIL%3A' + mail + '%0A';
+      }
+            
+      vcard += 'END%3AVCARD%0A&size=200x200"/>';
+
+      $('#'+div).append(vcard);
 
     })
 
@@ -393,32 +413,12 @@ function show_contacts(div,team,header) {
         html += '<div id="' + imgdiv + '">' +
                 '<img style="width: 200px; height:200;" src="http://3.bp.blogspot.com/-BItomNMsn_g/TtahSG92wDI/AAAAAAAABt4/-V578wQl1UM/s200/Hoved03.jpg"/>' +
                 '</div>';
-                
-        var vcard = '';
-            
-        vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
-            
-        vcard += 'N%3A' + data.feed.entry[i].gsx$name.$t + '%0A';
-            
-        vcard += 'ORG%3AB82%0A';
-            
-        if (ftel != '') {
-          vcard += 'TEL%3A' + ftel + '%0A';
-        }
-            
-        if (fmail != '') {
-          vcard += 'EMAIL%3A' + fmail + '%0A';
-        }
-            
-        vcard += 'END%3AVCARD%0A&size=200x200"/>';
-
-        html += vcard;
 
         html += '</div></p></div>';
-
+        
         $('#'+div).append(html);
 
-        replace_photo(imgdiv,data.feed.entry[i].gsx$name.$t);
+        replace_photo(imgdiv,data.feed.entry[i].gsx$name.$t,fmail,ftel);
 
       }
 
