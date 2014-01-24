@@ -280,7 +280,6 @@ function show_random(div,labels) {
 
 }
 
-//+++
 function replace_photo(div,name,mail,tel) {
 
   $.ajax({
@@ -427,7 +426,6 @@ function show_contacts(div,team,header) {
   ;
 
 }
-//+++
 
 function page_start(div) {
   var ndiv;
