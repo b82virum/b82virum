@@ -381,7 +381,7 @@ function show_contacts(div,team,header) {
             html += sep +
               '<a href="mailto:' + a[j] + '">' + a[j] + '</a>' +
                     '';
-            sep = ', ';
+            sep = ' / ';
           }
           html += '. ';
         }        
@@ -397,7 +397,7 @@ function show_contacts(div,team,header) {
                     '';
             sep = ', ';
           }
-          html += '. ';
+          html += ' / ';
         }        
 
         if (data.feed.entry[i].gsx$note.$t != '') {
