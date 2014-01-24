@@ -280,6 +280,153 @@ function show_random(div,labels) {
 
 }
 
+function replace_photo(div,name,mail,tel) {
+
+  $.ajax({
+    url: 'https://picasaweb.google.com/data/feed/base/user/104497715686917875924/albumid/5653376970059904769?authkey=Gv1sRgCP_qyoSUmMvIbQ&kind=photo&alt=json-in-script&callback=?',
+    type: 'get',
+    dataType: 'jsonp'})
+    .done(function(data) {
+
+      var html;
+      var len = data.feed.entry.length;
+      var img = '';
+
+      for (var i=0; i<len; i++) {
+
+        if (data.feed.entry[i].media$group.media$description.$t == name) {
+
+          img = data.feed.entry[i].media$group.media$content[0].url;
+
+          break;
+
+        }
+
+      }
+
+      if (img != '') {
+        $('#'+div).html('<img style="width: 200px; height:200;" src="' + img + '"/>');
+      }
+
+      var vcard = '';
+            
+      vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
+            
+      vcard += 'N%3A' + name + '%0A';
+            
+      vcard += 'ORG%3AB82%0A';
+            
+      if (tel != '') {
+        vcard += 'TEL%3A' + tel + '%0A';
+      }
+            
+      if (mail != '') {
+        vcard += 'EMAIL%3A' + mail + '%0A';
+      }
+            
+      vcard += 'END%3AVCARD%0A&size=200x200"/>';
+
+      $('#'+div).append(vcard);
+
+    })
+
+  ;
+
+}
+
+function show_contacts(div,team,header) {
+
+  var n = b82uid();
+  $('#'+div).append('<div id="' + div+n + '"></div>');
+  div += n;
+
+  $('#'+div).html('<p><mark>Hvis du ser denne tekst, så log ind og/eller ud på <a href="http://www.google.com">Google</a>! (fejl hos Google)</mark></p>');
+
+  $.ajax({
+    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/4/public/values?alt=json-in-script&callback=?',
+    type: 'get',
+    dataType: 'jsonp'})
+    .done(function(data) {
+
+      $('#'+div).html('<h2>' + header + '</h2>');
+
+      var html;
+      var len = data.feed.entry.length;
+      var imgdiv;
+      var a;
+      var fmail='';
+      var ftel='';
+
+      for (var i=0; i<len; i++) {
+      
+        if (data.feed.entry[i].gsx$team.$t != team) {
+          continue;
+        }
+
+        html = '<div style="page-break-inside:avoid;">';
+
+        html += '<h3>' +
+                data.feed.entry[i].gsx$name.$t +
+                ' - ' +
+                data.feed.entry[i].gsx$title.$t +
+          '</h3><p><div style="text-align: center;">';
+
+        if (data.feed.entry[i].gsx$mails.$t != '') {
+          html += 'mail: ';
+          sep = '';
+          a=data.feed.entry[i].gsx$mails.$t.split(',');
+          fmail = a[0];
+          for (var j=0;j<a.length;j++) {
+            html += sep +
+              '<a href="mailto:' + a[j] + '">' + a[j] + '</a>' +
+                    '';
+            sep = ' / ';
+          }
+          html += '. ';
+        }        
+
+        if (data.feed.entry[i].gsx$phones.$t != '') {
+          html += 'tlf: ';
+          sep = '';
+          a=data.feed.entry[i].gsx$phones.$t.split(',');
+          ftel = a[0];
+          for (var j=0;j<a.length;j++) {
+            html += sep +
+                    '<a href="tel:' + a[j] + '">' + a[j] + '</a>' +
+                    '';
+            sep = ' / ';
+          }
+          html += '. ';
+        }        
+
+        if (data.feed.entry[i].gsx$note.$t != '') {
+          //if (data.feed.entry[i].gsx$mails.$t + data.feed.entry[i].gsx$phones.$t != '') {
+          //  html += '<br/>';
+          //}
+          html += '<div>' +
+                  data.feed.entry[i].gsx$note.$t +
+                  '</div>';
+        }        
+
+        imgdiv = div + 'img' + i;
+        html += '<div id="' + imgdiv + '">' +
+                '<img style="width: 200px; height:200;" src="http://3.bp.blogspot.com/-BItomNMsn_g/TtahSG92wDI/AAAAAAAABt4/-V578wQl1UM/s200/Hoved03.jpg"/>' +
+                '</div>';
+
+        html += '</div></p></div>';
+        
+        $('#'+div).append(html);
+
+        replace_photo(imgdiv,data.feed.entry[i].gsx$name.$t,fmail,ftel);
+
+      }
+
+    })
+
+  ;
+
+}
+
 function page_start(div) {
   var ndiv;
 
@@ -625,6 +772,8 @@ function show_team_1(div,label,alias,join1,join2) {
   show_contact(div,label+' Træner','Trænere');
 
   show_contact(div,label+' Assistenttræner','Assistenttrænere');
+  
+  show_contacts(div,label,'Kontakt');
 
   ndiv=div+'hilite';
   $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
