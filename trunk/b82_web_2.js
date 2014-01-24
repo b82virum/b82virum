@@ -381,7 +381,7 @@ function show_contacts(div,team,header) {
             html += sep +
               '<a href="mailto:' + a[j] + '">' + a[j] + '</a>' +
                     '';
-            sep = ',';
+            sep = ', ';
           }
           html += '. ';
         }        
@@ -395,7 +395,7 @@ function show_contacts(div,team,header) {
             html += sep +
                     '<a href="tel:' + a[j] + '">' + a[j] + '</a>' +
                     '';
-            sep = ',';
+            sep = ', ';
           }
           html += '. ';
         }        
