@@ -774,6 +774,8 @@ function show_team_1(div,label,alias,join1,join2) {
   show_contact(div,label+' Træner','Trænere');
 
   show_contact(div,label+' Assistenttræner','Assistenttrænere');
+  
+  show_contacts(div,label,'Kontakt');
 
   ndiv=div+'hilite';
   $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
