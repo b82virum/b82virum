@@ -350,11 +350,6 @@ function show_contacts(div,team,header) {
                 data.feed.entry[i].gsx$title.$t +
           '</h3><p><div style="text-align: center;">';
 
-        imgdiv = div + 'img' + i;
-        html += '<div id="' + imgdiv + '">' +
-                '<img style="width: 200px; height:200;" src="http://3.bp.blogspot.com/-BItomNMsn_g/TtahSG92wDI/AAAAAAAABt4/-V578wQl1UM/s200/Hoved03.jpg"/>' +
-                '</div>';
-                
         if (data.feed.entry[i].gsx$mails.$t != '') {
           html += 'mail: ';
           sep = '';
@@ -382,13 +377,18 @@ function show_contacts(div,team,header) {
         }        
 
         if (data.feed.entry[i].gsx$note.$t != '') {
-          if (data.feed.entry[i].gsx$mails.$t + data.feed.entry[i].gsx$phones.$t != '') {
-            html += '<br/>';
-          }
-          html += '' +
+          //if (data.feed.entry[i].gsx$mails.$t + data.feed.entry[i].gsx$phones.$t != '') {
+          //  html += '<br/>';
+          //}
+          html += '<div>' +
                   data.feed.entry[i].gsx$note.$t +
-                  '';
+                  '</div>';
         }        
+
+        imgdiv = div + 'img' + i;
+        html += '<div id="' + imgdiv + '">' +
+                '<img style="width: 200px; height:200;" src="http://3.bp.blogspot.com/-BItomNMsn_g/TtahSG92wDI/AAAAAAAABt4/-V578wQl1UM/s200/Hoved03.jpg"/>' +
+                '</div>';
 
         html += '</div></p></div>';
 
