@@ -356,6 +356,7 @@ function show_contacts(div,team,header) {
       var a;
       var fmail='';
       var ftel='';
+      var brsep;
 
       for (var i=0; i<len; i++) {
       
@@ -369,9 +370,11 @@ function show_contacts(div,team,header) {
                 data.feed.entry[i].gsx$name.$t +
                 ' - ' +
                 data.feed.entry[i].gsx$title.$t +
-          '</span>';
+          '</span><br/>';
 
+        brsep=';;
         if (data.feed.entry[i].gsx$mails.$t != '') {
+          brsep='<br/>';
           html += 'mail: ';
           sep = '';
           a=data.feed.entry[i].gsx$mails.$t.split(',');
@@ -386,6 +389,7 @@ function show_contacts(div,team,header) {
         }        
 
         if (data.feed.entry[i].gsx$phones.$t != '') {
+          brsep='<br/>';
           html += 'tlf: ';
           sep = '';
           a=data.feed.entry[i].gsx$phones.$t.split(',');
@@ -397,15 +401,12 @@ function show_contacts(div,team,header) {
             sep = ' / ';
           }
           html += '. ';
-        }        
+        } 
+        html += brsep;      
 
         if (data.feed.entry[i].gsx$note.$t != '') {
-          //if (data.feed.entry[i].gsx$mails.$t + data.feed.entry[i].gsx$phones.$t != '') {
-          //  html += '<br/>';
-          //}
-          html += '<div>' +
-                  data.feed.entry[i].gsx$note.$t +
-                  '</div>';
+          html += brsep;      
+          html += data.feed.entry[i].gsx$note.$t;
         }        
 
         imgdiv = div + 'img' + i;
