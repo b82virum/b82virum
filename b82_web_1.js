@@ -366,7 +366,7 @@ function show_contacts(div,team,header) {
 
         html = '<div style="page-break-inside:avoid;"><p><div style="text-align: center;">';
 
-        html += '<span style="font-size: large;">' +
+        html += '<br/><span style="font-size: large;">' +
                 data.feed.entry[i].gsx$name.$t +
                 ' - ' +
                 data.feed.entry[i].gsx$title.$t +
@@ -402,7 +402,6 @@ function show_contacts(div,team,header) {
           }
           html += '. ';
         } 
-        html += brsep;      
 
         if (data.feed.entry[i].gsx$note.$t != '') {
           html += brsep;      
