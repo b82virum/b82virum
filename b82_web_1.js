@@ -372,7 +372,7 @@ function show_contacts(div,team,header) {
                 data.feed.entry[i].gsx$title.$t +
           '</span><br/>';
 
-        brsep=';;
+        brsep='';
         if (data.feed.entry[i].gsx$mails.$t != '') {
           brsep='<br/>';
           html += 'mail: ';
