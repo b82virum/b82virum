@@ -348,7 +348,7 @@ function show_contacts(div,team,header) {
     dataType: 'jsonp'})
     .done(function(data) {
 
-      $('#'+div).html('<br/><h2>' + header + '</h2>');
+      $('#'+div).html('<h2>' + header + '</h2>');
 
       var html;
       var len = data.feed.entry.length;
@@ -411,7 +411,7 @@ function show_contacts(div,team,header) {
         imgdiv = div + 'img' + i;
         html += '<div id="' + imgdiv + '">' +
                 '<img style="width: 200px; height:200;" src="http://3.bp.blogspot.com/-BItomNMsn_g/TtahSG92wDI/AAAAAAAABt4/-V578wQl1UM/s200/Hoved03.jpg"/>' +
-                '</div>';
+                '</div><br/>';
 
         html += '</div></p></div>';
         
