@@ -363,13 +363,13 @@ function show_contacts(div,team,header) {
           continue;
         }
 
-        html = '<div style="page-break-inside:avoid;">';
+        html = '<div style="page-break-inside:avoid;"><p><div style="text-align: center;">';
 
-        html += '<h3>' +
+        html += '<span style="font-size: large;">' +
                 data.feed.entry[i].gsx$name.$t +
                 ' - ' +
                 data.feed.entry[i].gsx$title.$t +
-          '</h3><p><div style="text-align: center;">';
+          '</span>';
 
         if (data.feed.entry[i].gsx$mails.$t != '') {
           html += 'mail: ';
