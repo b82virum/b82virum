@@ -348,7 +348,7 @@ function show_contacts(div,team,header) {
     dataType: 'jsonp'})
     .done(function(data) {
 
-      $('#'+div).html('<h2>' + header + '</h2>');
+      $('#'+div).html('<br/><h2>' + header + '</h2>');
 
       var html;
       var len = data.feed.entry.length;
