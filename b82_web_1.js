@@ -208,7 +208,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
               vcard += 'EMAIL%3A' + email + '%0A';
             }
             
-            vcard += 'END%3AVCARD%0A&size=200x200"/>';
+            vcard += 'END%3AVCARD%0A&size=200x200&qzone=4"/>';
             
             n = content.indexOf('<img ');
             if (n != -1) {
