@@ -208,7 +208,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
               vcard += 'EMAIL%3A' + email + '%0A';
             }
             
-            vcard += 'END%3AVCARD%0A&size=200x200&qzone=4"/>';
+            vcard += 'END%3AVCARD%0A&size=200x200&qzone=2"/>';
             
             n = content.indexOf('<img ');
             if (n != -1) {
@@ -324,7 +324,7 @@ function replace_photo(div,name,mail,tel) {
         vcard += 'EMAIL%3A' + mail + '%0A';
       }
             
-      vcard += 'END%3AVCARD%0A&size=200x200&qzone=4"/>';
+      vcard += 'END%3AVCARD%0A&size=200x200&qzone=2"/>';
 
       $('#'+div).append(vcard);
 
