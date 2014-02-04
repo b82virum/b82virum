@@ -324,7 +324,7 @@ function replace_photo(div,name,mail,tel) {
         vcard += 'EMAIL%3A' + mail + '%0A';
       }
             
-      vcard += 'END%3AVCARD%0A&size=200x200"/>';
+      vcard += 'END%3AVCARD%0A&size=200x200&qzone=4"/>';
 
       $('#'+div).append(vcard);
 
