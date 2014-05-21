@@ -722,7 +722,7 @@ function show_join(div,join1,join2) {
   html += 'I B82 bruger vi holdsport.dk til medlemsregistrering og kontingentopkrævning. ';
   html += 'Se <a href="http://www.b82.dk/?id=259&c=Indmeld">Indmeld siden</a> for hjælp og vejledning.';
   html += '</div></p>';
-  html += '<h3><a href="http://www.holdsport.dk/klub/b82virum"><p><div style="text-align:center;"><b>Klik her for at tilmelde digx</b></div></p></a></h3>';
+  html += '<h3><a href="http://www.holdsport.dk/klub/b82virum">Klik her for at tilmelde dig</a></h3>';
   //html += '<h3>Er du ny på holdsport.dk?</h3><p><div style="text-align:center;"><button onclick="join_click(' + "'" + join1 + "'" + ')">Klik her for at oprette dig på holdsport.dk og tilmelde dig til holdet</button></div></p>';
   //html += '<h3>Har du en allerede profil på holdsport.dk?</h3><p><div style="text-align:center;"><button onclick="join_click(' + "'" + join2 + "'" + ')">Klik her for at knytte din profil til holdet</button></div></p>';
 
