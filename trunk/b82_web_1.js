@@ -754,7 +754,7 @@ function show_team_1(div,label,alias,join1,join2) {
 
   ndiv=div+'sponsor';
   $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
-  show_random(ndiv + 'sponsor',label+' Sponsor');
+  show_random(ndiv,label+' Sponsor');
 
   $('#'+div).append('<h2>Træningstider</h2>');
   show_times(div,label);
