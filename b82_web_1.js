@@ -707,45 +707,23 @@ function show_times(div,label) {
 
 }
 
-function show_join(div,join1,join2) {
+function show_join(div) {
 
-  if (join1 == '') {
-    return;
-  }
-  
   var html = '';
   
   html += '<h2>Indmeld</h2>';
-  //html += '<div id="joinmsg"></div>';
   html += '<p><div style="text-align:center;"><b>Aftal med din træner/holdleder hvornår du skal melde dig ind.</b></div></p>';
   html += '<p><div style="text-align:center;">';
   html += 'I B82 bruger vi holdsport.dk til medlemsregistrering og kontingentopkrævning. ';
   html += 'Se <a href="http://www.b82.dk/?id=259&c=Indmeld">Indmeld siden</a> for hjælp og vejledning.';
   html += '</div></p>';
   html += '<h3><a href="http://www.holdsport.dk/klub/b82virum">Klik her for at tilmelde dig</a></h3><p></p>';
-  //html += '<h3>Er du ny på holdsport.dk?</h3><p><div style="text-align:center;"><button onclick="join_click(' + "'" + join1 + "'" + ')">Klik her for at oprette dig på holdsport.dk og tilmelde dig til holdet</button></div></p>';
-  //html += '<h3>Har du en allerede profil på holdsport.dk?</h3><p><div style="text-align:center;"><button onclick="join_click(' + "'" + join2 + "'" + ')">Klik her for at knytte din profil til holdet</button></div></p>';
 
   $('#'+div).append(html);
   
 }
 
-function join_click(join) {
-  $('#joinmsg').html('');
-  var captcha1 = Math.floor((Math.random()*1000)) % 10;
-  var captcha2 = Math.floor((Math.random()*1000)) % 10;
-  var answer = prompt('Hvad er ' + captcha1 + ' plus ' + captcha2 + ' ?','');
-  if (answer == captcha1 + captcha2) {
-    window.location.assign('http://holdsport.dk/' + join);
-    return true;
-  }
-  if (answer != null) {
-    $('#joinmsg').html('<mark>Forkert!</mark>');    
-  }
-  return false;
-}
-
-function show_team_1(div,label,alias,join1,join2) {
+function show_team(div,label,alias) {
   var ndiv;
   
   $('#'+div).append('<h1>' + alias + '</h1>');
@@ -766,14 +744,8 @@ function show_team_1(div,label,alias,join1,join2) {
 
   ndiv=div+'join';
   $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
-  show_join(ndiv,join1,join2);
+  show_join(ndiv);
 
-  //show_contact(div,label+' Holdleder','Holdledere');
-
-  //show_contact(div,label+' Træner','Trænere');
-
-  //show_contact(div,label+' Assistenttræner','Assistenttrænere');
-  
   show_contacts(div,label,'Kontakt');
 
   ndiv=div+'hilite';
@@ -783,11 +755,5 @@ function show_team_1(div,label,alias,join1,join2) {
   ndiv=div+'extra';
   $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
   show_body(ndiv,label+' Extra');
-
-}
-
-function show_team(div,label,alias) {
-  
-  show_team_1(div,label,alias,'','');
 
 }
