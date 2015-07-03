@@ -726,7 +726,7 @@ function show_join(div) {
 function show_team(div,label,alias) {
   var ndiv;
   
-  $('#'+div).append('<h1>' + alias + '</h1>');
+  $('#'+div).append('<h1>hello' + alias + '</h1>');
 
   show_body(div,label+' Intro');
 
