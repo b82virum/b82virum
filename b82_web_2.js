@@ -710,15 +710,11 @@ function show_times(div,label) {
 function show_join(div,label) {
 
   var html = '';
-  
   html += '<h2>Indmeld</h2>';
   html += '<p><div style="text-align:center;"><b>Aftal med din træner/holdleder hvornår du skal melde dig ind.</b></div></p>';
   html += '<p><div style="text-align:center;">';
-  html += 'I B82 bruger vi holdsport.dk til medlemsregistrering og kontingentopkrævning. ';
   html += 'Se <a href="http://www.b82.dk/?id=259&c=Indmeld">Indmeld siden</a> for hjælp og vejledning.';
   html += '</div></p>';
-  html += '<h3><a href="http://www.holdsport.dk/klub/b82virum">Klik her for at tilmelde dig</a></h3><p></p>';
-
   $('#'+div).append(html);
 
   var n = b82uid();
@@ -728,7 +724,7 @@ function show_join(div,label) {
   $('#'+div).html('<p><mark>Hvis du ser denne tekst, så log ind og/eller ud på <a href="http://www.google.com">Google</a>! (fejl hos Google)</mark></p>');
       
   $.ajax({
-    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/3/public/values?alt=json-in-script&callback=?',
+    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/5/public/values?alt=json-in-script&callback=?',
     type: 'get',
     dataType: 'jsonp'})
     .done(function(data) {
@@ -736,126 +732,20 @@ function show_join(div,label) {
       var html = '';
       var len = data.feed.entry.length;
 
-      var last_season='';
-      var last_day='';
-
-      html += '<p>aaasidenerunderopdateringaaa<table align="center" border="0"><tbody><tr><td><table border="1" bordercolor="red"><tbody>';
-
       for (var i=0; i<len; i++) {
 
-        if (label != '') {
-          if (data.feed.entry[i].gsx$team.$t != label) {
-            continue;
-          }
+        if (data.feed.entry[i].gsx$team.$t != label) {
+          continue;
         }
 
-        if (data.feed.entry[i].gsx$season.$t != last_season) {
+        html += '<p><div style="text-align:center;">';
+        html += 'På dette hold bruger vi holdsport til medlemsregistrering og kontingentopkrævning. ';
+        html += '</div></p>';
+        html += '<h3><a href="http://www.holdsport.dk/klub/b82virum">Klik her for at tilmelde dig</a></h3><p></p>';
 
-          if (label == '') {
-            html +=
-              '<tr><th colspan="4">' +
-              '<div style="text-align: center;">' +
-              data.feed.entry[i].gsx$season.$t +
-              '</div>' +
-              '</th></tr>'
-            ;
-          }
-          else {
-            html +=
-              '<tr><th colspan="3">' +
-              '<div style="text-align: center;">' +
-              data.feed.entry[i].gsx$season.$t +
-              '</div>' +
-              '</th></tr>'
-            ;
-          }
-
-          last_season=data.feed.entry[i].gsx$season.$t;
-          last_day='';
-
-          html += '<tr>';
-
-          html +=
-            '<th>' +
-            'Dag' +
-            '</th>'
-          ;
-
-          html +=
-            '<th>' +
-            'Tid' +
-            '</th>'
-          ;
-
-          html +=
-            '<th>' +
-            'Sted' +
-            '</th>'
-          ;
-
-          if (label == '') {
-
-            html +=
-              '<th>' +
-              'Hold' +
-              '</th>'
-            ;
-
-          }
-
-          html += '</tr>';
-
-        }
-
-        html += '<tr>';
-
-        if (data.feed.entry[i].gsx$day.$t != last_day) {
-
-          html +=
-            '<th>' +
-            data.feed.entry[i].gsx$day.$t +
-            '</th>'
-          ;
-
-          last_day=data.feed.entry[i].gsx$day.$t;
-
-        }
-        else {
-
-          html +=
-            '<td>' +
-            '</td>'
-          ;
-
-        }
-
-        html +=
-          '<td>' +
-          data.feed.entry[i].gsx$time.$t +
-          '</td>'
-        ;
-
-        html +=
-          '<td>' +
-          data.feed.entry[i].gsx$place.$t +
-          '</td>'
-        ;
-
-        if (label == '') {
-
-          html +=
-            '<td>' +
-            data.feed.entry[i].gsx$team.$t +
-            '</td>'
-          ;
-
-        }
-
-        html += '</tr>';
-
+        break;
+        
       }
-
-      html += '</tbody></table></td></tr></tbody></table>bbb</p>';
 
       $('#'+div).html(html);
       
