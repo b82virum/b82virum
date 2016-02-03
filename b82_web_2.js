@@ -738,7 +738,7 @@ function show_join(div,label) {
           continue;
         }
 
-        if (data.feed.entry[i].gsx$team.$t == 'dbu') {
+        if (data.feed.entry[i].gsx$admin.$t == 'dbu') {
           html += '<p><div style="text-align:center;">';
           html += 'På dette hold bruger vi <b>kluboffice</b> til medlemsregistrering og kontingentopkrævning. ';
           html += '</div></p>';
