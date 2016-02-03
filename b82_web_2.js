@@ -738,10 +738,18 @@ function show_join(div,label) {
           continue;
         }
 
-        html += '<p><div style="text-align:center;">';
-        html += 'På dette hold bruger vi holdsport til medlemsregistrering og kontingentopkrævning. ';
-        html += '</div></p>';
-        html += '<h3><a href="http://www.holdsport.dk/klub/b82virum">Klik her for at tilmelde dig</a></h3><p></p>';
+        if (data.feed.entry[i].gsx$team.$t == 'dbu') {
+          html += '<p><div style="text-align:center;">';
+          html += 'På dette hold bruger vi kluboffice til medlemsregistrering og kontingentopkrævning. ';
+          html += '</div></p>';
+          html += '<h3><a href="http://+++">Klik her for at tilmelde dig</a></h3><p></p>';
+        }
+        else {
+          html += '<p><div style="text-align:center;">';
+          html += 'På dette hold bruger vi holdsport til medlemsregistrering og kontingentopkrævning. ';
+          html += '</div></p>';
+          html += '<h3><a href="http://www.holdsport.dk/klub/b82virum">Klik her for at tilmelde dig</a></h3><p></p>';
+        }
 
         break;
         
