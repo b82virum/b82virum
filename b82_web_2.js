@@ -739,10 +739,11 @@ function show_join(div,label) {
         }
 
         if (data.feed.entry[i].gsx$admin.$t == 'dbu') {
+          var deptid=data.feed.entry[i].gsx$deptid.$t;
           html += '<p><div style="text-align:center;">';
           html += 'På dette hold bruger vi <b>kluboffice</b> til medlemsregistrering og kontingentopkrævning. ';
           html += '</div></p>';
-          //html += '<h3><a href="http://+++">Klik her for at tilmelde dig</a></h3><p></p>';
+          html += '<h3><a href="http://kluboffice2.dbu.dk/Public/SubscribeToClub/SubscribeInClub.aspx?clubid=1312&id='+deptid+'">Klik her for at tilmelde dig</a></h3><p></p>';
           html += '<h3>VENT MED AT TILMELDE DIG, VI ER IKKE HELT KLAR MED KLUBOFFICE</h3><p></p>';
         }
         else {
