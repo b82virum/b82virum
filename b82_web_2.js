@@ -784,7 +784,7 @@ function show_team(div,label,alias) {
   show_payments(ndiv,label);
 
   ndiv=div+'join';
-  $('#'+div).append('<div id="' + ndiv + '" class="noprint" style="background-color:yellow;"></div>');
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint" style="background-color:lightgrey;"></div>');
   show_join(ndiv,label);
 
   show_contacts(div,label,'Kontakt');
