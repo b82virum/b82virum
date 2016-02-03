@@ -707,7 +707,7 @@ function show_times(div,label) {
 
 }
 
-function show_join(div) {
+function show_join(div,label) {
 
   var html = '';
   
@@ -720,7 +720,149 @@ function show_join(div) {
   html += '<h3><a href="http://www.holdsport.dk/klub/b82virum">Klik her for at tilmelde dig</a></h3><p></p>';
 
   $('#'+div).append(html);
-  
+
+  var n = b82uid();
+  $('#'+div).append('<div id="' + div+n + '"></div>');
+  div += n;
+
+  $('#'+div).html('<p><mark>Hvis du ser denne tekst, så log ind og/eller ud på <a href="http://www.google.com">Google</a>! (fejl hos Google)</mark></p>');
+      
+  $.ajax({
+    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/3/public/values?alt=json-in-script&callback=?',
+    type: 'get',
+    dataType: 'jsonp'})
+    .done(function(data) {
+      
+      var html = '';
+      var len = data.feed.entry.length;
+
+      var last_season='';
+      var last_day='';
+
+      html += '<p>aaasidenerunderopdateringaaa<table align="center" border="0"><tbody><tr><td><table border="1" bordercolor="red"><tbody>';
+
+      for (var i=0; i<len; i++) {
+
+        if (label != '') {
+          if (data.feed.entry[i].gsx$team.$t != label) {
+            continue;
+          }
+        }
+
+        if (data.feed.entry[i].gsx$season.$t != last_season) {
+
+          if (label == '') {
+            html +=
+              '<tr><th colspan="4">' +
+              '<div style="text-align: center;">' +
+              data.feed.entry[i].gsx$season.$t +
+              '</div>' +
+              '</th></tr>'
+            ;
+          }
+          else {
+            html +=
+              '<tr><th colspan="3">' +
+              '<div style="text-align: center;">' +
+              data.feed.entry[i].gsx$season.$t +
+              '</div>' +
+              '</th></tr>'
+            ;
+          }
+
+          last_season=data.feed.entry[i].gsx$season.$t;
+          last_day='';
+
+          html += '<tr>';
+
+          html +=
+            '<th>' +
+            'Dag' +
+            '</th>'
+          ;
+
+          html +=
+            '<th>' +
+            'Tid' +
+            '</th>'
+          ;
+
+          html +=
+            '<th>' +
+            'Sted' +
+            '</th>'
+          ;
+
+          if (label == '') {
+
+            html +=
+              '<th>' +
+              'Hold' +
+              '</th>'
+            ;
+
+          }
+
+          html += '</tr>';
+
+        }
+
+        html += '<tr>';
+
+        if (data.feed.entry[i].gsx$day.$t != last_day) {
+
+          html +=
+            '<th>' +
+            data.feed.entry[i].gsx$day.$t +
+            '</th>'
+          ;
+
+          last_day=data.feed.entry[i].gsx$day.$t;
+
+        }
+        else {
+
+          html +=
+            '<td>' +
+            '</td>'
+          ;
+
+        }
+
+        html +=
+          '<td>' +
+          data.feed.entry[i].gsx$time.$t +
+          '</td>'
+        ;
+
+        html +=
+          '<td>' +
+          data.feed.entry[i].gsx$place.$t +
+          '</td>'
+        ;
+
+        if (label == '') {
+
+          html +=
+            '<td>' +
+            data.feed.entry[i].gsx$team.$t +
+            '</td>'
+          ;
+
+        }
+
+        html += '</tr>';
+
+      }
+
+      html += '</tbody></table></td></tr></tbody></table>bbb</p>';
+
+      $('#'+div).html(html);
+      
+    })
+    
+  ;
+
 }
 
 function show_team(div,label,alias) {
@@ -744,7 +886,7 @@ function show_team(div,label,alias) {
 
   ndiv=div+'join';
   $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
-  show_join(ndiv);
+  show_join(ndiv,label);
 
   show_contacts(div,label,'Kontakt');
 
