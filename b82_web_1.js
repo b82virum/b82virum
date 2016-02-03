@@ -707,20 +707,62 @@ function show_times(div,label) {
 
 }
 
-function show_join(div) {
+function show_join(div,label) {
 
   var html = '';
-  
   html += '<h2>Indmeld</h2>';
   html += '<p><div style="text-align:center;"><b>Aftal med din træner/holdleder hvornår du skal melde dig ind.</b></div></p>';
   html += '<p><div style="text-align:center;">';
-  html += 'I B82 bruger vi holdsport.dk til medlemsregistrering og kontingentopkrævning. ';
   html += 'Se <a href="http://www.b82.dk/?id=259&c=Indmeld">Indmeld siden</a> for hjælp og vejledning.';
   html += '</div></p>';
-  html += '<h3><a href="http://www.holdsport.dk/klub/b82virum">Klik her for at tilmelde dig</a></h3><p></p>';
-
   $('#'+div).append(html);
-  
+
+  var n = b82uid();
+  $('#'+div).append('<div id="' + div+n + '"></div>');
+  div += n;
+
+  $('#'+div).html('<p><mark>Hvis du ser denne tekst, så log ind og/eller ud på <a href="http://www.google.com">Google</a>! (fejl hos Google)</mark></p>');
+      
+  $.ajax({
+    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/5/public/values?alt=json-in-script&callback=?',
+    type: 'get',
+    dataType: 'jsonp'})
+    .done(function(data) {
+      
+      var html = '';
+      var len = data.feed.entry.length;
+
+      for (var i=0; i<len; i++) {
+
+        if (data.feed.entry[i].gsx$team.$t != label) {
+          continue;
+        }
+
+        if (data.feed.entry[i].gsx$admin.$t == 'dbu') {
+          var deptid=data.feed.entry[i].gsx$deptid.$t;
+          html += '<p><div style="text-align:center;">';
+          html += 'På dette hold bruger vi <b>kluboffice</b> til medlemsregistrering og kontingentopkrævning. ';
+          html += '</div></p>';
+          html += '<h3><a href="http://kluboffice2.dbu.dk/Public/SubscribeToClub/SubscribeInClub.aspx?clubid=1312&id='+deptid+'">Klik her for at tilmelde dig</a></h3><p></p>';
+          html += '<h3>VENT MED AT TILMELDE DIG, VI ER IKKE HELT KLAR MED KLUBOFFICE</h3><p></p>';
+        }
+        else {
+          html += '<p><div style="text-align:center;">';
+          html += 'På dette hold bruger vi <b>holdsport</b> til medlemsregistrering og kontingentopkrævning. ';
+          html += '</div></p>';
+          html += '<h3><a href="http://www.holdsport.dk/klub/b82virum">Klik her for at tilmelde dig</a></h3><p></p>';
+        }
+
+        break;
+        
+      }
+
+      $('#'+div).html(html);
+      
+    })
+    
+  ;
+
 }
 
 function show_team(div,label,alias) {
@@ -743,8 +785,8 @@ function show_team(div,label,alias) {
   show_payments(ndiv,label);
 
   ndiv=div+'join';
-  $('#'+div).append('<div id="' + ndiv + '" class="noprint"></div>');
-  show_join(ndiv);
+  $('#'+div).append('<div id="' + ndiv + '" class="noprint" style="background-color:lightgrey;"></div>');
+  show_join(ndiv,label);
 
   show_contacts(div,label,'Kontakt');
 
