@@ -740,13 +740,13 @@ function show_join(div,label) {
 
         if (data.feed.entry[i].gsx$admin.$t == 'dbu') {
           html += '<p><div style="text-align:center;">';
-          html += 'På dette hold bruger vi <b>kluboffice</b> til medlemsregistrering og kontingentopkrævning. ';
+          html += 'aaaPå dette hold bruger vi <b>kluboffice</b> til medlemsregistrering og kontingentopkrævning. ';
           html += '</div></p>';
           html += '<h3><a href="http://+++">Klik her for at tilmelde dig</a></h3><p></p>';
         }
         else {
           html += '<p><div style="text-align:center;">';
-          html += 'På dette hold bruger vi <b>holdsport</b> til medlemsregistrering og kontingentopkrævning. ';
+          html += 'bbbPå dette hold bruger vi <b>holdsport</b> til medlemsregistrering og kontingentopkrævning. ';
           html += '</div></p>';
           html += '<h3><a href="http://www.holdsport.dk/klub/b82virum">Klik her for at tilmelde dig</a></h3><p></p>';
         }
