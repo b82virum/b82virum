@@ -435,6 +435,7 @@ function page_start(div) {
     + '.blogger-post-footer {'
     + '  visibility: hidden;'
     + '}'
+    + '#searchform {display:none !important;}'
     + 'h1, h2, h3 {'
     + '  text-align: center;'
     + '}'
@@ -744,7 +745,7 @@ function show_join(div,label) {
           html += 'På dette hold bruger vi <b>kluboffice</b> til medlemsregistrering og kontingentopkrævning. ';
           html += '</div></p>';
           html += '<h3><a href="http://kluboffice2.dbu.dk/Public/SubscribeToClub/SubscribeInClub.aspx?clubid=1312&id='+deptid+'">Klik her for at tilmelde dig</a></h3><p></p>';
-          html += '<h3>VENT MED AT TILMELDE DIG, VI ER IKKE HELT KLAR MED KLUBOFFICE</h3><p></p>';
+          //html += '<h3>VENT MED AT TILMELDE DIG, VI ER IKKE HELT KLAR MED KLUBOFFICE</h3><p></p>';
         }
         else {
           html += '<p><div style="text-align:center;">';
