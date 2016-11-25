@@ -734,7 +734,7 @@ function show_faq(div) {
             ;
 
             html +=
-              '<p>' +
+              '<p style="text-align:center;">' +
               data.feed.entry[i].gsx$answer.$t +
               '</p>'
             ;
