@@ -708,6 +708,47 @@ function show_times(div,label) {
 
 }
 
+function show_faq(div) {
+
+  var n = b82uid();
+  $('#'+div).append('<div id="' + div+n + '"></div>');
+  div += n;
+
+  $('#'+div).html('<p><mark>Hvis du ser denne tekst, så log ind og/eller ud på <a href="http://www.google.com">Google</a>! (fejl hos Google)</mark></p>');
+      
+  $.ajax({
+    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/6/public/values?alt=json-in-script&callback=?',
+    type: 'get',
+    dataType: 'jsonp'})
+    .done(function(data) {
+      
+      var html = '';
+      var len = data.feed.entry.length;
+
+      for (var i=0; i<len; i++) {
+
+            html +=
+              '<h2>' +
+              data.feed.entry[i].gsx$question.$t +
+              '</h2>'
+            ;
+
+            html +=
+              '<p>' +
+              data.feed.entry[i].gsx$answer.$t +
+              '</p>'
+            ;
+
+      }
+
+      $('#'+div).html(html);
+      
+    })
+    
+  ;
+
+}
+
 function show_join(div,label) {
 
   var html = '';
