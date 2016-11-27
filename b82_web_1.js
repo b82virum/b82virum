@@ -408,6 +408,36 @@ function show_contacts(div,team,header) {
           html += data.feed.entry[i].gsx$note.$t;
         }        
 
+        
+        
+        html += '<div>new[' +
+                '<img style="width: 200px; height:200;" src="' + data.feed.entry[i].gsx$photo.$t + 'media/?size=l"/>' +
+                ']wen</div>';
+
+        var vcard = '';
+            
+        vcard += 'new[<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
+            
+        vcard += 'N%3A' + data.feed.entry[i].gsx$name.$t + '%0A';
+            
+        vcard += 'ORG%3AB82%0A';
+            
+        if (ftel != '') {
+          vcard += 'TEL%3A' + ftel + '%0A';
+        }
+            
+        if (fmail != '') {
+          vcard += 'EMAIL%3A' + fmail + '%0A';
+        }
+            
+        vcard += 'END%3AVCARD%0A&size=200x200&qzone=1"/>]wen';
+
+        html += vcard;
+        
+
+        
+        
+        
         imgdiv = div + 'img' + i;
         html += '<div id="' + imgdiv + '">' +
                 '<img style="width: 200px; height:200;" src="http://3.bp.blogspot.com/-BItomNMsn_g/TtahSG92wDI/AAAAAAAABt4/-V578wQl1UM/s200/Hoved03.jpg"/>' +
