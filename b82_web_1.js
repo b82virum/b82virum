@@ -165,7 +165,7 @@ function show_blog_feed(div,labels,max,random,header,show_title,show_content,sho
         // content
         if (show_content == 1) {
         
-          // vcard
+          // vcard +++ bruges dette?
           if (show_vcard == 1) {
           
             var vcard;
@@ -408,15 +408,13 @@ function show_contacts(div,team,header) {
           html += data.feed.entry[i].gsx$note.$t;
         }        
 
-        
-        
-        html += '<div>new[' +
+        html += '<div>' +
                 '<img style="width: 200px; height:200;" src="' + data.feed.entry[i].gsx$photo.$t + 'media/?size=l"/>' +
-                ']wen</div>';
+                '</div>';
 
         var vcard = '';
             
-        vcard += 'new[<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
+        vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
             
         vcard += 'N%3A' + data.feed.entry[i].gsx$name.$t + '%0A';
             
@@ -430,24 +428,13 @@ function show_contacts(div,team,header) {
           vcard += 'EMAIL%3A' + fmail + '%0A';
         }
             
-        vcard += 'END%3AVCARD%0A&size=200x200&qzone=1"/>]wen';
+        vcard += 'END%3AVCARD%0A&size=200x200&qzone=1"/>';
 
         html += vcard;
-        
-
-        
-        
-        
-        imgdiv = div + 'img' + i;
-        html += '<div id="' + imgdiv + '">' +
-                '<img style="width: 200px; height:200;" src="http://3.bp.blogspot.com/-BItomNMsn_g/TtahSG92wDI/AAAAAAAABt4/-V578wQl1UM/s200/Hoved03.jpg"/>' +
-                '</div><br/>';
 
         html += '</div></p></div>';
         
         $('#'+div).append(html);
-
-        replace_photo(imgdiv,data.feed.entry[i].gsx$name.$t,fmail,ftel);
 
       }
 
