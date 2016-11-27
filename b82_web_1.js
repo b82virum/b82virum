@@ -408,7 +408,7 @@ function show_contacts(div,team,header) {
           html += data.feed.entry[i].gsx$note.$t;
         }        
 
-        html += '<img style="width: 200px; height:200;" src="' + data.feed.entry[i].gsx$photo.$t + 'media/?size=l"/>';
+        html += 'x<img style="width: 200px; height:200;" src="' + data.feed.entry[i].gsx$photo.$t + 'media/?size=l"/>';
 
         var vcard = '';
             
