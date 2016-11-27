@@ -280,60 +280,6 @@ function show_random(div,labels) {
 
 }
 
-function replace_photo(div,name,mail,tel) {
-
-  $.ajax({
-    url: 'https://picasaweb.google.com/data/feed/base/user/104497715686917875924/albumid/5653376970059904769?authkey=Gv1sRgCP_qyoSUmMvIbQ&kind=photo&alt=json-in-script&callback=?',
-    type: 'get',
-    dataType: 'jsonp'})
-    .done(function(data) {
-
-      var html;
-      var len = data.feed.entry.length;
-      var img = '';
-
-      for (var i=0; i<len; i++) {
-
-        if (data.feed.entry[i].media$group.media$description.$t == name) {
-
-          img = data.feed.entry[i].media$group.media$content[0].url;
-
-          break;
-
-        }
-
-      }
-
-      if (img != '') {
-        $('#'+div).html('<img style="width: 200px; height:200;" src="' + img + '"/>');
-      }
-
-      var vcard = '';
-            
-      vcard += '<img src="http://api.qrserver.com/v1/create-qr-code/?data=BEGIN%3AVCARD%0A';
-            
-      vcard += 'N%3A' + name + '%0A';
-            
-      vcard += 'ORG%3AB82%0A';
-            
-      if (tel != '') {
-        vcard += 'TEL%3A' + tel + '%0A';
-      }
-            
-      if (mail != '') {
-        vcard += 'EMAIL%3A' + mail + '%0A';
-      }
-            
-      vcard += 'END%3AVCARD%0A&size=200x200&qzone=1"/>';
-
-      $('#'+div).append(vcard);
-
-    })
-
-  ;
-
-}
-
 function show_contacts(div,team,header) {
 
   var n = b82uid();
@@ -408,7 +354,7 @@ function show_contacts(div,team,header) {
           html += data.feed.entry[i].gsx$note.$t;
         }        
 
-        html += 'x<img style="width: 200px; height:200;" src="' + data.feed.entry[i].gsx$photo.$t + 'media/?size=l"/>';
+        html += '<br/><img style="width: 200px; height:200;" src="' + data.feed.entry[i].gsx$photo.$t + 'media/?size=l"/>';
 
         var vcard = '';
             
