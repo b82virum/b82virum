@@ -731,7 +731,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '9<br/>'
+        '10<br/>'
       ;
       /*
       html +=
@@ -810,11 +810,18 @@ function show_flyer(div) {
               ;
               */
               
-              html +=
-                '<'+data.feed.entry[i].gsx$type.$t+'>' +
-                data.feed.entry[i].gsx$value.$t +
-                '</'+data.feed.entry[i].gsx$type.$t+'>' 
-              ;
+              if (data.feed.entry[i].gsx$type.$t == 'instagram') {
+                html +=
+                  '<img style="width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'media?size=l"/>' 
+                ;
+              }
+              else {
+                html +=
+                  '<'+data.feed.entry[i].gsx$type.$t+'>' +
+                  data.feed.entry[i].gsx$value.$t +
+                  '</'+data.feed.entry[i].gsx$type.$t+'>' 
+                ;
+              }
 
               html +=
                 '</div>'
