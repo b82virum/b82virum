@@ -724,13 +724,14 @@ function show_flyer(div) {
     dataType: 'jsonp'})
     .done(function(data) {
       
-      var addr = window.location;
-      var hash = window.location.hash;
+      var addr = 'http://www.b82.dk/?id=656&c=Flyer';
+      var hash = substr(window.location.hash,1);
+      var last_flyer = '';
       var html = '';
       var len = data.feed.entry.length;
 
       html +=
-        '1<br/>'
+        '2<br/>'
       ;
       html +=
         'addr=[' +
@@ -743,54 +744,74 @@ function show_flyer(div) {
         ']<br/>'
       ;
 
-      html+='<div style="width:100%;">';
+      if (hash == '') {
+        for (var i=0; i<len; i++) {
 
-      html+='<div style="width:75%; float:left;">';
-      
-      for (var i=0; i<len; i++) {
-
-            html +=
-              'flyer=[' +
-              data.feed.entry[i].gsx$flyer.$t +
-              ']<br/>'
-            ;
-            html +=
-              'only=[' +
-              data.feed.entry[i].gsx$only.$t +
-              ']<br/>'
-            ;
-            html +=
-              'type=[' +
-              data.feed.entry[i].gsx$type.$t +
-              ']<br/>'
-            ;
-            html +=
-              'align=[' +
-              data.feed.entry[i].gsx$align.$t +
-              ']<br/>'
-            ;
-            html +=
-              'width=[' +
-              data.feed.entry[i].gsx$width.$t +
-              ']<br/>'
-            ;
-            html +=
-              'value=[' +
-              data.feed.entry[i].gsx$value.$t +
-              ']<br/>'
-            ;
-
+            if (data.feed.entry[i].gsx$flyer.$t != last_flyer) {   
+              last_flyer=data.feed.entry[i].gsx$flyer.$t;
+              html +=
+                '<a href="' +
+                addr +
+                '#' +
+                data.feed.entry[i].gsx$flyer.$t +
+                '">'+data.feed.entry[i].gsx$flyer.$t+'</a><br/>'
+              ;
+            }
+          
+        }
       }
+      else {
+        
+        html+='<div style="width:100%;">';
 
-      html+='</div>';
+        html+='<div style="width:75%; float:left;">';
+      
+        for (var i=0; i<len; i++) {
 
-      html+='<div style="width:25%; float:left;">';
+              html +=
+                'flyer=[' +
+                data.feed.entry[i].gsx$flyer.$t +
+                ']<br/>'
+              ;
+              html +=
+                'only=[' +
+                data.feed.entry[i].gsx$only.$t +
+                ']<br/>'
+              ;
+              html +=
+                'type=[' +
+                data.feed.entry[i].gsx$type.$t +
+                ']<br/>'
+              ;
+              html +=
+                'align=[' +
+                data.feed.entry[i].gsx$align.$t +
+                ']<br/>'
+              ;
+              html +=
+                'width=[' +
+                data.feed.entry[i].gsx$width.$t +
+                ']<br/>'
+              ;
+              html +=
+                'value=[' +
+                data.feed.entry[i].gsx$value.$t +
+                ']<br/>'
+              ;
 
-      html+='hello';
+        }
 
-      html+='</div>';
+        html+='</div>';
 
-      html+='</div>';
+        html+='<div style="width:25%; float:left;">';
+
+        html+='hello';
+
+        html+='</div>';
+
+        html+='</div>';
+        
+      }
 
       $('#'+div).html(html);
       
