@@ -724,8 +724,15 @@ function show_flyer(div) {
     dataType: 'jsonp'})
     .done(function(data) {
       
+      var hash = window.location.hash;
       var html = '';
       var len = data.feed.entry.length;
+
+      html +=
+        'hash=[' +
+        hash +
+        ']<br/>'
+      ;
 
       html+='<div style="width:75%; float:left;">';
       
