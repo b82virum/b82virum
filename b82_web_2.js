@@ -731,8 +731,9 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '7<br/>'
+        '9<br/>'
       ;
+      /*
       html +=
         'addr=[' +
         addr +
@@ -743,6 +744,7 @@ function show_flyer(div) {
         hash +
         ']<br/>'
       ;
+      */
 
       if (hash == '') {
         for (var i=0; i<len; i++) {
@@ -775,6 +777,7 @@ function show_flyer(div) {
                 '">'
               ;
           
+              /*
               html +=
                 'flyer=[' +
                 data.feed.entry[i].gsx$flyer.$t +
@@ -805,7 +808,14 @@ function show_flyer(div) {
                 data.feed.entry[i].gsx$value.$t +
                 ']<br/>'
               ;
-          
+              */
+              
+              html +=
+                '<'+data.feed.entry[i].gsx$type.$t+'>' +
+                data.feed.entry[i].gsx$value.$t +
+                '</'+data.feed.entry[i].gsx$type.$t+'>' 
+              ;
+
               html +=
                 '</div>'
               ;
