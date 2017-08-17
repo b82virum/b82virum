@@ -725,12 +725,11 @@ function show_flyer(div) {
     .done(function(data) {
       
       var addr = 'http://www.b82.dk/?id=656&c=Flyer';
-      var hash = window.location.hash;
+      var hash = window.location.hash.substr(1);
       var last_flyer = '';
       var html = '';
       var len = data.feed.entry.length;
 
-      hash = substr(hash,1);
       html +=
         '3<br/>'
       ;
