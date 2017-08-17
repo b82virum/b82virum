@@ -731,7 +731,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '5<br/>'
+        '6<br/>'
       ;
       html +=
         'addr=[' +
@@ -772,7 +772,7 @@ function show_flyer(div) {
                 '<div style="float:left; ' +
                 'width:' + data.feed.entry[i].gsx$width.$t + '; ' +
                 'text-align:' + data.feed.entry[i].gsx$align.$t + '; ' +
-                '"/>'
+                '">'
               ;
           
               html +=
