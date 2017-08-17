@@ -731,7 +731,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '3<br/>'
+        '5<br/>'
       ;
       html +=
         'addr=[' +
@@ -751,7 +751,7 @@ function show_flyer(div) {
               last_flyer=data.feed.entry[i].gsx$flyer.$t;
               html +=
                 '<a href="' +
-                addr +
+                addr + '&flyer=' + data.feed.entry[i].gsx$flyer.$t +
                 '#' +
                 data.feed.entry[i].gsx$flyer.$t +
                 '">'+data.feed.entry[i].gsx$flyer.$t+'</a><br/>'
@@ -768,6 +768,13 @@ function show_flyer(div) {
       
         for (var i=0; i<len; i++) {
 
+              html +=
+                '<div style="float:left; ' +
+                'width:' + data.feed.entry[i].gsx$width.$t + '; ' +
+                'text-align:' + data.feed.entry[i].gsx$align.$t + '; ' +
+                '"/>'
+              ;
+          
               html +=
                 'flyer=[' +
                 data.feed.entry[i].gsx$flyer.$t +
@@ -797,6 +804,10 @@ function show_flyer(div) {
                 'value=[' +
                 data.feed.entry[i].gsx$value.$t +
                 ']<br/>'
+              ;
+          
+              html +=
+                '</div>'
               ;
 
         }
