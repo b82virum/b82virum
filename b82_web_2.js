@@ -727,6 +727,8 @@ function show_flyer(div) {
       var html = '';
       var len = data.feed.entry.length;
 
+      html+='<div style="width:75%; float:left;">';
+      
       for (var i=0; i<len; i++) {
 
             html +=
@@ -761,6 +763,15 @@ function show_flyer(div) {
             ;
 
       }
+
+      html+='<div style="width:75%; float:left;">';
+      html+='</div>';
+
+      html+='<div style="width:25%; float:left;">';
+
+      html+='hello';
+
+      html+='</div>';
 
       $('#'+div).html(html);
       
