@@ -730,6 +730,9 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
+        '1<br/>'
+      ;
+      html +=
         'addr=[' +
         addr +
         ']<br/>'
@@ -779,7 +782,6 @@ function show_flyer(div) {
 
       }
 
-      html+='<div style="width:75%; float:left;">';
       html+='</div>';
 
       html+='<div style="width:25%; float:left;">';
