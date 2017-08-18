@@ -730,12 +730,11 @@ function show_flyer(div) {
       
       var addr = 'http://www.b82.dk/?id=656&c=Flyer';
       var hash = window.location.hash.substr(1);
-      var last_flyer = '';
       var html = '';
       var len = data.feed.entry.length;
 
       html +=
-        '14<br/>'
+        '15<br/>'
       ;
       /*
       html +=
@@ -753,8 +752,7 @@ function show_flyer(div) {
       if (hash == '') {
         for (var i=0; i<len; i++) {
 
-            if (data.feed.entry[i].gsx$type.$t == 'title' && data.feed.entry[i].gsx$flyer.$t != last_flyer) {   
-              last_flyer=data.feed.entry[i].gsx$flyer.$t;
+            if (data.feed.entry[i].gsx$type.$t == 'title') {   
               html +=
                 '<a href="' +
                 addr + '&flyer=' + data.feed.entry[i].gsx$flyer.$t +
@@ -831,11 +829,6 @@ function show_flyer(div) {
               }
               else
               if (data.feed.entry[i].gsx$type.$t == 'title') {
-                html +=
-                  '<h1>' +
-                  data.feed.entry[i].gsx$value.$t +
-                  '</h1>' 
-                ;
               }
               else {
                 html +=
