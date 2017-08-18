@@ -734,7 +734,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '29<br/>'
+        '30<br/>'
       ;
 
       if (hash == '') {
@@ -792,7 +792,7 @@ function show_flyer(div) {
               }
                   
               html +=
-                '<div class="' + data.feed.entry[i].gsx$class.$t + '" style="float:left; ' +
+                '<div class="' + data.feed.entry[i].gsx$class.$t + '" style="margin:5%; float:left; ' +
                 'width:' + data.feed.entry[i].gsx$width.$t + '; ' +
                 'text-align:' + data.feed.entry[i].gsx$align.$t + '; ' +
                 '">'
