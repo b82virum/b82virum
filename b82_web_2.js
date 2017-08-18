@@ -733,9 +733,11 @@ function show_flyer(div) {
       var html = '';
       var len = data.feed.entry.length;
 
+      /*
       html +=
         '38<br/>'
       ;
+      */
 
       if (hash == '') {
         html+='<div style="text-align:center;">';
