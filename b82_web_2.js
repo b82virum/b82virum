@@ -734,7 +734,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '32<br/>'
+        '33<br/>'
       ;
 
       if (hash == '') {
@@ -798,7 +798,7 @@ function show_flyer(div) {
                 '">'
               ;
               html +=
-                '<div style="padding:5%;">
+                '<div style="padding:5%;">'
               ;
           
               if (data.feed.entry[i].gsx$type.$t == 'title') {
