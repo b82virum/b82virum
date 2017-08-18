@@ -415,6 +415,10 @@ function page_start(div) {
     + '.noprint, #slideshow-wrapper, #menu-wrapper, #copyright {display:none !important;}'
     + '#main {border-style:none !important;}'
     + '}'
+    + '@media screen'
+    + '{'
+    + '.noweb {display:none !important;}'
+    + '}'
     + 'img {height: auto; max-height: auto; width: auto; max-width: 100%; padding: 0 !important; border-style: none !important;}'
     + '</style>'
   );
@@ -731,7 +735,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '10<br/>'
+        '11<br/>'
       ;
       /*
       html +=
@@ -749,14 +753,14 @@ function show_flyer(div) {
       if (hash == '') {
         for (var i=0; i<len; i++) {
 
-            if (data.feed.entry[i].gsx$flyer.$t != last_flyer) {   
+            if (data.feed.entry[i].gsx$type.$t == 'title' && data.feed.entry[i].gsx$flyer.$t != last_flyer) {   
               last_flyer=data.feed.entry[i].gsx$flyer.$t;
               html +=
                 '<a href="' +
                 addr + '&flyer=' + data.feed.entry[i].gsx$flyer.$t +
                 '#' +
                 data.feed.entry[i].gsx$flyer.$t +
-                '">'+data.feed.entry[i].gsx$flyer.$t+'</a><br/>'
+                '">'+data.feed.entry[i].gsx$value.$t+'</a><br/>'
               ;
             }
           
@@ -771,7 +775,7 @@ function show_flyer(div) {
         for (var i=0; i<len; i++) {
 
               html +=
-                '<div style="float:left; ' +
+                '<div class="' + data.feed.entry[i].gsx$class.$t + '" style="float:left; ' +
                 'width:' + data.feed.entry[i].gsx$width.$t + '; ' +
                 'text-align:' + data.feed.entry[i].gsx$align.$t + '; ' +
                 '">'
@@ -784,8 +788,8 @@ function show_flyer(div) {
                 ']<br/>'
               ;
               html +=
-                'only=[' +
-                data.feed.entry[i].gsx$only.$t +
+                'class=[' +
+                data.feed.entry[i].gsx$class.$t +
                 ']<br/>'
               ;
               html +=
@@ -813,6 +817,14 @@ function show_flyer(div) {
               if (data.feed.entry[i].gsx$type.$t == 'instagram') {
                 html +=
                   '<img style="width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'media?size=l"/>' 
+                ;
+              }
+              else
+              if (data.feed.entry[i].gsx$type.$t == 'title') {
+                html +=
+                  '<h1>' +
+                  data.feed.entry[i].gsx$value.$t +
+                  '</h1>' 
                 ;
               }
               else {
