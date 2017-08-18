@@ -734,7 +734,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '35<br/>'
+        '36<br/>'
       ;
 
       if (hash == '') {
@@ -760,7 +760,7 @@ function show_flyer(div) {
       }
       else {
         
-        html+='<div style="width:100%;">';
+        html+='<div style="width:100%; background-color:white;">';
 
         for (var area=1; area<5; area++) {
           
