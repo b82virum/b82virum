@@ -734,7 +734,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '19<br/>'
+        '20<br/>'
       ;
 
       if (hash == '') {
@@ -794,7 +794,7 @@ function show_flyer(div) {
               }
               else
               if (data.feed.entry[i].gsx$type.$t == 'qr') {
-                if (data.feed.entry[i].gsx$value.$t == ') {
+                if (data.feed.entry[i].gsx$value.$t == '') {
                   html +=
                     '<img style="width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
                       /*escape(*/addr +
