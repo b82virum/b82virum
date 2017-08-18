@@ -734,12 +734,16 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '23<br/>'
+        '24<br/>'
       ;
 
       if (hash == '') {
         html+='<div style="text-align:center;">';
         for (var i=0; i<len; i++) {
+
+            if (data.feed.entry[i].gsx$active.$t != '1') {
+              continue;
+            }
 
             if (data.feed.entry[i].gsx$type.$t == 'title') {   
               html +=
@@ -774,6 +778,10 @@ function show_flyer(div) {
         }
       
         for (var i=0; i<len; i++) {
+
+              if (data.feed.entry[i].gsx$active.$t != '1') {
+                continue;
+              }
 
               if (data.feed.entry[i].gsx$flyer.$t != hash) {
                 continue;
