@@ -734,7 +734,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '20<br/>'
+        '21<br/>'
       ;
 
       if (hash == '') {
@@ -797,17 +797,17 @@ function show_flyer(div) {
                 if (data.feed.entry[i].gsx$value.$t == '') {
                   html +=
                     '<img style="width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
-                      /*escape(*/addr +
+                      escape(addr +
                              '&flyer=' + data.feed.entry[i].gsx$flyer.$t +
                              '#' +
                              data.feed.entry[i].gsx$flyer.$t
-                            /*)*/+'&size=250x250"/>'
+                            )+'&size=250x250"/>'
                   ;
                 }
                 else {
                   html +=
                     '<img style="width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
-                      /*escape(*/data.feed.entry[i].gsx$value.$t/*)*/+'&size=250x250"/>'
+                      escape(data.feed.entry[i].gsx$value.$t)+'&size=250x250"/>'
                   ;
                 }
               }
