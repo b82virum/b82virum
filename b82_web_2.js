@@ -734,7 +734,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '28<br/>'
+        '29<br/>'
       ;
 
       if (hash == '') {
@@ -766,19 +766,15 @@ function show_flyer(div) {
           
         if (area == 1) {
           html+='<div style="width:100%; float:left;">';
-          html+='<div style="padding:5%; width:100%; float:left;">';
         }
         if (area == 2) {
           html+='<div style="width:75%; float:left;">';
-          html+='<div style="padding:5%; width:100%; float:left;">';
         }
         if (area == 3) {
           html+='<div style="width:25%; float:left;">';
-          html+='<div style="padding:5%; width:100%; float:left;">';
         }
         if (area == 4) {
           html+='<div style="width:100%; float:left;">';
-          html+='<div style="padding:5%; width:100%; float:left;">';
         }
       
         for (var i=0; i<len; i++) {
@@ -808,31 +804,31 @@ function show_flyer(div) {
               if (data.feed.entry[i].gsx$type.$t == 'qr') {
                 if (data.feed.entry[i].gsx$value.$t == '') {
                   html +=
-                    '<img border="0" style="border-width:0; border-style:none; width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
+                    '<p><img border="0" style="border-width:0; border-style:none; width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
                       escape(addr +
                              '&flyer=' + data.feed.entry[i].gsx$flyer.$t +
                              '#' +
                              data.feed.entry[i].gsx$flyer.$t
-                            )+'&size=250x250"/>'
+                            )+'&size=250x250"/></p>'
                   ;
                 }
                 else {
                   html +=
-                    '<img border="0" style="border-width:0; border-style:none; width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
-                      escape(data.feed.entry[i].gsx$value.$t)+'&size=250x250"/>'
+                    '<p><img border="0" style="border-width:0; border-style:none; width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
+                      escape(data.feed.entry[i].gsx$value.$t)+'&size=250x250"/></p>'
                   ;
                 }
               }
               else
               if (data.feed.entry[i].gsx$type.$t == 'instagram') {
                 html +=
-                  '<img border="0" style="border-width:0; border-style:none; width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'media?size=l"/>' 
+                  '<p><img border="0" style="border-width:0; border-style:none; width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'media?size=l"/></p>' 
                 ;
               }
               else
               if (data.feed.entry[i].gsx$type.$t == 'img') {
                 html +=
-                  '<img border="0" style="border-width:0; border-style:none; width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'"/>' 
+                  '<p><img border="0" style="border-width:0; border-style:none; width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'"/></p>' 
                 ;
               }
               else {
@@ -849,7 +845,6 @@ function show_flyer(div) {
 
         }
 
-        html+='</div>';
         html+='</div>';
           
         }
