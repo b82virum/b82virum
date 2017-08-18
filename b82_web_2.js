@@ -735,7 +735,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '13<br/>'
+        '14<br/>'
       ;
       /*
       html +=
@@ -774,7 +774,7 @@ function show_flyer(div) {
       
         for (var i=0; i<len; i++) {
 
-              if (data.feed.entry[i].gsx$class.$t != hash) {
+              if (data.feed.entry[i].gsx$flyer.$t != hash) {
                 continue;
               }
                   
