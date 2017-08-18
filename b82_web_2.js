@@ -734,7 +734,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '15<br/>'
+        '16<br/>'
       ;
       /*
       html +=
@@ -768,11 +768,28 @@ function show_flyer(div) {
         
         html+='<div style="width:100%;">';
 
-        html+='<div style="width:75%; float:left;">';
+        for (var area=1; area<5; area++) {
+          
+        if (area == 1) {
+          html+='<div style="width:100%; float:left;">';
+        }
+        if (area == 2) {
+          html+='<div style="width:75%; float:left;">';
+        }
+        if (area == 3) {
+          html+='<div style="width:25%; float:left;">';
+        }
+        if (area == 4) {
+          html+='<div style="width:100%; float:left;">';
+        }
       
         for (var i=0; i<len; i++) {
 
               if (data.feed.entry[i].gsx$flyer.$t != hash) {
+                continue;
+              }
+                  
+              if (data.feed.entry[i].gsx$area.$t != area) {
                 continue;
               }
                   
@@ -845,12 +862,8 @@ function show_flyer(div) {
         }
 
         html+='</div>';
-
-        html+='<div style="width:25%; float:left;">';
-
-        html+='hello';
-
-        html+='</div>';
+          
+        }
 
         html+='</div>';
         
