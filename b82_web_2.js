@@ -734,7 +734,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '26<br/>'
+        '27<br/>'
       ;
 
       if (hash == '') {
@@ -765,16 +765,20 @@ function show_flyer(div) {
         for (var area=1; area<5; area++) {
           
         if (area == 1) {
-          html+='<div style="margin:5%; width:100%; float:left;">';
+          html+='<div style="padding:5%; width:100%; float:left;">';
+          html+='<div style="width:100%; float:left;">';
         }
         if (area == 2) {
-          html+='<div style="margin:5%; width:75%; float:left;">';
+          html+='<div style="padding:5%; width:75%; float:left;">';
+          html+='<div style="width:100%; float:left;">';
         }
         if (area == 3) {
-          html+='<div style="margin:5%; width:25%; float:left;">';
+          html+='<div style="padding:5%; width:25%; float:left;">';
+          html+='<div style="width:100%; float:left;">';
         }
         if (area == 4) {
-          html+='<div style="margin:5%; width:100%; float:left;">';
+          html+='<div style="padding:5%; width:100%; float:left;">';
+          html+='<div style="width:100%; float:left;">';
         }
       
         for (var i=0; i<len; i++) {
@@ -845,6 +849,7 @@ function show_flyer(div) {
 
         }
 
+        html+='</div>';
         html+='</div>';
           
         }
