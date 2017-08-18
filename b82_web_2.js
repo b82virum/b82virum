@@ -734,22 +734,11 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '16<br/>'
+        '18<br/>'
       ;
-      /*
-      html +=
-        'addr=[' +
-        addr +
-        ']<br/>'
-      ;
-      html +=
-        'hash=[' +
-        hash +
-        ']<br/>'
-      ;
-      */
 
       if (hash == '') {
+        html+='<div style="text-align:center;">';
         for (var i=0; i<len; i++) {
 
             if (data.feed.entry[i].gsx$type.$t == 'title') {   
@@ -758,11 +747,12 @@ function show_flyer(div) {
                 addr + '&flyer=' + data.feed.entry[i].gsx$flyer.$t +
                 '#' +
                 data.feed.entry[i].gsx$flyer.$t +
-                '">'+data.feed.entry[i].gsx$value.$t+'</a><br/>'
+                '"><h1>'+data.feed.entry[i].gsx$value.$t+'</h1></a><br/>'
               ;
             }
-          
+
         }
+        html+='</div>';
       }
       else {
         
@@ -800,39 +790,28 @@ function show_flyer(div) {
                 '">'
               ;
           
-              /*
-              html +=
-                'flyer=[' +
-                data.feed.entry[i].gsx$flyer.$t +
-                ']<br/>'
-              ;
-              html +=
-                'class=[' +
-                data.feed.entry[i].gsx$class.$t +
-                ']<br/>'
-              ;
-              html +=
-                'type=[' +
-                data.feed.entry[i].gsx$type.$t +
-                ']<br/>'
-              ;
-              html +=
-                'align=[' +
-                data.feed.entry[i].gsx$align.$t +
-                ']<br/>'
-              ;
-              html +=
-                'width=[' +
-                data.feed.entry[i].gsx$width.$t +
-                ']<br/>'
-              ;
-              html +=
-                'value=[' +
-                data.feed.entry[i].gsx$value.$t +
-                ']<br/>'
-              ;
-              */
-              
+              if (data.feed.entry[i].gsx$type.$t == 'title') {
+              }
+              else
+              if (data.feed.entry[i].gsx$type.$t == 'qr') {
+                if (data.feed.entry[i].gsx$value.$t == ') {
+                  html +=
+                    '<img style="width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
+                      escape(addr +
+                             '&flyer=' + data.feed.entry[i].gsx$flyer.$t +
+                             '#' +
+                             data.feed.entry[i].gsx$flyer.$t
+                            )+'&size=250x250"/>'
+                  ;
+                }
+                else {
+                  html +=
+                    '<img style="width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
+                      escape(data.feed.entry[i].gsx$value.$t)+'&size=250x250"/>'
+                  ;
+                }
+              }
+              else
               if (data.feed.entry[i].gsx$type.$t == 'instagram') {
                 html +=
                   '<img style="width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'media?size=l"/>' 
@@ -843,9 +822,6 @@ function show_flyer(div) {
                 html +=
                   '<img style="width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'"/>' 
                 ;
-              }
-              else
-              if (data.feed.entry[i].gsx$type.$t == 'title') {
               }
               else {
                 html +=
