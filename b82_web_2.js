@@ -734,7 +734,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '36<br/>'
+        '37<br/>'
       ;
 
       if (hash == '') {
@@ -760,7 +760,7 @@ function show_flyer(div) {
       }
       else {
         
-        html+='<div style="width:100%; background-color:white;">';
+        html+='<div style="width:100%;">';
 
         for (var area=1; area<5; area++) {
           
@@ -807,7 +807,7 @@ function show_flyer(div) {
               if (data.feed.entry[i].gsx$type.$t == 'qr') {
                 if (data.feed.entry[i].gsx$value.$t == '') {
                   html +=
-                    '<p><img border="0" style="border-width:0; border-style:none; width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
+                    '<p><img background-color:white; border="0" style="border-width:0; border-style:none; width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
                       escape(addr +
                              '&flyer=' + data.feed.entry[i].gsx$flyer.$t +
                              '#' +
@@ -817,7 +817,7 @@ function show_flyer(div) {
                 }
                 else {
                   html +=
-                    '<p><img border="0" style="border-width:0; border-style:none; width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
+                    '<p><img background-color:white; border="0" style="border-width:0; border-style:none; width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
                       escape(data.feed.entry[i].gsx$value.$t)+'&size=250x250"/></p>'
                   ;
                 }
@@ -825,13 +825,13 @@ function show_flyer(div) {
               else
               if (data.feed.entry[i].gsx$type.$t == 'instagram') {
                 html +=
-                  '<p><img border="0" style="border-width:0; border-style:none; width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'media?size=l"/></p>' 
+                  '<p><img background-color:white; border="0" style="border-width:0; border-style:none; width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'media?size=l"/></p>' 
                 ;
               }
               else
               if (data.feed.entry[i].gsx$type.$t == 'img') {
                 html +=
-                  '<p><img border="0" style="border-width:0; border-style:none; width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'"/></p>' 
+                  '<p><img background-color:white; border="0" style="border-width:0; border-style:none; width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'"/></p>' 
                 ;
               }
               else {
