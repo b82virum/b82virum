@@ -734,7 +734,7 @@ function show_flyer(div) {
       var len = data.feed.entry.length;
 
       html +=
-        '21<br/>'
+        '22<br/>'
       ;
 
       if (hash == '') {
@@ -796,7 +796,7 @@ function show_flyer(div) {
               if (data.feed.entry[i].gsx$type.$t == 'qr') {
                 if (data.feed.entry[i].gsx$value.$t == '') {
                   html +=
-                    '<img style="width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
+                    '<img border="0" style="border-style:none; width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
                       escape(addr +
                              '&flyer=' + data.feed.entry[i].gsx$flyer.$t +
                              '#' +
@@ -806,7 +806,7 @@ function show_flyer(div) {
                 }
                 else {
                   html +=
-                    '<img style="width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
+                    '<img border="0" style="border-style:none; width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
                       escape(data.feed.entry[i].gsx$value.$t)+'&size=250x250"/>'
                   ;
                 }
@@ -814,13 +814,13 @@ function show_flyer(div) {
               else
               if (data.feed.entry[i].gsx$type.$t == 'instagram') {
                 html +=
-                  '<img style="width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'media?size=l"/>' 
+                  '<img border="0" style="border-style:none; width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'media?size=l"/>' 
                 ;
               }
               else
               if (data.feed.entry[i].gsx$type.$t == 'img') {
                 html +=
-                  '<img style="width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'"/>' 
+                  '<img border="0" style="border-style:none; width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'"/>' 
                 ;
               }
               else {
