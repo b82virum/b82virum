@@ -415,6 +415,10 @@ function page_start(div) {
     + '.noprint, #slideshow-wrapper, #menu-wrapper, #copyright {display:none !important;}'
     + '#main {border-style:none !important;}'
     + '}'
+    + '@media screen'
+    + '{'
+    + '.noweb {display:none !important;}'
+    + '}'
     + 'img {height: auto; max-height: auto; width: auto; max-width: 100%; padding: 0 !important; border-style: none !important;}'
     + '</style>'
   );
@@ -700,6 +704,161 @@ function show_faq(div) {
               '</p>'
             ;
 
+      }
+
+      $('#'+div).html(html);
+      
+    })
+    
+  ;
+
+}
+
+function show_flyer(div) {
+
+  var n = b82uid();
+  $('#'+div).append('<div id="' + div+n + '"></div>');
+  div += n;
+
+  $('#'+div).html('<p><mark>Hvis du ser denne tekst, så log ind og/eller ud på <a href="http://www.google.com">Google</a>! (fejl hos Google)</mark></p>');
+      
+  $.ajax({
+    url: 'https://spreadsheets.google.com/feeds/list/0Akm30OX8lPv2dEdfOTFvbnZpdDlJb1VrLTdPMW1QZ0E/7/public/values?alt=json-in-script&callback=?',
+    type: 'get',
+    dataType: 'jsonp'})
+    .done(function(data) {
+      
+      var addr = 'http://www.b82.dk/?id=656&c=Flyer';
+      var hash = window.location.hash.substr(1);
+      var html = '';
+      var len = data.feed.entry.length;
+
+      /*
+      html +=
+        '38<br/>'
+      ;
+      */
+
+      if (hash == '') {
+        html+='<div style="text-align:center;">';
+        for (var i=0; i<len; i++) {
+
+            if (data.feed.entry[i].gsx$active.$t != '1') {
+              continue;
+            }
+
+            if (data.feed.entry[i].gsx$type.$t == 'title') {   
+              html +=
+                '<a href="' +
+                addr + '&flyer=' + data.feed.entry[i].gsx$flyer.$t +
+                '#' +
+                data.feed.entry[i].gsx$flyer.$t +
+                '"><h1>'+data.feed.entry[i].gsx$value.$t+'</h1></a><br/>'
+              ;
+            }
+
+        }
+        html+='</div>';
+      }
+      else {
+        
+        html+='<div style="width:100%;">';
+
+        for (var area=1; area<5; area++) {
+          
+        if (area == 1) {
+          html+='<div style="width:100%; float:left;">';
+        }
+        if (area == 2) {
+          html+='<div style="width:75%; float:left;">';
+        }
+        if (area == 3) {
+          html+='<div style="width:25%; float:left;">';
+        }
+        if (area == 4) {
+          html+='<div style="width:100%; float:left;">';
+        }
+      
+        for (var i=0; i<len; i++) {
+
+              if (data.feed.entry[i].gsx$active.$t != '1') {
+                continue;
+              }
+
+              if (data.feed.entry[i].gsx$flyer.$t != hash) {
+                continue;
+              }
+                  
+              if (data.feed.entry[i].gsx$area.$t != area) {
+                continue;
+              }
+                  
+              html +=
+                '<div class="' + data.feed.entry[i].gsx$class.$t + '" style="float:left; ' +
+                'width:' + data.feed.entry[i].gsx$width.$t + '; ' +
+                'text-align:' + data.feed.entry[i].gsx$align.$t + '; ' +
+                '">'
+              ;
+              html +=
+                '<div style="padding-left:1%; padding-right:1%;">'
+              ;
+          
+              if (data.feed.entry[i].gsx$type.$t == 'title') {
+              }
+              else
+              if (data.feed.entry[i].gsx$type.$t == 'qr') {
+                if (data.feed.entry[i].gsx$value.$t == '') {
+                  html +=
+                    '<p><img border="0" style="background-color:white; border-width:0; border-style:none; width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
+                      escape(addr +
+                             '&flyer=' + data.feed.entry[i].gsx$flyer.$t +
+                             '#' +
+                             data.feed.entry[i].gsx$flyer.$t
+                            )+'&size=250x250"/></p>'
+                  ;
+                }
+                else {
+                  html +=
+                    '<p><img border="0" style="background-color:white; border-width:0; border-style:none; width:100%;" src="http://api.qrserver.com/v1/create-qr-code/?data='+
+                      escape(data.feed.entry[i].gsx$value.$t)+'&size=250x250"/></p>'
+                  ;
+                }
+              }
+              else
+              if (data.feed.entry[i].gsx$type.$t == 'instagram') {
+                html +=
+                  '<p><img border="0" style="background-color:white; border-width:0; border-style:none; width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'media?size=l"/></p>' 
+                ;
+              }
+              else
+              if (data.feed.entry[i].gsx$type.$t == 'img') {
+                html +=
+                  '<p><img border="0" style="background-color:white; border-width:0; border-style:none; width:100%;" src="'+data.feed.entry[i].gsx$value.$t+'"/></p>' 
+                ;
+              }
+              else {
+                html +=
+                  '<'+data.feed.entry[i].gsx$type.$t+'>' +
+                  data.feed.entry[i].gsx$value.$t +
+                  '</'+data.feed.entry[i].gsx$type.$t+'>' 
+                ;
+              }
+
+              html +=
+                '</div>'
+              ;
+              html +=
+                '</div>'
+              ;
+
+        }
+
+        html+='</div>';
+          
+        }
+
+        html+='</div>';
+        
       }
 
       $('#'+div).html(html);
